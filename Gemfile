@@ -39,6 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem 'omniauth-linkedin-oauth2'
 
 group :test, :development do 
 	gem 'rspec-rails'
@@ -46,4 +47,5 @@ group :test, :development do
 	gem 'rspec-collection_matchers'
 	gem 'database_cleaner'
 	gem 'poltergeist'
+	gem 'byebug'
 end

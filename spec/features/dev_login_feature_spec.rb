@@ -13,6 +13,11 @@ describe 'developer registration and login' do
 
 			expect(page).to have_content 'Welcome! You have signed up successfully.'
 		end
+
+		it 'can sign up with LinkedIn omniauth' do
+			visit '/developers/sign_up'
+			expect(page).to have_link 'Sign in with Linkedin'
+		end
 	end
 
 	context 'registered developer' do
@@ -37,4 +42,6 @@ describe 'developer registration and login' do
 			expect(page).to have_content 'Signed out successfully.'
 		end
 	end
+
+
 end
