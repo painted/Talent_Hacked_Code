@@ -10,6 +10,7 @@
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 		<% if current_developer %>	
+			<%= link_to 'Edit profile', edit_developer_registration_path, method: :get %>
 			<%= link_to 'Sign out', destroy_developer_session_path, method: :delete %>
 		<% else %>
 			<%= link_to "Sign up", new_developer_registration_path %>

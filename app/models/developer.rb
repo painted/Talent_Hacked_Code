@@ -19,7 +19,7 @@ class Developer < ActiveRecord::Base
 	    developer.dob = auth.extra.raw_info.dateOfBirth
 	    # developer.languages = auth.extra.raw_info.languages 
 	    # developer.skills = auth.extra.raw_info.skills
-	    # developer.phone = auth.info.phone-numbers
+	    developer.phone = auth.info.phone-numbers
 	    developer.twitter = auth.extra.raw_info.primaryTwitterAccount
 	    # developer.certifications = auth.info.certifications
 	    # developer.educations = auth.info.educations
