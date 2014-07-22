@@ -49,3 +49,11 @@ group :test, :development do
 	gem 'poltergeist'
 	gem 'byebug'
 end
+
+group :production do
+    # https://github.com/heroku/rails_12factor  
+    gem 'rails_12factor'
+	gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+end
+
+
