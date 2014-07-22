@@ -5,18 +5,18 @@ describe 'developer registration and login' do
 	context 'developer' do 
 
 		it 'can sign up' do
-			visit '/developers/sign_up'
+			visit '/'
+			click_link 'Sign up'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
 			fill_in 'Password confirmation', with: '12345678'
 			click_button 'Sign up'
-
 			expect(page).to have_content 'Welcome! You have signed up successfully.'
 		end
 
-		it 'can sign up with LinkedIn omniauth' do
-			visit '/developers/sign_up'
-			expect(page).to have_link 'Sign in with Linkedin'
+		it 'can sign in with LinkedIn omniauth' do
+			visit '/'
+			expect(page).to have_link 'Sign in with LinkedIn'
 		end
 	end
 
@@ -24,17 +24,18 @@ describe 'developer registration and login' do
 
 		it 'can sign in' do
 			Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			visit '/developers/sign_in'
+			visit '/'
+			click_link 'Sign in'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
 			click_button 'Sign in'
-
 			expect(page).to have_content 'Signed in successfully'
 		end
 
 		it 'can log out' do 
 			Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			visit '/developers/sign_in'
+			visit '/'
+			click_link 'Sign in'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
 			click_button 'Sign in'

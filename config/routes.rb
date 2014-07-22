@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :developers, :controllers=> { omniauth_callbacks: 'developers/omniauth_callbacks', :developers => 'developers/profile'}
+  devise_for :developers, :controllers=> { omniauth_callbacks: 'developers/omniauth_callbacks', :registrations => "developers/registrations"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
@@ -8,11 +8,7 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
-  get 'developers/profile'
-
-   
-
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
