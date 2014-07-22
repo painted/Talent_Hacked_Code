@@ -12,7 +12,7 @@
    <div><%= f.label :phone %><br />
   <%= f.text_field :phone %></div>
 
-  <div><%= f.label :dob %><br />
+  <div><%= f.label :dob, "Date of Birth" %><br />
   <%= f.text_field :dob %></div>
 
   <div><%= f.label :address %><br />
@@ -30,10 +30,10 @@
   <div><%= f.label :facebook %><br />
   <%= f.text_field :facebook %></div>
 
- <div><%= f.label :linkedinPublicUrl, "LinkedIn URL" %><br />
+ <div><%= f.label :linkedinPublicUrl, "LinkedIn Url" %><br />
   <%= f.text_field :linkedinPublicUrl %></div>
 
-  <div><%= f.label :avatarUrl, "Avatar URL" %><br />
+  <div><%= f.label :avatarUrl, "Avatar Url" %><br />
   <%= f.text_field :avatarUrl %></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
