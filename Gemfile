@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'omniauth-linkedin-oauth2'
+gem 'bootstrap-sass'
 
 group :test, :development do 
 	gem 'rspec-rails'
