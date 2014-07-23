@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  padding-top: 0px;
+}
+
+.counter-line {
+  background-color: silver;
+  margin-top: -30px;
+}
+
+.navbar-inverse {
+  height: 100px;
+}
+
+/*.jumbotron {
+  margin-top: 60px;
+  background: image-url('keyboard.jpg');
+  width: 1280px;
+  height: 362px;
+
+}*/
+
+.jumbotron {
+  background: image-url('keyboard.jpg');
+}

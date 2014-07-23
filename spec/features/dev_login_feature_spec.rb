@@ -6,7 +6,8 @@ describe 'developer registration and login' do
 
 		it 'can sign up' do
 			visit '/'
-			click_link 'Developer Sign up'
+			# click_link 'Developer Sign up'
+			click_link 'Developers'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
 			fill_in 'Password confirmation', with: '12345678'
