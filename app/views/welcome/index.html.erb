@@ -9,7 +9,6 @@
   </head>
 
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -19,35 +18,36 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" alt='Talent Hacked'><%= image_tag("talent_hacked_italic_swoosh_white.png", :alt => "Talent Hacked") %></a>
+          <!-- <%= link_to image_tag("talent_hacked_italic_swoosh_white.png", alt: "Rails", class: "navbar-brand"), '/' %> -->
+          <a class="navbar-brand" href="#"><%= image_tag("talent_hacked_italic_swoosh_white.png", alt: "Talent Hacked") %></a>
         </div>
+
         <div class="navbar-collapse collapse">
-
-      <% if current_developer %>  
-        <%= link_to 'Dashboard', dashboard_path, method: :get, class: "navbar-text navbar-right" %>
-        <%= link_to 'Sign out', destroy_developer_session_path, method: :delete, class: "navbar-text navbar-right" %>
-      <% elsif current_client %>  
-        <%= link_to 'Dashboard', dashboard_path, method: :get, class: "navbar-text navbar-right" %>
-        <%= link_to 'Sign out', destroy_client_session_path, method: :delete, class: "navbar-text navbar-right" %>
-      <% else %>
-        <%= link_to "Developer Sign in", new_developer_session_path, class: "navbar-text navbar-right" %> 
-        <%= link_to "Client Sign in", new_client_session_path, class: "navbar-text navbar-right" %> 
-        <%= link_to "Developer Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin), class: "navbar-text navbar-right" %>
-      <% end %>
-
+          <% if current_developer %>  
+            <%= link_to 'Dashboard', dashboard_path, method: :get, class: "navbar-text navbar-right" %>
+            <%= link_to 'Sign out', destroy_developer_session_path, method: :delete, class: "navbar-text navbar-right" %>
+          <% elsif current_client %>  
+            <%= link_to 'Dashboard', dashboard_path, method: :get, class: "navbar-text navbar-right" %>
+            <%= link_to 'Sign out', destroy_client_session_path, method: :delete, class: "navbar-text navbar-right" %>
+          <% else %>
+            <%= link_to "Developer Sign in", new_developer_session_path, class: "navbar-text navbar-right" %> 
+            <%= link_to "Client Sign in", new_client_session_path, class: "navbar-text navbar-right" %> 
+            <%= link_to "Developer Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin), class: "navbar-text navbar-right" %>
+          <% end %>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <!-- /jumbotron -->
     <div class="jumbotron">
       <% if developer_signed_in? %>
-      <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
+        <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
       <% elsif client_signed_in? %>
-      <h1 align="center"><%= "Welcome #{current_client.email}" %></h1>
+        <h1 align="center"><%= "Welcome #{current_client.email}" %></h1>
       <% else %>
-      <h1 align="center"><%= "Welcome to Talent Hacked" %></h1>
+        <h1 align="center"><%= "Welcome to Talent Hacked" %></h1>
       <% end %>
+
       <% if !(current_developer || current_client) %>
         <div class="container">
           <p align="center">
@@ -56,78 +56,30 @@
         </div>
       <% end %>
     </div>
-    <div class="counter-line">
-      <div class="row">
+      <div class="counter-line">
+        <div class="row">
           <p align="center">Clients/Devs/Projects Counter will go here</p>
         </div>
       </div>
+    <!-- jumbotron/ -->
 
+    <!-- /container -->
     <div class="container">
-  <div class="row">
-    <br><br>
-    <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
+    <div class="row">
+      <br><br>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", alt: "", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
+      <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", alt: "", class: "thumbnail img-responsive"), '/' %></div>
     </div>
-     <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-     <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-     <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-     <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-     <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-     <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-     <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-    <div class="col-lg-2 col-sm-3 col-xs-4">
-        <a href="#">
-             <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
-        </a>
-    </div>
-  </div>
-
-  <br><br>
 
     <div class="footer">
       <div class="container">
@@ -136,12 +88,6 @@
       </div>
     </div> 
 
-    <!-- /container -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- container/ -->
   </body>
 </html>
