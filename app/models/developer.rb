@@ -17,10 +17,10 @@ class Developer < ActiveRecord::Base
 	    developer.linkedinPublicUrl = auth.extra.raw_info.publicProfileUrl
 	    developer.address = auth.extra.raw_info.mainAddress
 	    developer.dob = auth.extra.raw_info.dateOfBirth
+	    developer.twitter = auth.extra.raw_info.primaryTwitterAccount
 	    # developer.languages = auth.extra.raw_info.languages 
 	    # developer.skills = auth.extra.raw_info.skills
 	    # developer.phone = auth.info.phone-numbers   ## don't uncomment without finding currect source - this one is buggy and will crash the app
-	    developer.twitter = auth.extra.raw_info.primaryTwitterAccount
 	    # developer.certifications = auth.info.certifications
 	    # developer.educations = auth.info.educations
 	    # developer.courses = auth.info.courses
