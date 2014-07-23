@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
    before_filter :configure_permitted_parameters, if: :devise_controller?
+   before_action :sign_out_all_users , if: (:current_client && :current_developer)
 
   	protected
 
@@ -15,4 +16,9 @@ class ApplicationController < ActionController::Base
     	devise_parameter_sanitizer.for(:password_edit) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
     	devise_parameter_sanitizer.for(:password_new) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
   	end
+
+    def sign_out_all_users
+        sign_out(current_client)
+        sign_out(current_developer)
+    end
 end
