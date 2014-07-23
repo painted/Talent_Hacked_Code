@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
-  devise_for :developers, :controllers=> { omniauth_callbacks: 'developers/omniauth_callbacks', :registrations => "developers/registrations"}
+  devise_for :developers, :controllers => { omniauth_callbacks: 'developers/omniauth_callbacks', :registrations => "developers/registrations"}
   
-  devise_for :clients , :controllers=> {:registrations => "clients/registrations"} do 
+  devise_for :clients, :controllers => {:registrations => "clients/registrations"}
+  # , :controllers => {omniauth_callbacks: 'clients/omniauth_callbacks', :registrations => "clients/registrations"} 
+  
+  resources :clients do 
     resources :contacts do
       resources :projects
     end
@@ -13,6 +16,7 @@ Rails.application.routes.draw do
   
   root 'developers#index' 
 
+  # get "/auth/:provider/callback" => "autentications#create"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   
