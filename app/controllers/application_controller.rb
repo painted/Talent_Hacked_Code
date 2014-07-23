@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
    before_filter :configure_permitted_parameters, if: :devise_controller?
-   before_action :sign_out_all_users , if: :current_client && :current_developer
+   before_action :sign_out_all_users , if: (:current_client && :current_developer)
 
   	protected
 
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   	end
 
     def sign_out_all_users
-        sign_out(current_client) if !current_client.nil?
-        sign_out(current_developer) if !current_developer.nil?
+        sign_out(current_client)
+        sign_out(current_developer)
     end
 end
