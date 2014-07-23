@@ -5,8 +5,7 @@ describe 'developer registration and login' do
 	context 'developer' do 
 
 		it 'can sign up' do
-			visit '/'
-			# click_link 'Developer Sign up'
+			visit root_path
 			click_link 'Developers'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
@@ -16,7 +15,7 @@ describe 'developer registration and login' do
 		end
 
 		it 'can sign in with LinkedIn omniauth' do
-			visit '/'
+			visit root_path
 			expect(page).to have_link 'Developer Sign in with LinkedIn'
 		end
 	end
@@ -25,7 +24,7 @@ describe 'developer registration and login' do
 
 		it 'can sign in' do
 			Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			visit '/'
+			visit root_path
 			click_link 'Developer Sign in'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
@@ -35,7 +34,7 @@ describe 'developer registration and login' do
 
 		it 'can log out' do 
 			Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			visit '/'
+			visit root_path
 			click_link 'Developer Sign in'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'

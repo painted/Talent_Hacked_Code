@@ -1,6 +1,6 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-describe 'client page' do
+# describe 'client page' do
 
   # def fill_form(name, email,phone,website,industry)
   #   fill_in 'Name', with: name
@@ -49,7 +49,7 @@ describe 'client page' do
   #     expect(page).to have_content 'f@f.com'
   #   end
   # end
-end
+# end
 
 
 
