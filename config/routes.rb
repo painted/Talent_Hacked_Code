@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  
   devise_for :developers, :controllers=> { omniauth_callbacks: 'developers/omniauth_callbacks', :registrations => "developers/registrations"}
+  
+  devise_for :clients , :controllers=> {:registrations => "clients/registrations"} do 
+    resources :contacts do
+      resources :projects
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
-    resources :clients do
-      resources :contacts do
-        resources :projects
-      end
-  end
   
   root 'developers#index' 
 
