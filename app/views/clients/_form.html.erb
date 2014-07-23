@@ -1,0 +1,20 @@
+<%= form_for @client do |form| %>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+
+    <%= form.label :website %>
+    <%= form.text_field :website %>
+
+	<%= form.label :industry %>
+    <%= form.text_field :industry %>    
+
+    <%= form.submit %>
+  </p>
+<% end %>

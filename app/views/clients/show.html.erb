@@ -1,0 +1,32 @@
+  <h3><%= @client.name %></h3>
+    <ul>
+    <li>Email: <%= @client.email %></li>
+    <li>Phone Number: <%= @client.phone %></li>
+    <li>Website: <%= @client.website %></li>
+    <li>Industry: <%= @client.industry %></li>
+    <%= link_to 'Edit', edit_client_path(@client.id) %>
+    <%= link_to 'Back', clients_path %>
+</ul>
+
+<h3>Project Manager</h3>
+	<% if @client.contacts.any? %>
+                <% @client.contacts.each do |contact| %>
+                <p><%= contact.name %> <%= link_to 'Edit PM', edit_client_contact_path(@client.id, contact.id) %></p>
+    <ul>
+    	<li>Email: <%= contact.email %></li>
+    	<li>Phone: <%= contact.phone %></li>
+    	<li>Website: <%= contact.website %></li>
+    </ul>
+
+        <h3>Projects</h3>
+
+    No Project
+
+    <%= link_to 'Add Project', new_client_contact_project_path(@client.id, contact.id) %>
+    <% end %>
+    <% else %>
+    No Project Managers
+    <% end %>
+
+    <%= link_to 'Add', new_client_contact_path(@client.id) %>
+

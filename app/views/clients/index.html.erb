@@ -1,0 +1,11 @@
+  <h3>List of clients</h3>
+<% if @client.any? %>
+  <% @client.each do |client| %>
+	<p><%= link_to "#{client.name}", client_path(client.id) %>
+    <%= link_to 'Delete', client_path(client.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
+<% else %>
+  No clients
+<% end %>
+
+<p><%= link_to "Add clients", new_client_path %></p>
