@@ -12,9 +12,6 @@
    <div><%= f.label :phone %><br />
   <%= f.text_field :phone %></div>
 
-  <div><%= f.label :dob, "Date of Birth" %><br />
-  <%= f.text_field :dob %></div>
-
   <div><%= f.label :address %><br />
   <%= f.text_field :address %></div>
 
@@ -35,6 +32,16 @@
 
   <div><%= f.label :avatarUrl, "Avatar Url" %><br />
   <%= f.text_field :avatarUrl %></div>
+
+  <% if current_developer %>
+  <div><%= f.label :dob, "Date of Birth" %><br />
+  <%= f.text_field :dob %></div>
+  <% end %>
+
+  <% if current_client %>
+  <div><%= f.label :industry %><br />
+  <%= f.text_field :industry %></div>
+  <% end %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

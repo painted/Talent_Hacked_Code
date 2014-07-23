@@ -2,53 +2,53 @@ require 'rails_helper'
 
 describe 'client page' do
 
-  def fill_form(name, email,phone,website,industry)
-    fill_in 'Name', with: name
-    fill_in 'Email', with: email
-    fill_in 'Phone', with: phone
-    fill_in 'Website', with: website
-    fill_in 'Industry', with: industry
-  end
+  # def fill_form(name, email,phone,website,industry)
+  #   fill_in 'Name', with: name
+  #   fill_in 'Email', with: email
+  #   fill_in 'Phone', with: phone
+  #   fill_in 'Website', with: website
+  #   fill_in 'Industry', with: industry
+  # end
 
-  it 'there are no clients' do
-    visit '/clients'
-    expect(page).to have_content 'No clients'
-  end
+  # it 'there are no clients' do
+  #   visit '/clients'
+  #   expect(page).to have_content 'No clients'
+  # end
 
-  context 'manipulating data' do
-    before do
-       Client.create name: 'Fitsum', email: 'f@f.com', phone:  '044044044', website: 'www.f.com', industry: 'tech'
-    end
+  # context 'manipulating data' do
+  #   before do
+  #      Client.create name: 'Fitsum', email: 'f@f.com', phone:  '044044044', website: 'www.f.com', industry: 'tech'
+  #   end
 
-    it 'can add a client' do
-      visit '/clients/new'
-      fill_form('Fitsum', 'f@f.com', '044044044', 'www.f.com', 'tech')
-      click_button 'Create Client'
-      expect(current_path).to eq '/clients'
-      expect(page).to have_content 'Fitsum'
-    end
+  #   it 'can add a client' do
+  #     visit '/clients/new'
+  #     fill_form('Fitsum', 'f@f.com', '044044044', 'www.f.com', 'tech')
+  #     click_button 'Create Client'
+  #     expect(current_path).to eq '/clients'
+  #     expect(page).to have_content 'Fitsum'
+  #   end
 
-    it 'can edit a client information' do
-      visit "/clients"
-      click_link 'Fitsum'
-      click_link 'Edit'
-      fill_form('Fitsum', 'f@f.com', '044044044', 'www.f.com', 'food')
-      click_button 'Update Client'
-    end
+  #   it 'can edit a client information' do
+  #     visit "/clients"
+  #     click_link 'Fitsum'
+  #     click_link 'Edit'
+  #     fill_form('Fitsum', 'f@f.com', '044044044', 'www.f.com', 'food')
+  #     click_button 'Update Client'
+  #   end
 
-    it 'can delete a client' do
-      visit '/clients'
-      click_link 'Delete'
-      expect(page).not_to have_content 'Fitsum'
-    end
+  #   it 'can delete a client' do
+  #     visit '/clients'
+  #     click_link 'Delete'
+  #     expect(page).not_to have_content 'Fitsum'
+  #   end
 
-    it 'can show a specific client' do
-      visit '/clients'
-      click_link 'Fitsum'
-      expect(page).to have_content 'Fitsum'
-      expect(page).to have_content 'f@f.com'
-    end
-  end
+  #   it 'can show a specific client' do
+  #     visit '/clients'
+  #     click_link 'Fitsum'
+  #     expect(page).to have_content 'Fitsum'
+  #     expect(page).to have_content 'f@f.com'
+  #   end
+  # end
 end
 
 

@@ -14,12 +14,12 @@ describe 'project contact' do
     fill_in 'Website', with: website
   end
 
-	it 'there are no project contacts' do
-		visit '/clients'
-		click_link 'Fitsum'
-		expect(page).to have_content 'Project Manager'
-		expect(page).to have_content 'No Project Managers'
-	end
+	# it 'there are no project contacts' do
+	# 	visit '/clients'
+	# 	click_link 'Fitsum'
+	# 	expect(page).to have_content 'Project Manager'
+	# 	expect(page).to have_content 'No Project Managers'
+	# end
 
 	# it 'can add a project contact' do
 	# 	Contact.create name: 'Faezrah', email: 'f@f.com', phone:  '044044044', website: 'www.f.com'

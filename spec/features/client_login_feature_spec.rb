@@ -1,31 +1,30 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-describe 'developer registration and login' do
+describe 'client registration and login' do
 
-	context 'developer' do 
+	context 'client' do 
 
 		it 'can sign up' do
-			visit '/'
-			click_link 'Developer Sign up'
+			visit '/clients/sign_up'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
 			fill_in 'Password confirmation', with: '12345678'
 			click_button 'Sign up'
 			expect(page).to have_content 'Welcome! You have signed up successfully.'
 		end
+	
 
-		it 'can sign in with LinkedIn omniauth' do
-			visit '/'
-			expect(page).to have_link 'Developer Sign in with LinkedIn'
-		end
+
+ 		# it 'can sign in with LinkedIn omniauth' do
+		# visit '/clients/sign_up'
+ 		# 	expect(page).to have_link 'Sign in with LinkedIn'
+		# end
 	end
-
-	context 'registered developer' do
+	context 'registered client' do
 
 		it 'can sign in' do
-			Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			visit '/'
-			click_link 'Developer Sign in'
+			Client.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
+			visit '/clients/sign_in'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
 			click_button 'Sign in'
@@ -33,16 +32,15 @@ describe 'developer registration and login' do
 		end
 
 		it 'can log out' do 
-			Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			visit '/'
-			click_link 'Developer Sign in'
+			Client.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
+			visit '/clients/sign_in'
 			fill_in 'Email', with: 'f@f.com'
 			fill_in 'Password', with: '12345678'
 			click_button 'Sign in'
 			click_link 'Sign out'
 			expect(page).to have_content 'Signed out successfully.'
 		end
+
 	end
-
-
 end
+
