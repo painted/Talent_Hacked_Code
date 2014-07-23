@@ -1,0 +1,9 @@
+<%= form_for [@client, @contact, @project] do |form| %>
+	<%= form.label :name %>
+	<%= form.text_field :name %>
+
+	<%= form.label :deadline %>
+	<%= form.text_field :deadline %>
+
+	<%= form.submit %>
+<% end %>

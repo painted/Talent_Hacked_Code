@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722135906) do
+ActiveRecord::Schema.define(version: 20140723094346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "website"
+    t.string   "industry"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "website"
+    t.string   "phone"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["client_id"], name: "index_contacts_on_client_id", using: :btree
 
   create_table "developers", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -45,5 +67,15 @@ ActiveRecord::Schema.define(version: 20140722135906) do
 
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
   add_index "developers", ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.date     "deadline"
+    t.integer  "contact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["contact_id"], name: "index_projects_on_contact_id", using: :btree
 
 end

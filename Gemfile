@@ -48,6 +48,7 @@ group :test, :development do
 	gem 'database_cleaner'
 	gem 'poltergeist'
 	gem 'byebug'
+	gem 'launchy'
 end
 
 group :production do
