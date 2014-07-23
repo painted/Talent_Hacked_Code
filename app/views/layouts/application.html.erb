@@ -2,21 +2,13 @@
 <html>
 	<head>
 		<title>TalentHacked</title>
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= stylesheet_link_tag    'application', media: 'all' %>
+		<%= javascript_include_tag 'application' %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
-		<% if current_developer %>	
-			<%= link_to 'Edit profile', edit_developer_registration_path, method: :get %>
-			<%= link_to 'Sign out', destroy_developer_session_path, method: :delete %>
-		<% else %>
-			<%= link_to "Sign up", new_developer_registration_path %>
-			<%= link_to "Sign in", new_developer_session_path %> 
-            <%= link_to "Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin) %>
-		<% end %>
 		<%= yield %>
 	</body>
 </html>
