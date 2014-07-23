@@ -1,3 +1,11 @@
-Dashboard
+<div class="container">
+<h1>Dashboard</h1>
 
-<%= link_to 'Sign out', destroy_developer_session_path, method: :delete %>
+<% if current_developer %>  
+  <%= link_to 'Edit profile', edit_developer_registration_path, method: :get %>
+  <%= link_to 'Sign out', destroy_developer_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Edit profile', edit_client_registration_path, method: :get %>
+  <%= link_to 'Sign out', destroy_client_session_path, method: :delete %>
+<% end %>
+</div>
