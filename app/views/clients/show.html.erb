@@ -1,45 +1,29 @@
 <div class="container">
 
-<h3>Profile for <%= @client.name || "user" %></h3>
-<ul>
-    <li>Email: <%= @client.email %></li>
-    <li>Phone Number: <%= @client.phone %></li>
-    <li>Address: <%= @client.address %></li>
-    <li>Website: <%= @client.website %></li>
-    <li>Github: <%= @client.github %></li>
-    <li>Twitter: <%= @client.twitter %></li>
-    <li>Facebook: <%= @client.facebook %></li>
-    <li>Linkedin: <%= @client.linkedinPublicUrl %></li>
-    <li>Avatar: <%= @client.avatarUrl %></li>
-    <li>Industry: <%= @client.industry %></li>
-    <li>Contact Name: <%= @client.contact %></li>
-    <li>Mobile: <%= @client.mobile %></li>
-    <li>Contact Role: <%= @client.role %></li>
-    <li>Contact Date of Birth: <%= @client.dob %></li>
-    <%= link_to 'Edit', edit_client_registration_path(@client.id), class: "btn btn-primary btn-lg" %>
-    <%= link_to 'Back', :back, class: "btn btn-primary btn-lg" %>
-</ul>
-
- <h3>Project Manager</h3>
-	<% if @client.contacts.any? %>
-                <% @client.contacts.each do |contact| %>
-                <p><%= contact.name %> <%= link_to 'Edit PM', edit_client_contact_path(@client.id, contact.id) %></p>
+    <h3>Profile for <%= @client.name || "user" %></h3>
     <ul>
-    	<li>Email: <%= contact.email %></li>
-    	<li>Phone: <%= contact.phone %></li>
-    	<li>Website: <%= contact.website %></li>
+        <li>Email: <%= @client.email %></li>
+        <li>Phone Number: <%= @client.phone %></li>
+        <li>Address: <%= @client.address %></li>
+        <li>Website: <%= @client.website %></li>
+        <li>Github: <%= @client.github %></li>
+        <li>Twitter: <%= @client.twitter %></li>
+        <li>Facebook: <%= @client.facebook %></li>
+        <li>Linkedin: <%= @client.linkedinPublicUrl %></li>
+        <li>Avatar: <%= @client.avatarUrl %></li>
+        <li>Industry: <%= @client.industry %></li>
+        <li>Contact Name: <%= @client.contact %></li>
+        <li>Mobile: <%= @client.mobile %></li>
+        <li>Contact Role: <%= @client.role %></li>
+        <li>Contact Date of Birth: <%= @client.dob %></li>
+        <%= link_to 'Edit', edit_client_registration_path(@client.id), class: "btn btn-primary btn-lg" %>
+        <%= link_to 'Back', :back, class: "btn btn-primary btn-lg" %>
     </ul>
 
-        <h3>Projects</h3>
+</div>
+<div>
+    <h3>Projects</h3>
+ <%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary btn-lg" %>
 
-    No Project
-
-    <%= link_to 'Add Project', new_client_contact_project_path(@client.id, contact.id) %>
-    <% end %>
-    <% else %>
-    No Project Managers
-    <% end %>
-
-    <%= link_to 'Add', new_client_contact_path(@client.id) %>
 
 </div>
