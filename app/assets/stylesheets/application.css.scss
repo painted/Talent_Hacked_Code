@@ -51,10 +51,19 @@ body {
 }
 
 .jumbotron {
-  // margin-top: 60px;
-  background: image-url('keyboard.jpg');
+  // margin-top: 60px;	
+  background: image-url('keyboard.1.jpg') no-repeat;
+  height: 590px;
+  // image-height: 100%;
+  padding-top: 160px;
+  padding-bottom: 300px;
+  // opacity:
   // width: 1280px;
   // height: 500px;
+}
+
+.jumbotron h1 {
+	font-size: 54px;
 }
 
 /* Dashboard */
