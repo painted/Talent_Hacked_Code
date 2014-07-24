@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'omniauth-linkedin-oauth2'
 gem 'bootstrap-sass'
+gem "paperclip", github: 'thoughtbot/paperclip'
 
 group :test, :development do 
 	gem 'rspec-rails'
