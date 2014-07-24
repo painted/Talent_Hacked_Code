@@ -7,23 +7,37 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-		<% if false %>
-			<% if current_developer %>	
-				<%= link_to 'Edit profile', edit_developer_registration_path, method: :get %>
-				<%= link_to 'Sign out', destroy_developer_session_path, method: :delete %>
-			<% elsif current_client %>	
-				<%= link_to 'Edit profile', edit_client_registration_path, method: :get %>
-				<%= link_to 'Sign out', destroy_client_session_path, method: :delete %>
-			<% else %>
-				<%= link_to "Developer Sign up", new_developer_registration_path %>
-				<%= link_to "Developer Sign in", new_developer_session_path %> 
-				<%= link_to "Client Sign up", new_client_registration_path %>
-				<%= link_to "Client Sign in", new_client_session_path %> 
-	            <%= link_to "Developer Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin) %>
-			<% end %>
-		<% end %>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div id="logo-image"><%= link_to image_tag("talent_hacked_italic_swoosh_white.png", alt: "Talent Hacked"), '/' %></div>
+        </div>
+        <div class="navbar-collapse collapse">
+          <% if current_developer %>
+            <div class="navbar-text navbar-right"><%= "#{current_developer.email}" %></div>
+            <%= link_to 'Dashboard', dashboard_path, method: :get, class: "navbar-text navbar-right" %>
+            <%= link_to 'Show profile', developer_path(current_developer.id), class: "navbar-text navbar-right" %>
+            <%= link_to 'Edit profile', edit_developer_registration_path, method: :get, class: "navbar-text navbar-right" %>
+            <%= link_to 'Sign out', destroy_developer_session_path, method: :delete, class: "navbar-text navbar-right" %>
+          <% elsif current_client %>
+            <div class="navbar-text navbar-right"><%= "#{current_client.email}" %></div>
+            <%= link_to 'Show profile', client_path(current_client.id), class: "navbar-text navbar-right" %>
+            <%= link_to 'Edit profile', edit_client_registration_path, method: :get, class: "navbar-text navbar-right" %>
+            <%= link_to 'Dashboard', dashboard_path, method: :get, class: "navbar-text navbar-right" %>
+            <%= link_to 'Sign out', destroy_client_session_path, method: :delete, class: "navbar-text navbar-right" %>
+          <% else %>
+            <%= link_to "Developer Sign in", new_developer_session_path, class: "navbar-text navbar-right" %> 
+            <%= link_to "Client Sign in", new_client_session_path, class: "navbar-text navbar-right" %> 
+            <%= link_to "Developer Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin), class: "navbar-text navbar-right" %>
+          <% end %>
+        </div><!--/.navbar-collapse -->
+        </div>
+        <!-- /.navbar-collapse -->
 
 		<%= yield %>
 	</body>

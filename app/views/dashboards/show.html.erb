@@ -1,50 +1,4 @@
 <div id="wrapper">
-
-  <!-- Sidebar -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><%= image_tag("talent_hacked_italic_swoosh_white.png", alt: "Talent Hacked") %></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right navbar-user">
-        <li class="dropdown alerts-dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> Notifications <span class="badge">1</span> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "You have 30 news offers", dashboard_path, method: :get %></li>
-            <li class="divider"></li>
-            <li><%= link_to "View all", dashboard_path, method: :get %></li>
-          </ul>
-        </li>
-
-        <li class="dropdown user-dropdown">
-          <% if current_developer %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Developer's Name <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Edit profile', edit_developer_registration_path, method: :get, class: "fa fa-user" %></li>
-              <li><%= link_to 'Sign out', destroy_developer_session_path, method: :delete, class: "fa fa-power-off" %></li>
-            </ul>
-          <% else %>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Client's Name <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Edit profile', edit_client_registration_path, method: :get, class: "fa fa-user" %></li>
-              <li><%= link_to 'Sign out', destroy_client_session_path, method: :delete, class: "fa fa-power-off" %></li>
-            </ul>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </nav>
-
   <div id="page-wrapper">
 
     <div class="row">
@@ -157,9 +111,6 @@
 
     </div>
     <div class="row">
-
     </div><!-- /.row -->
-
   </div><!-- /#page-wrapper -->
-
 </div><!-- /#wrapper -->
