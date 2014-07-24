@@ -34,14 +34,21 @@
     <div><%= f.label :avatarUrl, "Avatar Url" %><br />
     <%= f.text_field :avatarUrl %></div>
 
-    <% if current_developer %>
     <div><%= f.label :dob, "Date of Birth" %><br />
     <%= f.text_field :dob %></div>
-    <% end %>
 
     <% if current_client %>
     <div><%= f.label :industry %><br />
     <%= f.text_field :industry %></div>
+
+    <div><%= f.label :contact, "Contact Name" %><br />
+    <%= f.text_field :contact %></div>
+
+    <div><%= f.label :mobile %><br />
+    <%= f.text_field :mobile %></div>
+
+    <div><%= f.label :role %><br />
+    <%= f.text_field :role %></div>
     <% end %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
