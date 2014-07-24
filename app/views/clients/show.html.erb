@@ -1,3 +1,4 @@
+<div class="container">
   <h3><%= @client.name %></h3>
     <ul>
     <li>Email: <%= @client.email %></li>
@@ -29,4 +30,5 @@
     <% end %>
 
     <%= link_to 'Add', new_client_contact_path(@client.id) %>
+</div>
 

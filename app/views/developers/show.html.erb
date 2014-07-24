@@ -1,15 +1,17 @@
-<h3>Profile for <%= @developer.name || "user" %></h3>
-<ul>
-    <li>Email: <%= @developer.email %></li>
-    <li>Phone Number: <%= @developer.phone %></li>
-    <li>Address: <%= @developer.address %></li>
-    <li>Website: <%= @developer.website %></li>
-    <li>Github: <%= @developer.github %></li>
-    <li>Twitter: <%= @developer.twitter %></li>
-    <li>Facebook: <%= @developer.facebook %></li>
-    <li>Linkedin: <%= @developer.linkedinPublicUrl %></li>
-    <li>Avatar: <%= @developer.avatarUrl %></li>
-    <li>Date of Birth: <%= @developer.dob %></li>
-    <%= link_to 'Edit', edit_developer_registration_path(@developer.id), class: "btn btn-primary btn-lg" %>
-    <%= link_to 'Back', :back, class: "btn btn-primary btn-lg" %>
-</ul>
+<div class="container">
+    <h3>Profile for <%= @developer.name || "user" %></h3>
+    <ul>
+        <li>Email: <%= @developer.email %></li>
+        <li>Phone Number: <%= @developer.phone %></li>
+        <li>Address: <%= @developer.address %></li>
+        <li>Website: <%= @developer.website %></li>
+        <li>Github: <%= @developer.github %></li>
+        <li>Twitter: <%= @developer.twitter %></li>
+        <li>Facebook: <%= @developer.facebook %></li>
+        <li>Linkedin: <%= @developer.linkedinPublicUrl %></li>
+        <li>Avatar: <%= @developer.avatarUrl %></li>
+        <li>Date of Birth: <%= @developer.dob %></li>
+        <%= link_to 'Edit', edit_developer_registration_path(@developer.id), class: "btn btn-primary btn-lg" %>
+        <%= link_to 'Back', :back, class: "btn btn-primary btn-lg" %>
+    </ul>
+</div>
