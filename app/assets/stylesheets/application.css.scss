@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-brand {
+float: left;
+padding: 15px 15px;
+// padding-top: 25px;/*
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -28,11 +34,6 @@ body {
   margin-top: -30px;
   height: 50px;
 }
-
-.navbar-brand {
-float: left;
-padding: 15px 15px;
-// padding-top: 25px;
 font-size: 18px;
 line-height: 20px;
 height: 50px;
@@ -42,7 +43,7 @@ height: 50px;
 .navbar-inverse {
   height: 75px;
 }
-
+			
 
 .navbar-text {
 float: left;
