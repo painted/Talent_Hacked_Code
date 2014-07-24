@@ -1,7 +1,23 @@
 <div class="container">
   <h2><%= resource_name.to_s.humanize %> Profile</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <% if current_developer %>
+      <% if current_developer.image.present? %>
+          <%= image_tag current_developer.image.url(:thumb), class: 'uploaded-pic' %>
+      <% else %>
+          <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+      <% end %>
+  <% end %>
+
+   <% if current_client %>
+      <% if current_client.image.present? %>
+          <%= image_tag current_client.image.url(:thumb), class: 'uploaded-pic' %>
+        <% else %>
+          <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+      <% end %>
+  <% end %>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
     <%= devise_error_messages! %>
 
     <div><%= f.label :name %><br />
@@ -50,6 +66,9 @@
     <div><%= f.label :role %><br />
     <%= f.text_field :role %></div>
     <% end %>
+
+    <%= f.label :image %>
+    <%= f.file_field :image %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
