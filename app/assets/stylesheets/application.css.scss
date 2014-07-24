@@ -18,7 +18,7 @@
 @import "bootstrap"; 
 
 body {
-  padding-top: 0px;
+  margin-top: 50px;
 }
 
 .counter-line {
@@ -58,9 +58,6 @@ body {
 }
 
 /* Dashboard */
-body {
-  margin-top: 50px;
-}
 
 #wrapper {
   padding-left: 0;
@@ -96,7 +93,6 @@ body {
 .messages-dropdown .dropdown-menu .message-preview .time {
   font-size: 12px;
 }
-
 
 /* Nav Announcements */
 
