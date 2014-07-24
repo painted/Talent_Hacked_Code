@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   # , :controllers => {omniauth_callbacks: 'clients/omniauth_callbacks', :registrations => "clients/registrations"} 
   
   resources :clients do 
-    resources :contacts do
-      resources :projects
-    end
+    resources :projects
   end
   resource :dashboard
   root 'welcome#index' 

@@ -4,7 +4,7 @@ class Client < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-	has_many :contacts
+	has_many :projects
 
 	# def self.from_omniauth(auth)
 	#   # puts auth.inspect
