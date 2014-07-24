@@ -1,15 +1,22 @@
 <div class="container">
-  <h3><%= @client.name %></h3>
-    <ul>
+
+<h3>Profile for <%= @client.name || "user" %></h3>
+<ul>
     <li>Email: <%= @client.email %></li>
     <li>Phone Number: <%= @client.phone %></li>
+    <li>Address: <%= @client.address %></li>
     <li>Website: <%= @client.website %></li>
+    <li>Github: <%= @client.github %></li>
+    <li>Twitter: <%= @client.twitter %></li>
+    <li>Facebook: <%= @client.facebook %></li>
+    <li>Linkedin: <%= @client.linkedinPublicUrl %></li>
+    <li>Avatar: <%= @client.avatarUrl %></li>
     <li>Industry: <%= @client.industry %></li>
-    <%= link_to 'Edit', edit_client_path(@client.id) %>
-    <%= link_to 'Back', clients_path %>
+    <%= link_to 'Edit', edit_client_registration_path(@client.id), class: "btn btn-primary btn-lg" %>
+    <%= link_to 'Back', :back, class: "btn btn-primary btn-lg" %>
 </ul>
 
-<h3>Project Manager</h3>
+ <h3>Project Manager</h3>
 	<% if @client.contacts.any? %>
                 <% @client.contacts.each do |contact| %>
                 <p><%= contact.name %> <%= link_to 'Edit PM', edit_client_contact_path(@client.id, contact.id) %></p>
@@ -30,5 +37,5 @@
     <% end %>
 
     <%= link_to 'Add', new_client_contact_path(@client.id) %>
-</div>
 
+</div>
