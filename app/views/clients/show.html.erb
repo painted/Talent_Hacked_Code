@@ -12,6 +12,10 @@
     <li>Linkedin: <%= @client.linkedinPublicUrl %></li>
     <li>Avatar: <%= @client.avatarUrl %></li>
     <li>Industry: <%= @client.industry %></li>
+    <li>Contact Name: <%= @client.contact %></li>
+    <li>Mobile: <%= @client.mobile %></li>
+    <li>Contact Role: <%= @client.role %></li>
+    <li>Contact Date of Birth: <%= @client.dob %></li>
     <%= link_to 'Edit', edit_client_registration_path(@client.id), class: "btn btn-primary btn-lg" %>
     <%= link_to 'Back', :back, class: "btn btn-primary btn-lg" %>
 </ul>
