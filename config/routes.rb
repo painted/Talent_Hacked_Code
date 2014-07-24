@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resource :dashboard
   root 'welcome#index' 
-
+  get 'developers/:id' => 'developers#show', as: :developer 
   # get "/auth/:provider/callback" => "autentications#create"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
