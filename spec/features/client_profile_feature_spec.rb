@@ -5,8 +5,8 @@ describe 'client profile form' do
 	context 'client' do
 
 		before do
-			john = Client.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			login_as john, scope: :client
+			peter = Client.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
+			login_as peter, scope: :client
 			visit edit_client_registration_path
 		end
 
