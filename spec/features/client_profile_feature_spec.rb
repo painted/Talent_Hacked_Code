@@ -10,7 +10,7 @@ describe 'client profile form' do
 			visit edit_client_registration_path
 		end
 
-		it 'can visit the profile page' do
+		it 'can visit the edit profile page' do
 			expect(page).to have_content 'Client Profile'
 		end
 
