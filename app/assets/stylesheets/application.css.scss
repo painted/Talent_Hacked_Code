@@ -64,24 +64,17 @@ body {
 
 #logo-image {
   margin-top: 15px;
+  margin-left: 15px;
 }
 
 #notice {
-  font-color: white;
+  font-color: white;  
+  background-color: orange;
 }
 
 #alert {
   font-color: white;
-}
-
-.user-message {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 1.2em;
-  font-color: salmon;
-  letter-spacing: 0.02em;
-  font-weight: 500;
-  line-height: 20px;
+  background-color: orange;
 }
 
 .jumbotron h1 {
