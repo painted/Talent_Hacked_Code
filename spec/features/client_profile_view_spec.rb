@@ -8,7 +8,7 @@ describe 'client profile view' do
 			peter = Client.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
 			login_as peter, scope: :client
 			visit edit_client_registration_path
-			fill_in "Name", with: "John"
+			fill_in "Name", with: "Pizza Express"
 			fill_in "Email", with: "a@a.com"
 			fill_in "Phone", with: "07777 777 777"
 			fill_in "Industry", with: "Military"
@@ -19,11 +19,15 @@ describe 'client profile view' do
 			fill_in "Github", with: "https://www.github_url"
 			fill_in "LinkedIn Url", with: "https://www.linkedin_url"
 			fill_in "Avatar Url", with: "https://www.avatar_url"
+			fill_in "Contact Name", with: "Peter"
+			fill_in "Mobile", with: "06666 666 666"
+			fill_in "Role", with: "Director"
+			fill_in "Date of Birth", with: "01/01/1960"
 			click_button "Update"
 		end
 
 		it 'can welcome the client by name' do
-			expect(page).to have_content 'Profile for John'
+			expect(page).to have_content 'Profile for Pizza Express'
 		end
 
 		it 'can show the client his email' do
@@ -65,6 +69,23 @@ describe 'client profile view' do
 		it 'can show the client his avatar url' do
 			expect(page).to have_content 'https://www.avatar_url'
 		end
+
+		it 'can show the client contact\'s name' do
+			expect(page).to have_content 'Peter'
+		end
+
+		it 'can show the client contact\'s role' do
+			expect(page).to have_content 'Director'
+		end
+
+		it 'can show the client contact\'s mobile number' do
+			expect(page).to have_content '06666 666 666'
+		end
+
+		it 'can show the client contact\'s date of birth' do
+			expect(page).to have_content '1960-01-01'
+		end
+		
 
 		it 'has an edit button' do
 			expect(page).to have_link 'Edit'
