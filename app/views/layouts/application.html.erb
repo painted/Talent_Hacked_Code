@@ -38,6 +38,29 @@
         </div><!--/.navbar-collapse -->
         </div>
         <!-- /.navbar-collapse -->
+		<% if notice %>
+			<p class="notice"><%= notice %></p>
+		<% end %>
+
+		<% if alert %>
+			<p class="alert"><%= alert %></p>
+		<% end %>
+		
+		<% if false %>
+			<% if current_developer %>	
+				<%= link_to 'Edit profile', edit_developer_registration_path, method: :get %>
+				<%= link_to 'Sign out', destroy_developer_session_path, method: :delete %>
+			<% elsif current_client %>	
+				<%= link_to 'Edit profile', edit_client_registration_path, method: :get %>
+				<%= link_to 'Sign out', destroy_client_session_path, method: :delete %>
+			<% else %>
+				<%= link_to "Developer Sign up", new_developer_registration_path %>
+				<%= link_to "Developer Sign in", new_developer_session_path %> 
+				<%= link_to "Client Sign up", new_client_registration_path %>
+				<%= link_to "Client Sign in", new_client_session_path %> 
+	            <%= link_to "Developer Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin) %>
+			<% end %>
+		<% end %>
 
 		<%= yield %>
 	</body>
