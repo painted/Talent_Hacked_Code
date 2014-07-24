@@ -95,6 +95,7 @@ describe 'developer profile form' do
 			fill_in "Password", with: "12121212"
 			fill_in "Password confirmation", with: "12121212"
 			click_button "Update"
+			visit root_path
 			click_link "Sign out"
 			click_link "Developer Sign in"
 			fill_in 'Email', with: 'f@f.com'

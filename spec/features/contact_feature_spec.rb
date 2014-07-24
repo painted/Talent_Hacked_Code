@@ -2,11 +2,11 @@
 
 # describe 'project contact' do
  
-    # before do
-    #    fitsum = Client.create name: 'Fitsum', email: 'f@f.com', phone:  '044044044', website: 'www.f.com', industry: 'tech'
-    # end
+#     before do
+#        fitsum = Client.create name: 'Fitsum', email: 'f@f.com', phone:  '044044044', website: 'www.f.com', industry: 'tech'
+#     end
 
-    # let!(:fitsum) { Client.create name: 'Fitsum', email: 'f@f.com', phone:  '044044044', website: 'www.f.com', industry: 'tech'}
+#     let!(:fitsum) { Client.create name: 'Fitsum', email: 'f@f.com', phone:  '044044044', website: 'www.f.com', industry: 'tech'}
 
 #    def fill_form(name, email,phone,website)
 #     fill_in 'Name', with: name
