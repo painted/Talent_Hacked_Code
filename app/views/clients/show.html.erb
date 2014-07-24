@@ -1,6 +1,11 @@
 <div class="container">
 
     <h3>Profile for <%= @client.name || "user" %></h3>
+    <% if @client.image.present? %>
+        <%= image_tag @client.image.url(:thumb), class: 'uploaded-pic' %>
+     <% else %>
+        <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+    <% end %>
     <ul>
         <li>Email: <%= @client.email %></li>
         <li>Phone Number: <%= @client.phone %></li>

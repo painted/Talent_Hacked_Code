@@ -6,6 +6,20 @@ class Client < ActiveRecord::Base
 
 	has_many :projects
 
+ 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/images/:style/missing.png"
+
+	# has_attached_file :image, 
+	#     styles: { thumb: '300x300>' },
+	#     storage: :s3,
+	#     s3_credentials: {
+	#       bucket: 'instagram_may_alex',
+	#       access_key_id: Rails.application.secrets.s3_access_key,
+	#       secret_access_key: Rails.application.secrets.s3_secret_key
+	#     }
+
+  	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+
 	# def self.from_omniauth(auth)
 	#   # puts auth.inspect
 	#   where(auth.slice(:provider, :uid)).first_or_create do |client|
