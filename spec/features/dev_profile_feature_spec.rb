@@ -71,10 +71,10 @@ describe 'developer profile form' do
 		end
 
 		it 'can fill-in/change their Github url' do
-			fill_in "Twitter", with: "https://www.github_url"
+			fill_in "Github", with: "https://www.github_url"
 			click_button "Update"
 			visit edit_developer_registration_path
-			expect(find_field("Twitter").value).to eq 'https://www.github_url'
+			expect(find_field("Github").value).to eq 'https://www.github_url'
 		end
 
 		it 'can fill-in/change their LinkedIn url' do

@@ -15,10 +15,10 @@ describe 'client profile form' do
 		end
 
 		it 'can fill-in/change their name' do
-			fill_in "Name", with: "John"
+			fill_in "Name", with: "Pizza Express"
 			click_button "Update"
 			visit edit_client_registration_path
-			expect(find_field("Name").value).to eq 'John'
+			expect(find_field("Name").value).to eq 'Pizza Express'
 		end
 
 		it 'can change their email' do
@@ -71,10 +71,10 @@ describe 'client profile form' do
 		end
 
 		it 'can fill-in/change their Github url' do
-			fill_in "Twitter", with: "https://www.github_url"
+			fill_in "Github", with: "https://www.github_url"
 			click_button "Update"
 			visit edit_client_registration_path
-			expect(find_field("Twitter").value).to eq 'https://www.github_url'
+			expect(find_field("Github").value).to eq 'https://www.github_url'
 		end
 
 		it 'can fill-in/change their LinkedIn url' do
@@ -89,6 +89,34 @@ describe 'client profile form' do
 			click_button "Update"
 			visit edit_client_registration_path
 			expect(find_field("Avatar Url").value).to eq 'https://www.avatar_url'
+		end
+
+		it 'can fill-in/change their contact name' do
+			fill_in "Contact Name", with: "JoJo"
+			click_button "Update"
+			visit edit_client_registration_path
+			expect(find_field("Contact Name").value).to eq 'JoJo'
+		end
+
+		it 'can fill-in/change their mobile number' do
+			fill_in "Mobile", with: "1234567890123456"
+			click_button "Update"
+			visit edit_client_registration_path
+			expect(find_field("Mobile").value).to eq '1234567890123456'
+		end
+
+		it 'can fill-in/change their position' do
+			fill_in "Role", with: "Head Chef"
+			click_button "Update"
+			visit edit_client_registration_path
+			expect(find_field("Role").value).to eq 'Head Chef'
+		end
+
+		it 'can fill-in/change Date of Birth' do
+			fill_in "Date of Birth", with: "01/01/1970"
+			click_button "Update"
+			visit edit_client_registration_path
+			expect(find_field("Date of Birth").value).to eq '1970-01-01'
 		end
 
 		it 'can change their password' do
