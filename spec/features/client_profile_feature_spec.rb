@@ -119,6 +119,18 @@ describe 'client profile form' do
 			expect(find_field("Date of Birth").value).to eq '1970-01-01'
 		end
 
+		# it 'has an initial default avatar image' do
+		# 	visit edit_client_registration_path
+		# 	expect(page).to have_css 'img.default-pic'
+		# end
+
+		it 'can upload their own avatar or image' do
+			attach_file 'Image', Rails.root.join('spec/images/company_logo.jpg')
+			click_button "Update"
+			visit edit_client_registration_path
+			expect(page).to have_css 'img.uploaded-pic'
+		end
+
 		it 'can change their password' do
 			fill_in "Password", with: "12121212"
 			fill_in "Password confirmation", with: "12121212"
