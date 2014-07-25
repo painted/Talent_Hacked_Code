@@ -17,18 +17,36 @@
 @import "bootstrap-sprockets";
 @import "bootstrap"; 
 
-body {
-  margin-top: 75px;
+/* Main styling
+-------------------------------------------------- */
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-.counter-line {
-  background-color: silver;
-  font-size: 20px;
-  font-weight: bold;
-  padding-top: 12px;
-  margin-top: -30px;
-  height: 50px;
+body {
+  margin-top: 75px;
+  margin-bottom: 60px; /* Margin bottom by footer height */
+  background-color: #eee;
+  // opacity: 0.5;
+  // background: image-url('keyboard.jpg') no-repeat;
+  padding-top: 125px;
+  padding-bottom: 125px;
 }
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+// .counter-line {
+//   background-color: silver;
+//   font-size: 20px;
+//   font-weight: bold;
+//   padding-top: 12px;
+//   margin-top: -30px;
+//   height: 50px;
+// }
 
 .navbar-brand {
   float: left;
@@ -50,21 +68,23 @@ body {
   padding-top: 12px;
 }
 
-.jumbotron {
-  // margin-top: 60px;	
-  background: image-url('keyboard.1.jpg') no-repeat;
-  height: 590px;
-  // image-height: 100%;
-  padding-top: 160px;
-  padding-bottom: 300px;
-  // opacity:
-  // width: 1280px;
-  // height: 500px;
-}
+// .jumbotron {
+//   // margin-top: 60px;	
+//   // background: image-url('keyboard.jpg') no-repeat;
+//   background-color: silver;
+//   height: 400px;
+//   // image-height: 100%;
+//   padding-top: 125px;
+//   padding-bottom: 125px;
+//   // opacity:
+//   // width: 1280px;
+//   // height: 500px;
+//   color: white;
+// }
 
-.jumbotron h1 {
-  font-size: 54px;
-}
+// .jumbotron h1 {
+//   font-size: 54px;
+// }
 
 #logo-image {
   margin-top: 15px;
@@ -88,7 +108,8 @@ body {
   max-height: 100px;
 }
 
-/* DASHBOARD */
+/* Dashboard styles
+-------------------------------------------------- */
 #wrapper {
   padding-left: 0;
 }
@@ -192,4 +213,21 @@ table.tablesorter thead tr th:hover {
   }
 }
 
-/* End - Place styles with relevant groups */
+/* Sticky footer styles
+-------------------------------------------------- */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 65px;
+  background-color: black;
+}
+.container .text-muted {
+  margin: 20px 0;
+  float: right;
+}
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
