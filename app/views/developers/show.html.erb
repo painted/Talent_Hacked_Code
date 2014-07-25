@@ -5,7 +5,7 @@
         <% elsif @developer.avatarUrl != "" %>
             <%= image_tag @developer.avatarUrl, class: 'uploaded-pic' %>
         <% else %>
-            <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+            <%= image_tag "github_avatar.png", class: 'default-pic' %>
         <% end %>
     <ul>
         <li>Email: <%= @developer.email %></li>
