@@ -20,6 +20,7 @@ describe 'developer profile view' do
 			fill_in "LinkedIn Url", with: "https://www.linkedin_url"
 			fill_in "Avatar Url", with: "https://www.avatar_url"
 			fill_in "Dayrate", with: "500"
+			attach_file 'Image', Rails.root.join('spec/images/developer.jpg')
 			click_button "Update"
 		end
 
@@ -69,6 +70,10 @@ describe 'developer profile view' do
 
 		it 'can show the developer his dayrate' do
 			expect(page).to have_content '£500.00'
+		end
+
+		it 'shows the developer his/her chosen avatar or image' do
+			expect(page).to have_css 'img.uploaded-pic'
 		end
 
 		it 'has an edit button' do

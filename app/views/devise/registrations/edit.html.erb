@@ -7,7 +7,7 @@
       <% elsif @developer.avatarUrl != "" %>
           <%= image_tag @developer.avatarUrl, class: 'uploaded-pic' %>
       <% else %>
-          <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+          <%= image_tag "github_avatar.png", class: 'default-pic' %>
       <% end %>
   <% end %>
 
@@ -17,7 +17,7 @@
       <% elsif @client.avatarUrl != "" %>
         <%= image_tag @client.avatarUrl, class: 'uploaded-pic' %>
       <% else %>
-        <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+        <%= image_tag "github_avatar.png", class: 'default-pic' %>
       <% end %>
   <% end %>
 
