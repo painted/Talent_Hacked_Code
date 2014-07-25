@@ -1,54 +1,25 @@
-<body>
-  <!-- /jumbotron -->
-  <div class="jumbotron">
-    <% if developer_signed_in? %>
-      <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
-    <% elsif client_signed_in? %>
-      <h1 align="center"><%= "Welcome #{current_client.email}" %></h1>
-    <% else %>
-      <h1 align="center"><%= "Welcome to Talent Hacked" %></h1>
-    <% end %>
+<!-- Begin page content -->
+<div class="container">
+  <% if developer_signed_in? %>
+    <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
+  <% elsif client_signed_in? %>
+    <h1 align="center"><%= "Welcome #{current_client.email}" %></h1>
+  <% else %>
+    <h1 align="center"><%= "Welcome to Talent Hacked" %></h1>
+  <% end %>
 
-    <% if !(current_developer || current_client) %>
-      <div class="container">
-        <p align="center">
-        <%= link_to "Clients", new_client_registration_path, class: "btn btn-primary btn-lg" %>
-        <%= link_to "Developers", new_developer_registration_path, class: "btn btn-primary btn-lg" %></p>
-      </div>
-    <% end %>
-  </div>
-    <div class="counter-line">
-      <div class="row">
-        <p align="center">
-              <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-        </p>
-      </div>
-    </div>
-  <!-- jumbotron/ -->
-
-  <!-- /container -->
-  <div class="container">
-  <div class="row">
-    <br><br>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", alt: "", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", class: "thumbnail img-responsive"), '/' %></div>
-    <div class="col-lg-2 col-sm-3 col-xs-4"><%= link_to image_tag("placeholder.gif", alt: "", class: "thumbnail img-responsive"), '/' %></div>
-  </div>
-
-  <div class="footer">
+  <% if !(current_developer || current_client) %>
     <div class="container">
-      <hr>
-      <p class="text-muted">© Talent Hacked 2014</p>
+      <p align="center">
+      <%= link_to "Clients", new_client_registration_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Developers", new_developer_registration_path, class: "btn btn-primary btn-lg" %></p>
     </div>
-  </div> 
-  <!-- container/ -->
+  <% end %>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p class="text-muted">© Talent Hacked 2014</p>
+  </div>
+</div>    
+<!-- End page content -->
