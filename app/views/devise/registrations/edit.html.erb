@@ -56,8 +56,7 @@
     <div><%= f.label :skills, "Skills" %><br />
     <%= f.text_field :skills %></div>
 
-     <div><%= f.submit "Add Skill" %></div>
-     <% end %>
+    <div><%= f.submit "Add Skill" %></div>
 
     <% if current_client %>
     <div><%= f.label :industry %><br />
@@ -100,4 +99,5 @@
   <p>Cancel Account <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
   <%= link_to "Back", :back %>
-</div>
+
+

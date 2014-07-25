@@ -14,7 +14,7 @@ describe 'skill input in' do
 			visit '/dashboard'
 			click_link 'Edit profile'
 			fill_in 'Skill', with: 'Ruby'
-			click_button 'Add Skill'
+			click_button 'Update'
 			expect(page).to have_content 'Ruby'
 		end
 
