@@ -6,20 +6,20 @@ class Developer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:linkedin]
 
-
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/images/:style/missing.png"
+	has_attached_file :image, 
+	    styles: { :medium => "300x300>", :thumb => "100x100>" },
+	    storage: :s3,
+	    s3_credentials: {
+	      bucket: 'talenthackeds3',
+	      access_key_id: Rails.application.secrets.s3_access_key,
+	      secret_access_key: Rails.application.secrets.s3_secret_key
+	    }
+  # has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/images/:style/missing.png"
 
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 
 
-	# has_attached_file :image, 
-	#     styles: { thumb: '300x300>' },
-	#     storage: :s3,
-	#     s3_credentials: {
-	#       bucket: 'instagram_may_alex',
-	#       access_key_id: Rails.application.secrets.s3_access_key,
-	#       secret_access_key: Rails.application.secrets.s3_secret_key
-	#     }
+	
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
