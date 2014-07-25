@@ -30,7 +30,19 @@
 </div>
 <div>
     <h3>Projects</h3>
- <%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary btn-lg" %>
+<% if @client.projects.any? %>
+    <ul>
+        <% @client.projects.each do |project| %>
+            <li>Name: <%= project.name %></li>
+            <li>Deadline: <%= project.deadline %></li>
+            <li>Budget: <%= number_to_currency(project.budget, :unit => "£") %></li>
+            <li>Industry: <%= project.projectIndustry %></li><br><br>
+        <% end %>
+    </ul>
+<% else %>
+    <%= 'No projects yet' %>
+<% end %>
+<%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary btn-lg" %>
 
 
 </div>
