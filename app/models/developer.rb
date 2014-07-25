@@ -9,6 +9,8 @@ class Developer < ActiveRecord::Base
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/images/:style/missing.png"
 
+  has_and_belongs_to_many :skills
+
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 
 

@@ -53,6 +53,12 @@
     <div><%= f.label :dob, "Date of Birth" %><br />
     <%= f.text_field :dob %></div>
 
+    <div><%= f.label :skills, "Skills" %><br />
+    <%= f.text_field :skills %></div>
+
+     <div><%= f.submit "Add Skill" %></div>
+     <% end %>
+
     <% if current_client %>
     <div><%= f.label :industry %><br />
     <%= f.text_field :industry %></div>

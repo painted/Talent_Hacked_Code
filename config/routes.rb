@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :projects
   end
   resource :dashboard
+  resources :skills
   root 'welcome#index' 
   get 'developers/:id' => 'developers#show', as: :developer 
   # get "/auth/:provider/callback" => "autentications#create"

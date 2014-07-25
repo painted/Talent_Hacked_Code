@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724220038) do
+ActiveRecord::Schema.define(version: 20140725110515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,11 @@ ActiveRecord::Schema.define(version: 20140724220038) do
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
   add_index "developers", ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "developers_skills", id: false, force: true do |t|
+    t.integer "developer_id", null: false
+    t.integer "skill_id",     null: false
+  end
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.date     "deadline"
@@ -110,5 +115,11 @@ ActiveRecord::Schema.define(version: 20140724220038) do
   end
 
   add_index "projects", ["contact_id"], name: "index_projects_on_contact_id", using: :btree
+
+  create_table "skills", force: true do |t|
+    t.string   "skill"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
