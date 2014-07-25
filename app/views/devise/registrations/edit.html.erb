@@ -67,6 +67,11 @@
     <%= f.text_field :role %></div>
     <% end %>
 
+    <% if current_developer %>
+    <div><%= f.label :dayrate, "Dayrate (GBP)" %><br />
+    <%= f.text_field :dayrate %></div>    
+    <% end %>
+
     <%= f.label :image %>
     <%= f.file_field :image %>
 
