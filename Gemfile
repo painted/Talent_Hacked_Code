@@ -42,6 +42,8 @@ gem 'devise'
 gem 'omniauth-linkedin-oauth2'
 gem 'bootstrap-sass'
 gem "paperclip", github: 'thoughtbot/paperclip'
+gem 'rmagick'
+gem 'aws-sdk'
 
 group :test, :development do 
 	gem 'rspec-rails'
