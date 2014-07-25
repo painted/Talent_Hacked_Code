@@ -45,6 +45,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    aws-sdk (1.49.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
@@ -159,6 +162,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec-collection_matchers (1.0.0)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.2)
@@ -219,6 +223,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   bootstrap-sass
   byebug
   capybara
@@ -235,6 +240,7 @@ DEPENDENCIES
   poltergeist
   rails (= 4.1.2)
   rails_12factor
+  rmagick
   rspec-collection_matchers
   rspec-rails
   sass-rails (~> 4.0.3)
