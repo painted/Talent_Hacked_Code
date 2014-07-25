@@ -91,6 +91,13 @@ describe 'developer profile form' do
 			expect(find_field("Avatar Url").value).to eq 'https://www.avatar_url'
 		end
 
+		it 'can fill-in/change their dayrate' do
+			fill_in "Dayrate", with: "500"
+			click_button "Update"
+			visit edit_developer_registration_path
+			expect(find_field("Dayrate").value).to eq '500'
+		end
+
 		it 'can change their password' do
 			fill_in "Password", with: "12121212"
 			fill_in "Password confirmation", with: "12121212"

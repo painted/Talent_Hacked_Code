@@ -19,6 +19,7 @@ describe 'developer profile view' do
 			fill_in "Github", with: "https://www.github_url"
 			fill_in "LinkedIn Url", with: "https://www.linkedin_url"
 			fill_in "Avatar Url", with: "https://www.avatar_url"
+			fill_in "Dayrate", with: "500"
 			click_button "Update"
 		end
 
@@ -64,6 +65,10 @@ describe 'developer profile view' do
 
 		it 'can show the developer his avatar url' do
 			expect(page).to have_content 'https://www.avatar_url'
+		end
+
+		it 'can show the developer his dayrate' do
+			expect(page).to have_content '£500.00'
 		end
 
 		it 'has an edit button' do
