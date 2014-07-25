@@ -8,6 +8,7 @@ class Developer < ActiveRecord::Base
 
 	has_attached_file :image, 
 	    styles: { :medium => "300x300>", :thumb => "100x100>" },
+	   	# :default_url => "/assets/images/:style/github_avatar.png",
 	    storage: :s3,
 	    s3_credentials: {
 	      bucket: 'talenthackeds3',
@@ -18,12 +19,11 @@ class Developer < ActiveRecord::Base
 	    }
   # has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/images/:style/missing.png"
 
-  validates_attachment_size :image, :in => 0.megabytes..1.megabytes
+  	validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 
+  	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-	
-
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+	validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/]
 
 
 	def self.from_omniauth(auth)
