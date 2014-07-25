@@ -5,6 +5,12 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'aws'
 
+Capybara.server do |app, port|
+  require 'rack/handler/thin'
+  Rack::Handler::Thin.run(app, :Port => port)
+end
+
+
 AWS.stub!
 AWS.config(:access_key_id => "TESTKEY", :secret_access_key => "TESTSECRET")
 # Requires supporting ruby files with custom matchers and macros, etc, in

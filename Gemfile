@@ -44,6 +44,7 @@ gem 'bootstrap-sass'
 gem "paperclip", github: 'thoughtbot/paperclip'
 gem 'rmagick'
 gem 'aws-sdk'
+gem 'thin'
 
 group :test, :development do 
 	gem 'rspec-rails'
