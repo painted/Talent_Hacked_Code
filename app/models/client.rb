@@ -8,6 +8,8 @@ class Client < ActiveRecord::Base
 
  	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/images/:style/missing.png"
 
+	validates_attachment_size :image, :in => 0.megabytes..1.megabytes
+
 	# has_attached_file :image, 
 	#     styles: { thumb: '300x300>' },
 	#     storage: :s3,
