@@ -1,5 +1,6 @@
 <!-- Begin page content -->
 <div class="container">
+<div class="img_bg">
   <% if developer_signed_in? %>
     <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
   <% elsif client_signed_in? %>
@@ -15,6 +16,7 @@
       <%= link_to "Developers", new_developer_registration_path, class: "btn btn-primary btn-lg" %></p>
     </div>
   <% end %>
+</div>
 </div>
 
 <div class="footer">

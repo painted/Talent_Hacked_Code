@@ -30,7 +30,6 @@ body {
   margin-bottom: 60px; /* Margin bottom by footer height */
   background-color: #eee;
   // opacity: 0.5;
-  // background: image-url('keyboard.jpg') no-repeat;
   // padding-top: 75px;
   padding-bottom: 125px;
 }
@@ -216,6 +215,16 @@ table.tablesorter thead tr th:hover {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+}
+
+.img_bg {
+background: url(/assets/new_img.jpg) no-repeat;
+height: 700px;
+margin-top: -20px;
+margin-bottom: -121px;
+width: 110%;
+margin-left: -53px;
+position: relative;
 }
 
 /* Sticky footer styles
