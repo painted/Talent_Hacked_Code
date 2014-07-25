@@ -3,7 +3,7 @@
     <h3>Profile for <%= @client.name || "user" %></h3>
     <% if @client.image.present? %>
         <%= image_tag @client.image.url(:thumb), class: 'uploaded-pic' %>
-    <% elsif @client.avatarUrl != "" %>
+    <% elsif (@client.avatarUrl != "") && (@client.avatarUrl != nil) %>
         <%= image_tag @client.avatarUrl, class: 'uploaded-pic' %>
     <% else %>
         <%= image_tag "github_avatar.png", class: 'default-pic' %>

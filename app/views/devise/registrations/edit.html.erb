@@ -4,8 +4,8 @@
   <% if current_developer %>
       <% if current_developer.image.present? %>
           <%= image_tag current_developer.image.url(:thumb), class: 'uploaded-pic' %>
-      <% elsif @developer.avatarUrl != "" %>
-          <%= image_tag @developer.avatarUrl, class: 'uploaded-pic' %>
+    <% elsif (current_developer.avatarUrl != "") && (current_developer.avatarUrl != nil) %>
+          <%= image_tag current_developer.avatarUrl, class: 'uploaded-pic' %>
       <% else %>
           <%= image_tag "github_avatar.png", class: 'default-pic' %>
       <% end %>
@@ -14,8 +14,8 @@
    <% if current_client %>
       <% if current_client.image.present? %>
           <%= image_tag current_client.image.url(:thumb), class: 'uploaded-pic' %>
-      <% elsif @client.avatarUrl != "" %>
-        <%= image_tag @client.avatarUrl, class: 'uploaded-pic' %>
+    <% elsif (current_client.avatarUrl != "") && (current_client.avatarUrl != nil) %>
+        <%= image_tag current_client.avatarUrl, class: 'uploaded-pic' %>
       <% else %>
         <%= image_tag "github_avatar.png", class: 'default-pic' %>
       <% end %>
