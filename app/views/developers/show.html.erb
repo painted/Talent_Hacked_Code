@@ -19,6 +19,7 @@
         <li>Avatar: <%= @developer.avatarUrl %></li>
         <li>Date of Birth: <%= @developer.dob %></li>
         <li>Dayrate: <%= number_to_currency(@developer.dayrate, :unit => "£") %></li>
+        <li>Bio: <%= @developer.bio %></li>
 
         <%= link_to 'Edit', edit_developer_registration_path(@developer.id), class: "btn btn-primary btn-lg" %>
         <%= link_to 'Back', :back, class: "btn btn-primary btn-lg" %>

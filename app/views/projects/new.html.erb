@@ -1,18 +1,20 @@
-<%= form_for [@client, @contact, @project] do |form| %>
-	<%= form.label :name %>
-	<%= form.text_field :name %>
+<div class="container">
+	<%= form_for [@client, @project] do |form| %>
+		<div><%= form.label :name %><br>
+		<%= form.text_field :name %></div>
 
-	<%= form.label :deadline %>
-	<%= form.text_field :deadline %>
+		<div><%= form.label :deadline %><br>
+		<%= form.text_field :deadline %></div>
 
-	<%= form.label :budget, 'Budget (GBP)' %>
-	<%= form.text_field :budget %>
+		<div><%= form.label :budget, 'Budget (GBP)' %><br>
+		<%= form.text_field :budget %></div>
 
-	<%= form.label :projectIndustry, 'Industry' %>
-	<%= form.text_field :projectIndustry %>
+		<div><%= form.label :projectIndustry, 'Industry' %><br>
+		<%= form.text_field :projectIndustry %></div>
 
-	<%= form.label :description, 'Description' %>
-	<%= form.text_area :description %>
+		<div><%= form.label :description, 'Description' %><br>
+		<%= form.text_area :description %></div>
 
-	<%= form.submit %>
-<% end %>
+		<%= form.submit %>
+	<% end %>
+</div>

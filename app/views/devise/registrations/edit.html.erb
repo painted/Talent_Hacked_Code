@@ -72,8 +72,11 @@
     <% end %>
 
     <% if current_developer %>
-        <div><%= f.label :dayrate, "Dayrate (GBP)" %><br />
-        <%= f.text_field :dayrate %></div>    
+        <div><%= f.label :dayrate, "Dayrate (GBP)" %><br/>
+        <%= f.text_field :dayrate %></div>  
+
+        <div><%= f.label :bio %><br/>
+        <%= f.text_field :bio %></div>  
     <% end %>
 
 
