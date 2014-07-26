@@ -1,3 +1,67 @@
 // Place all the styles related to the dashboards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.alert-success {
+  background-color: #4099FF;
+  border-color: #4099FF;
+  color: white;
+}
+
+.panel-offers {
+	box-shadow: 10px 10px 10px #888888;
+}
+
+.panel-offers, .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  background-color: #F6F1F7;
+}
+
+.panel-pending{
+}
+
+.panel-pending, .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  background-color: #F6F1F7;
+ 
+}
+
+.panel-in-progress{
+
+}
+  .panel-in-progress, .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  background-color: #F6F1F7;
+}
+
+.panel-completed{
+
+}
+  .panel-completed, .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  background-color: #F6F1F7;
+}
+
+.panel-declined{
+
+}
+  .panel-declined, .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  background-color: #F6F1F7;
+}
+

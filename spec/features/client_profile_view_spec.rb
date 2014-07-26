@@ -23,6 +23,7 @@ describe 'client profile view' do
 			fill_in "Mobile", with: "06666 666 666"
 			fill_in "Role", with: "Director"
 			fill_in "Date of Birth", with: "01/01/1960"
+			attach_file 'Image', Rails.root.join('spec/images/company_logo.jpg')
 			click_button "Update"
 		end
 
@@ -86,6 +87,9 @@ describe 'client profile view' do
 			expect(page).to have_content '1960-01-01'
 		end
 		
+		it 'shows the client their chosen avatar or image' do
+			expect(page).to have_css 'img.uploaded-pic'
+		end		
 
 		it 'has an edit button' do
 			expect(page).to have_link 'Edit'

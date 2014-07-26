@@ -2,10 +2,10 @@
     <h3>Profile for <%= @developer.name || "user" %></h3>
         <% if @developer.image.present? %>
             <%= image_tag @developer.image.url(:thumb), class: 'uploaded-pic' %>
-        <% elsif @developer.avatarUrl != "" %>
+        <% elsif (@developer.avatarUrl != "") && (@developer.avatarUrl != nil) %>
             <%= image_tag @developer.avatarUrl, class: 'uploaded-pic' %>
         <% else %>
-            <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+            <%= image_tag "github_avatar.png", class: 'default-pic' %>
         <% end %>
     <ul>
         <li>Email: <%= @developer.email %></li>
