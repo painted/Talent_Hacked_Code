@@ -53,8 +53,8 @@ body {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
-  // padding-top: 25px;
+  padding: 15px;
+  padding-top: 25px;
   font-size: 18px;
   line-height: 20px;
   height: 50px;
@@ -64,6 +64,16 @@ body {
   height: 75px;
 }
 
+.home-container {
+  position: absolute;
+  top: 10.55%;
+  width: 100%;
+}
+
+.home-container img{
+  max-width: 100%;
+}
+
 .navbar-text {
   float: left;
   margin-left: 15px;
@@ -71,22 +81,36 @@ body {
   padding-top: 12px;
 }
 
+.navbar-notification {
+  float: right;
+}
+
+.dropdown-toggle {
+position: right;
+}
+
+#logo-image {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
 #notice {
-  color: white;
-  background-color: #5cb85c;
-  float: left;
+  color: #5cb85c;
+  float: right;
   margin: 20px;
+  right: 1000px;
+
 }
 
 #alert {
-  color: white;
-  background-color: #d9534f;
+  color: red;
 }
 
 .uploaded-pic {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 100%;
+  max-height: 100%;
 }
+
 
 .default-pic {
   max-width: 100px;
@@ -102,6 +126,11 @@ body {
 #page-wrapper {
   width: 100%;
   padding: 5px 15px;
+}
+
+.panel-offers {
+  color: 4099FF;
+  background-color: 4099FF;
 }
 
 /* Nav Announcements */

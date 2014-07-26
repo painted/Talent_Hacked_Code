@@ -21,6 +21,7 @@
       </div>
     </div><!-- /.row -->
 
+<<<<<<< HEAD
     <div class="col-lg-13">
       <div class="panel panel-info">
         <div class="panel-heading">
@@ -31,6 +32,19 @@
             <div class="col-xs-6 text-right">
               <p class="announcement-heading">30</p>
               <p class="announcement-text">Offers</p>
+=======
+      <div class="col-lg-13">
+        <div class="panel panel-offers">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-check-square-o fa-5x"></i>
+              </div>
+              <div class="col-xs-6 text-right">
+                <p class="announcement-heading">30</p>
+                <p class="announcement-text">Offers</p>
+              </div>
+>>>>>>> 35e6d43fd367452788a1ea2991f07253773b950a
             </div>
           </div>
         </div>
@@ -45,41 +59,18 @@
       </div>
     </div>
 
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-6">
-              <i class="fa fa-file-text fa-5x"></i>
-            </div>
-            <div class="col-xs-6 text-right">
-              <p class="announcement-heading">6</p>
-              <p class="announcement-text">Pending</p>
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer announcement-bottom">
-          <div class="row">
-              <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
-            <div class="col-xs-6 text-right">
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-6">
-              <i class="fa fa-edit fa-5x"></i>
-            </div>
-            <div class="col-xs-6 text-right">
-              <p class="announcement-heading">3</p>
-              <p class="announcement-text">In Progress</p>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="panel panel-pending">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-file-text fa-5x"></i>
+              </div>
+              <div class="col-xs-6 text-right">
+                <p class="announcement-heading">6</p>
+                <p class="announcement-text">Pending</p>
+              </div>
             </div>
           </div>
         </div>
@@ -94,16 +85,17 @@
       </div>
     </div>
 
-    <div class="col-lg-3">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-6">
-              <i class="fa fa-tasks fa-5x"></i>
-            </div>
-            <div class="col-xs-6 text-right">
-              <p class="announcement-heading">27</p>
-              <p class="announcement-text">Completed</p>
+      <div class="col-lg-3">
+        <div class="panel panel-in-progress">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-edit fa-5x"></i>
+              </div>
+              <div class="col-xs-6 text-right">
+                <p class="announcement-heading">3</p>
+                <p class="announcement-text">In Progress</p>
+              </div>
             </div>
           </div>
         </div>
@@ -118,16 +110,43 @@
       </div>
     </div>
 
-    <div class="col-lg-3">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-6">
-              <i class="fa fa-check-square-o fa-5x"></i>
+      <div class="col-lg-3">
+        <div class="panel panel-completed">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-tasks fa-5x"></i>
+              </div>
+              <div class="col-xs-6 text-right">
+                <p class="announcement-heading">27</p>
+                <p class="announcement-text">Completed</p>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div class="panel-footer announcement-bottom">
+          <div class="row">
+              <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
             <div class="col-xs-6 text-right">
-              <p class="announcement-heading">14</p>
-              <p class="announcement-text">Declined</p>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="col-lg-3">
+        <div class="panel panel-declined">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-check-square-o fa-5x"></i>
+              </div>
+              <div class="col-xs-6 text-right">
+                <p class="announcement-heading">14</p>
+                <p class="announcement-text">Declined</p>
+              </div>
             </div>
           </div>
         </div>
