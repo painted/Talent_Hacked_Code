@@ -26,15 +26,12 @@ html {
   min-height: 100%;
 }
 
-
-
 body {
   margin-top: 75px;
   margin-bottom: 60px; /* Margin bottom by footer height */
   background-color: #eee;
   padding-bottom: 125px;
 }
-
 
 .msg-index {
   margin-top: 15%;
@@ -101,15 +98,22 @@ position: right;
 
 #notice {
   color: #5cb85c;
-  float: right;
-  margin: 20px;
-  right: 1000px;
-
+  line-height: 20px;
+  margin-left: 900px;
+  padding-top: 25px;
+  width: 270px;
 }
 
 #alert {
   color: red;
+  line-height: 20px;
+  margin-left: 900px;
+  padding-top: 25px;
+  width: 270px;
 }
+
+/* Profile photo
+-----------------
 
 .uploaded-pic {
   max-width: 100%;
