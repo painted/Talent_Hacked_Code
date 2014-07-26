@@ -36,7 +36,8 @@
             <li>Name: <%= project.name %></li>
             <li>Deadline: <%= project.deadline %></li>
             <li>Budget: <%= number_to_currency(project.budget, :unit => "£") %></li>
-            <li>Industry: <%= project.projectIndustry %></li><br><br>
+            <li>Industry: <%= project.projectIndustry %></li>
+            <li>Description: <%= project.description %></li><br><br>
         <% end %>
     </ul>
 <% else %>
