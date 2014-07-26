@@ -13,11 +13,6 @@
   padding: 5px 15px;
 }
 
-.panel-offers {
-  color: 4099FF;
-  background-color: 4099FF;
-}
-
 /* Nav Announcements */
 
 .announcement-heading {
@@ -128,62 +123,61 @@ table.tablesorter thead tr th:hover {
 /* Panel Styling 
 --------------------------------------*/
 
-.panel-offers {
-	box-shadow: 10px 10px 10px #888888;
-}
+// .panel-offers {
 
-.panel-offers, .panel-heading {
-  padding: 10px 15px;
-  border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
-  background-color: #F6F1F7;
-}
+// }
 
-.panel-pending{
-}
+// .panel-offers, .panel-heading {
+//   border-bottom: 1px solid transparent;
+//   border-top-right-radius: 3px;
+//   border-top-left-radius: 3px;
+//   background-color: #F6F1F7;
+// }
 
-.panel-pending, .panel-heading {
-  padding: 10px 15px;
-  border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
-  background-color: #F6F1F7;
+// .panel-pending{
+// }
+
+// .panel-pending, .panel-heading {
+//   padding: 10px 15px;
+//   border-bottom: 1px solid transparent;
+//   border-top-right-radius: 3px;
+//   border-top-left-radius: 3px;
+//   background-color: #F6F1F7;
  
-}
+// }
 
-.panel-in-progress{
+// .panel-in-progress{
 
-}
-  .panel-in-progress, .panel-heading {
-  padding: 10px 15px;
-  border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
-  background-color: #F6F1F7;
-}
+// }
+//   .panel-in-progress, .panel-heading {
+//   padding: 10px 15px;
+//   border-bottom: 1px solid transparent;
+//   border-top-right-radius: 3px;
+//   border-top-left-radius: 3px;
+//   background-color: #F6F1F7;
+// }
 
-.panel-completed{
+// .panel-completed{
 
-}
-  .panel-completed, .panel-heading {
-  padding: 10px 15px;
-  border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
-  background-color: #F6F1F7;
-}
+// }
+//   .panel-completed, .panel-heading {
+//   padding: 10px 15px;
+//   border-bottom: 1px solid transparent;
+//   border-top-right-radius: 3px;
+//   border-top-left-radius: 3px;
+//   background-color: #F6F1F7;
+// }
 
-.panel-declined{
+// .panel-declined{
 
-}
-  .panel-declined, .panel-heading {
-  padding: 10px 15px;
-  border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
-  background-color: #F6F1F7;
-}
+// }
+//   .panel-declined, .panel-heading {
+//   padding: 10px 15px;
+//   border-bottom: 1px solid transparent;
+//   border-top-right-radius: 3px;
+//   border-top-left-radius: 3px;
+//   background-color: #F6F1F7;
+// }
 
 /* Sticky footer-dashboard styles
 -------------------------------------------------- */
