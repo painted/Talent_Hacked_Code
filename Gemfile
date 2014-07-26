@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'omniauth-linkedin-oauth2'
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 gem "paperclip", github: 'thoughtbot/paperclip'
 gem 'rmagick'
 gem 'aws-sdk'
