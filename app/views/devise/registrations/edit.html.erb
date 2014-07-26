@@ -4,20 +4,20 @@
   <% if current_developer %>
       <% if current_developer.image.present? %>
           <%= image_tag current_developer.image.url(:thumb), class: 'uploaded-pic' %>
-      <% elsif @developer.avatarUrl != "" %>
-          <%= image_tag @developer.avatarUrl, class: 'uploaded-pic' %>
+    <% elsif (current_developer.avatarUrl != "") && (current_developer.avatarUrl != nil) %>
+          <%= image_tag current_developer.avatarUrl, class: 'uploaded-pic' %>
       <% else %>
-          <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+          <%= image_tag "github_avatar.png", class: 'default-pic' %>
       <% end %>
   <% end %>
 
    <% if current_client %>
       <% if current_client.image.present? %>
           <%= image_tag current_client.image.url(:thumb), class: 'uploaded-pic' %>
-      <% elsif @client.avatarUrl != "" %>
-        <%= image_tag @client.avatarUrl, class: 'uploaded-pic' %>
+    <% elsif (current_client.avatarUrl != "") && (current_client.avatarUrl != nil) %>
+        <%= image_tag current_client.avatarUrl, class: 'uploaded-pic' %>
       <% else %>
-        <%= image_tag "github_avatar.png", class: 'uploaded-pic' %>
+        <%= image_tag "github_avatar.png", class: 'default-pic' %>
       <% end %>
   <% end %>
 
@@ -72,16 +72,17 @@
     <% end %>
 
     <% if current_developer %>
-    <div><%= f.label :dayrate, "Dayrate (GBP)" %><br />
-    <%= f.text_field :dayrate %></div>    
+        <div><%= f.label :dayrate, "Dayrate (GBP)" %><br />
+        <%= f.text_field :dayrate %></div>    
+    <% end %>
+
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
     <%= f.label :image %>
     <%= f.file_field :image %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
 
      <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
       <%= f.password_field :password, autocomplete: "off" %></div>
