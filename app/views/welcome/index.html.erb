@@ -1,5 +1,6 @@
 <!-- Begin page content -->
-<div class="container">
+<div class="home-container" alt="mindmap">
+  <img src="/assets/mind_map.jpg">
   <% if developer_signed_in? %>
     <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
   <% elsif client_signed_in? %>
@@ -9,7 +10,7 @@
   <% end %>
 
   <% if !(current_developer || current_client) %>
-    <div class="container">
+    <div class="container" img src="/images/mindmap.jpg" alt="mindmap">
       <p align="center">
       <%= link_to "Clients", new_client_registration_path, class: "btn btn-primary btn-lg" %>
       <%= link_to "Developers", new_developer_registration_path, class: "btn btn-primary btn-lg" %></p>
