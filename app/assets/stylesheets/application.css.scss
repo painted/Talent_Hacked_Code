@@ -25,6 +25,11 @@ html {
   min-height: 100%;
 }
 
+// body {
+//   background: url(/assets/mind_map.jpg);
+//   background-size: 100%;
+//   background-repeat: no-repeat;
+// }
 
 // body {
 //   margin-top: 75px;
@@ -73,6 +78,16 @@ html {
 
 .home-container img{
   max-width: 100%;
+}
+
+.home-container section {
+  position: fixed;
+  top: 40%;
+  left: 25%;
+  width: 49%;
+  padding: 1.4em;
+  background: rgba(255,255,255, .8);
+  border-radius: .4em;
 }
 
 .navbar-text {
