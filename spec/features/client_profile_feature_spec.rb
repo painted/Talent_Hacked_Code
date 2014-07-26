@@ -119,6 +119,13 @@ describe 'client profile form' do
 			expect(find_field("Date of Birth").value).to eq '1970-01-01'
 		end
 
+		it 'can fill-in/change the Company bio' do
+			fill_in "Company Bio", with: "YoYoYoYoYoYoYoYoYoYoYoYoYoYoYoYoYoYo"
+			click_button "Update"
+			visit edit_client_registration_path
+			expect(find_field("Company Bio").value).to eq 'YoYoYoYoYoYoYoYoYoYoYoYoYoYoYoYoYoYo'
+		end
+
 		# it 'has an initial default avatar image' do
 		# 	visit edit_client_registration_path
 		# 	expect(page).to have_css 'img.default-pic'
