@@ -1,5 +1,5 @@
 <div class="home-container" alt="mindmap">
-  <img src="/assets/mind_map.jpg">
+  <%= image_tag("mind_map.jpg", alt: "Talent Hacked") %>
   <section>
   <% if developer_signed_in? %>
     <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
