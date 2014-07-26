@@ -15,7 +15,7 @@
  */
 
 @import "bootstrap-sprockets";
-@import "bootstrap"; 
+@import "bootstrap";
 
 /* Main styling
 -------------------------------------------------- */
@@ -29,23 +29,27 @@ body {
   margin-top: 75px;
   margin-bottom: 60px; /* Margin bottom by footer height */
   background-color: #eee;
-  // opacity: 0.5;
-  // padding-top: 75px;
   padding-bottom: 125px;
 }
 
-// body > .container {
-//   padding: 60px 15px 0;
-// }
+.jumbotron {
+  background: image-url('new_img.jpg') center;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
 
-// .counter-line {
-//   background-color: silver;
-//   font-size: 20px;
-//   font-weight: bold;
-//   padding-top: 12px;
-//   margin-top: -30px;
-//   height: 50px;
-// }
+.msg-index {
+  margin-top: 15%;
+  color: #21759b;
+}
+
+#logo-image {
+  margin-top: 15px;
+  margin-left: 15px;
+}
 
 .navbar-brand {
   float: left;
@@ -65,29 +69,6 @@ body {
   margin-left: 15px;
   margin-right: 15px;
   padding-top: 12px;
-}
-
-// .jumbotron {
-//   // margin-top: 60px;	
-//   // background: image-url('keyboard.jpg') no-repeat;
-//   background-color: silver;
-//   height: 400px;
-//   // image-height: 100%;
-//   padding-top: 125px;
-//   padding-bottom: 125px;
-//   // opacity:
-//   // width: 1280px;
-//   // height: 500px;
-//   color: white;
-// }
-
-// .jumbotron h1 {
-//   font-size: 54px;
-// }
-
-#logo-image {
-  margin-top: 15px;
-  margin-left: 15px;
 }
 
 #notice {
@@ -150,26 +131,27 @@ table.tablesorter thead tr th:hover {
   /* Wrappers */
 
   #wrapper {
-  padding-left: 225px;
+    padding-left: 225px;
   }
 
   #page-wrapper {
-  padding: 15px 25px;
+    padding: 15px 25px;
   }
 
   /* Side Nav */
 
   .side-nav {
-  margin-left: -225px;
-  left: 225px;
-  width: 225px;
-  position: fixed;
-  top: 50px;
-  height: 100%;
-  border-radius: 0;
-  border: none;
-  background-color: #222222;
-  overflow-y: auto;
+    margin-top: 25px;
+    margin-left: -225px;
+    left: 225px;
+    width: 225px;
+    position: fixed;
+    top: 50px;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: #222222;
+    overflow-y: auto;
   }
 
   /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
@@ -206,6 +188,12 @@ table.tablesorter thead tr th:hover {
   width: 225px;
   }
 
+  .navbar-inverse {
+    background-color: #222222;
+    border-color: none;
+    border: 0px;
+  }
+
   .navbar-inverse .navbar-nav>li>a:hover,
   .navbar-inverse .navbar-nav>li>a:focus {
   background-color: #080808;
@@ -217,29 +205,44 @@ table.tablesorter thead tr th:hover {
   }
 }
 
-.img_bg {
-background: url(/assets/new_img.jpg) no-repeat;
-height: 700px;
-margin-top: -20px;
-margin-bottom: -121px;
-width: 110%;
-margin-left: -53px;
-position: relative;
-}
-
 /* Sticky footer styles
 -------------------------------------------------- */
 .footer {
+  background-color: rgba(0,0,0, 0.8);
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 65px;
-  background-color: black;
+}
+.footer-dashboard {
+  background-color: none;
+  position: absolute;
 }
 .container .text-muted {
   margin: 20px 0;
   float: right;
+  color: white;
+}
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Sticky footer-dashboard styles
+-------------------------------------------------- */
+.footer-dashboard {
+  background-color: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 65px;
+}
+.container .text-muted-2 {
+  margin: 20px 0;
+  float: right;
+  color: #464646;
 }
 .footer > .container {
   padding-right: 15px;

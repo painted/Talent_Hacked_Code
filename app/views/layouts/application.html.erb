@@ -22,15 +22,15 @@
             <%= link_to image_tag("talent_hacked_italic_swoosh_white.png", alt: "Talent Hacked"), '/' %>
           </div>
         </div>
-          <div class="navbar-right">
-            <%= content_tag(:p, notice, id: 'notice') if notice %>
-            <%= content_tag(:p, alert,  id: 'alert') if alert  %>
-          </div>
+        <div class="flash-message">
+          <%= content_tag(:p, notice, id: 'notice') if notice %>
+          <%= content_tag(:p, alert,  id: 'alert') if alert  %>
+        </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown user-dropdown">
             <% if current_developer %>
-              <%= link_to "#{current_developer.email}", dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %>
+              <%= link_to "#{current_developer.email}", dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %><b class="caret"></b>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Dashboard', dashboard_path, method: :get %></li>
                 <li><%= link_to 'Show profile', developer_path(current_developer.id) %></li>
