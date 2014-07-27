@@ -1,8 +1,15 @@
-<ul class="nav navbar-nav side-nav nav-links">
-  <li><%= link_to "<i class='fa fa-dashboard'></i> Dashboard".html_safe, dashboard_path, method: :get %></li>
-  <li><%= link_to "<i class='fa fa-file-text'></i> Offers".html_safe, dashboard_path, method: :get %></li>
-  <li><%= link_to "<i class='fa fa-edit'></i> Pending".html_safe, dashboard_path, method: :get %></li>
-  <li><%= link_to "<i class='fa fa-tasks'></i> In Progress".html_safe, dashboard_path, method: :get %></li>
-  <li><%= link_to "<i class='fa fa-check-square-o'></i> Completed".html_safe, dashboard_path, method: :get %></li>
-  <li><%= link_to "<i class='fa fa-exclamation-circle'></i> Declined".html_safe, dashboard_path, method: :get %></li>
-</ul>
+<!-- Sidebar -->
+<nav class="navbar navbar-inverse">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+      <li><%= link_to "<i class='fa fa-dashboard'></i> Dashboard".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-file-text'></i> Offers".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-edit'></i> Pending".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-tasks'></i> In Progress".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-check-square-o'></i> Completed".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-exclamation-circle'></i> Declined".html_safe, dashboard_path, method: :get %></li>
+    </ul>
+
+  </div><!-- /.navbar-collapse -->
+</nav>
