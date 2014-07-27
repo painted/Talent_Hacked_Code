@@ -11,10 +11,8 @@
 	<%= csrf_meta_tags %>
 	</head>
 	<body>
-    <div class="flash-message">
-      <%= content_tag(:p, notice, id: 'notice') if notice %>
-      <%= content_tag(:p, alert,  id: 'alert') if alert  %>
-    </div>
+    <%= content_tag(:p, notice, id: 'notice') if notice %>
+    <%= content_tag(:p, alert,  id: 'alert') if alert  %>
     <%= render 'dashboards/shim' %>
     <%= render 'layouts/header' %>
     <%= yield %>
