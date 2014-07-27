@@ -2,12 +2,12 @@
   <div id="page-wrapper">
 
     <ul class="nav navbar-nav side-nav">
-      <li><i class="fa fa-dashboard fa-1x"></i><%= link_to 'Dashboard', dashboard_path, method: :get, class: "active" %></li>
-      <li><i class="fa fa-file-text"></i><%= link_to 'Offers', dashboard_path, method: :get %></li>
-      <li><i class="fa fa-edit"></i><%= link_to 'Pending', dashboard_path, method: :get %></li>
-      <li><i class="fa fa-tasks"></i><%= link_to 'In Progress', dashboard_path, method: :get %></li>
-      <li><i class="fa fa-check-square-o"></i><%= link_to 'Completed', dashboard_path, method: :get %></li>
-      <li><i class="fa fa-exclamation-circle"></i><%= link_to 'Declined', dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-dashboard'></i> Dashboard".html_safe, dashboard_path, method: :get, class: "active" %></li>
+      <li><%= link_to "<i class='fa fa-file-text'></i> Offers".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-edit'></i> Pending".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-tasks'></i> In Progress".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-check-square-o'></i> Completed".html_safe, dashboard_path, method: :get %></li>
+      <li><%= link_to "<i class='fa fa-exclamation-circle'></i> Declined".html_safe, dashboard_path, method: :get %></li>
     </ul>
 
     <div class="row">

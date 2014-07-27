@@ -31,35 +31,34 @@
         </div>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-right navbar-user">
+          <ul class="nav navbar-nav navbar-right ">
             <li class="dropdown user-dropdown">
             <% if current_developer %>
-              <%= link_to "#{current_developer.email}", dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %><b class="caret"></b>
+              <%= link_to "<i class='fa fa-user'></i> #{current_developer.email} <i class='fa fa-chevron-down'></i>".html_safe, dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %>
               <ul class="dropdown-menu">
-                <li><%= link_to 'Dashboard', dashboard_path, method: :get %></li>
-                <li><%= link_to 'Show profile', developer_path(current_developer.id) %></li>
-                <li><%= link_to 'Edit profile', edit_developer_registration_path, method: :get %></li>
+                <li><%= link_to "<i class='fa fa-dashboard'></i> Dashboard".html_safe, dashboard_path, method: :get %></li>
+                <li><%= link_to "<i class='fa fa-align-justify'></i> Show profile".html_safe, developer_path(current_developer.id) %></li>
+                <li><%= link_to "<i class='fa fa-gear'></i> Edit profile".html_safe, edit_developer_registration_path, method: :get %></li>
                 <li class="divider"></li>
-                <li><%= link_to 'Sign out', destroy_developer_session_path, method: :delete %></li>
+                <li><%= link_to "<i class='fa fa-power-off'></i> Sign out".html_safe, destroy_developer_session_path, method: :delete %></li>
               </ul>
             <% elsif current_client %>
-              <%= link_to "#{current_client.email}", dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %>
+              <%= link_to "<i class='fa fa-user'></i> #{current_client.email} <i class='fa fa-chevron-down'></i>".html_safe, dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %>
               <ul class="dropdown-menu">
-                <li><%= link_to 'Dashboard', dashboard_path, method: :get %></li>
-                <li><%= link_to 'Show profile', client_path(current_client.id) %></li>
-                <li><%= link_to 'Edit profile', edit_client_registration_path, method: :get %></li>
+                <li><%= link_to "<i class='fa fa-dashboard'></i> Dashboard".html_safe, dashboard_path, method: :get %></li>
+                <li><%= link_to "<i class='fa fa-align-justify'></i> Show profile".html_safe, client_path(current_client.id) %></li>
+                <li><%= link_to "<i class='fa fa-gear'></i> Edit profile".html_safe, edit_client_registration_path, method: :get %></li>
                 <li class="divider"></li>
-                <li><%= link_to 'Sign out', destroy_client_session_path, method: :delete %></li>
+                <li><%= link_to "<i class='fa fa-power-off'></i> Sign out".html_safe, destroy_client_session_path, method: :delete %></li>
               </ul>
             <% else %>
-             
+              <%= link_to "Have an account? <i class='fa fa-chevron-down'></i>".html_safe, dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %>
               <ul class="dropdown-menu">
                 <li><%= link_to "Developer Sign in", new_developer_session_path %></li>
                 <li><%= link_to "Developer Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin) %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Client Sign in", new_client_session_path %></li>
               </ul>
-              <%= link_to "Have an account?", dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %>
             <% end %>
             </li>
           </ul>
