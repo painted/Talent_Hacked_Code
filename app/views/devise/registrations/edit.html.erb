@@ -16,61 +16,61 @@
                 <%= devise_error_messages! %>
 
                 <div><%= f.label :name %><br />
-                <%= f.text_field :name, autofocus: true %></div>
+                <%= f.text_field :name, autofocus: true, class: "form-control" %></div>
 
                 <div><%= f.label :email %><br />
-                <%= f.email_field :email %></div>
+                <%= f.email_field :email, class: "form-control"  %></div>
 
                  <div><%= f.label :phone %><br />
-                <%= f.text_field :phone %></div>
+                <%= f.text_field :phone, class: "form-control" %></div>
 
                 <div><%= f.label :address %><br />
-                <%= f.text_field :address %></div>
+                <%= f.text_field :address, class: "form-control" %></div>
 
                 <div><%= f.label :website %><br />
-                <%= f.text_field :website %></div>
+                <%= f.text_field :website, class: "form-control" %></div>
 
                 <div><%= f.label :github %><br />
-                <%= f.text_field :github %></div>
+                <%= f.text_field :github, class: "form-control" %></div>
 
                 <div><%= f.label :twitter %><br />
-                <%= f.text_field :twitter %></div>
+                <%= f.text_field :twitter, class: "form-control" %></div>
 
                 <div><%= f.label :facebook %><br />
-                <%= f.text_field :facebook %></div>
+                <%= f.text_field :facebook, class: "form-control" %></div>
 
                <div><%= f.label :linkedinPublicUrl, "LinkedIn Url" %><br />
-                <%= f.text_field :linkedinPublicUrl %></div>
+                <%= f.text_field :linkedinPublicUrl, class: "form-control" %></div>
 
                 <div><%= f.label :avatarUrl, "Avatar Url" %><br />
-                <%= f.text_field :avatarUrl %></div>
+                <%= f.text_field :avatarUrl, class: "form-control" %></div>
 
                 <div><%= f.label :dob, "Date of Birth" %><br />
-                <%= f.text_field :dob %></div>
+                <%= f.text_field :dob, class: "form-control" %></div>
 
                 <% if current_client %>
                 <div><%= f.label :industry %><br />
-                <%= f.text_field :industry %></div>
+                <%= f.text_field :industry, class: "form-control" %></div>
 
                 <div><%= f.label :contact, "Contact Name" %><br />
-                <%= f.text_field :contact %></div>
+                <%= f.text_field :contact, class: "form-control" %></div>
 
                 <div><%= f.label :mobile %><br />
-                <%= f.text_field :mobile %></div>
+                <%= f.text_field :mobile, class: "form-control" %></div>
 
                 <div><%= f.label :role %><br />
-                <%= f.text_field :role %></div>
+                <%= f.text_field :role, class: "form-control" %></div>
 
                 <div><%= f.label :companyBio, "Company Bio" %><br />
-                <%= f.text_area :companyBio %></div>
+                <%= f.text_area :companyBio, class: "form-control" %></div>
                 <% end %>
 
                 <% if current_developer %>
                     <div><%= f.label :dayrate, "Dayrate (GBP)" %><br/>
-                    <%= f.text_field :dayrate %></div>  
+                    <%= f.text_field :dayrate, class: "form-control" %></div>  
 
                     <div><%= f.label :bio %><br/>
-                    <%= f.text_field :bio %></div>  
+                    <%= f.text_field :bio, class: "form-control" %></div>  
                 <% end %>
 
 
@@ -82,10 +82,10 @@
                 <%= f.file_field :image %>
 
                  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-                  <%= f.password_field :password, autocomplete: "off" %></div>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control" %></div>
 
                 <div><%= f.label :password_confirmation %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %></div>
 
               <!--   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
                   <%= f.password_field :current_password, autocomplete: "off" %></div> -->
@@ -98,21 +98,21 @@
               <figure>
                 <% if current_developer %>
                     <% if current_developer.image.present? %>
-                        <%= image_tag current_developer.image.url(:thumb), class: 'uploaded-pic' %>
+                        <%= image_tag current_developer.image.url(:thumb), class: 'img-circle img-responsive uploaded-pic' %>
                   <% elsif (current_developer.avatarUrl != "") && (current_developer.avatarUrl != nil) %>
-                        <%= image_tag current_developer.avatarUrl, class: 'uploaded-pic' %>
+                        <%= image_tag current_developer.avatarUrl, class: 'img-circle img-responsive uploaded-pic' %>
                     <% else %>
-                        <%= image_tag "github_avatar.png", class: 'default-pic' %>
+                        <%= image_tag "github_avatar.png", class: 'img-circle img-responsive default-pic' %>
                     <% end %>
                 <% end %>
 
                  <% if current_client %>
                     <% if current_client.image.present? %>
-                        <%= image_tag current_client.image.url(:thumb), class: 'uploaded-pic' %>
+                        <%= image_tag current_client.image.url(:thumb), class: 'img-circle img-responsive uploaded-pic' %>
                   <% elsif (current_client.avatarUrl != "") && (current_client.avatarUrl != nil) %>
-                      <%= image_tag current_client.avatarUrl, class: 'uploaded-pic' %>
+                      <%= image_tag current_client.avatarUrl, class: 'img-circle img-responsive uploaded-pic' %>
                     <% else %>
-                      <%= image_tag "github_avatar.png", class: 'default-pic' %>
+                      <%= image_tag "github_avatar.png", class: 'img-circle img-responsive default-pic' %>
                     <% end %>
                 <% end %>
               </figure>
