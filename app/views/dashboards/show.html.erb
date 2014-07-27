@@ -1,32 +1,19 @@
 <div id="wrapper">
   <div id="page-wrapper">
-
-    <ul class="nav navbar-nav side-nav">
-      <li><i class="fa fa-dashboard"></i><%= link_to 'Dashboard', dashboard_path, method: :get, class: "active" %></li>
-      <li><i class="fa fa-file-text"></i><%= link_to 'Offers', dashboard_path, method: :get %></li>
-      <li><i class="fa fa-edit"></i><%= link_to 'Pending', dashboard_path, method: :get %></li>
-      <li><i class="fa fa-tasks"></i><%= link_to 'In Progress', dashboard_path, method: :get %></li>
-      <li><i class="fa fa-check-square-o"></i><%= link_to 'Completed', dashboard_path, method: :get %></li>
-      <li><i class="fa fa-exclamation-circle"></i><%= link_to 'Declined', dashboard_path, method: :get %></li>
-    </ul>
-
+    <%= render 'dashboards/sidenav' %>
     <div class="row">
       <div class="col-lg-12">
-        <h1><i class="fa fa-dashboard"></i></span> Dashboard <small>Statistics Overview</small></h1>
-
-        <div class="alert alert-success alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          Latest tweets from Talent Hacked will go here.
-        </div>
+        <h1><i class="fa fa-dashboard"></i> Dashboard <small>Statistics Overview</small></h1>
       </div>
     </div><!-- /.row -->
 
-      <div class="col-lg-13">
-        <div class="panel panel-offers">
-          <div class="panel-heading">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-info">
+          <div class="panel-heading offers">
             <div class="row">
               <div class="col-xs-6">
-                <i class="fa fa-check-square-o fa-5x"></i>
+                <i class="fa fa-file-text fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
                 <p class="announcement-heading">30</p>
@@ -34,25 +21,23 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer announcement-bottom">
-          <div class="row">
-              <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
-            <div class="col-xs-6 text-right">
-              <i class="fa fa-arrow-circle-right"></i>
+          <div class="panel-footer announcement-bottom">
+            <div class="row">
+                <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
+              <div class="col-xs-6 text-right">
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
       <div class="col-lg-3">
-        <div class="panel panel-pending">
-          <div class="panel-heading">
+        <div class="panel panel-info">
+          <div class="panel-heading pending">
             <div class="row">
               <div class="col-xs-6">
-                <i class="fa fa-file-text fa-5x"></i>
+                <i class="fa fa-edit fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
                 <p class="announcement-heading">6</p>
@@ -60,24 +45,23 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer announcement-bottom">
-          <div class="row">
-              <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
-            <div class="col-xs-6 text-right">
-              <i class="fa fa-arrow-circle-right"></i>
+          <div class="panel-footer announcement-bottom">
+            <div class="row">
+                <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
+              <div class="col-xs-6 text-right">
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
       <div class="col-lg-3">
-        <div class="panel panel-in-progress">
-          <div class="panel-heading">
+        <div class="panel panel-info">
+          <div class="panel-heading in-progress">
             <div class="row">
               <div class="col-xs-6">
-                <i class="fa fa-edit fa-5x"></i>
+                <i class="fa fa-tasks fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
                 <p class="announcement-heading">3</p>
@@ -85,24 +69,23 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer announcement-bottom">
-          <div class="row">
-              <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
-            <div class="col-xs-6 text-right">
-              <i class="fa fa-arrow-circle-right"></i>
+          <div class="panel-footer announcement-bottom">
+            <div class="row">
+                <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
+              <div class="col-xs-6 text-right">
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
       <div class="col-lg-3">
-        <div class="panel panel-completed">
-          <div class="panel-heading">
+        <div class="panel panel-info">
+          <div class="panel-heading completed">
             <div class="row">
               <div class="col-xs-6">
-                <i class="fa fa-tasks fa-5x"></i>
+                <i class="fa fa-check-square-o fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
                 <p class="announcement-heading">27</p>
@@ -110,50 +93,41 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="panel-footer announcement-bottom">
-          <div class="row">
-              <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
-            <div class="col-xs-6 text-right">
-              <i class="fa fa-arrow-circle-right"></i>
+          <div class="panel-footer announcement-bottom">
+            <div class="row">
+                <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
+              <div class="col-xs-6 text-right">
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
       <div class="col-lg-3">
-        <div class="panel panel-declined">
-          <div class="panel-heading">
+        <div class="panel panel-info">
+          <div class="panel-heading declined">
             <div class="row">
               <div class="col-xs-6">
-                <i class="fa fa-check-square-o fa-5x"></i>
+                <i class="fa fa-exclamation-circle fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
-                <p class="announcement-heading">14</p>
+                <p class="announcement-heading">7</p>
                 <p class="announcement-text">Declined</p>
               </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer announcement-bottom">
-          <div class="row">
-              <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
-            <div class="col-xs-6 text-right">
-              <i class="fa fa-arrow-circle-right"></i>
+          <div class="panel-footer announcement-bottom">
+            <div class="row">
+                <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
+              <div class="col-xs-6 text-right">
+                <i class="fa fa-arrow-circle-right"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    </div>
-        <div class="footer-dashboard">
-      <div class="container">
-        <p class="text-muted-2">© Talent Hacked 2014</p>
-      </div>
-    </div>
-
+      
   </div><!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
+<%= render 'dashboards/footer' %>
