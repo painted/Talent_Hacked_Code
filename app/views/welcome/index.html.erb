@@ -1,5 +1,6 @@
-<!-- Begin page content -->
-<div class="container">
+<div class="home-container" alt="mindmap">
+  <%= image_tag("mind_map.jpg", alt: "Talent Hacked") %>
+  <section>
   <% if developer_signed_in? %>
     <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
   <% elsif client_signed_in? %>
@@ -9,17 +10,15 @@
   <% end %>
 
   <% if !(current_developer || current_client) %>
-    <div class="container">
-      <p align="center">
-      <%= link_to "Clients", new_client_registration_path, class: "btn btn-primary btn-lg" %>
-      <%= link_to "Developers", new_developer_registration_path, class: "btn btn-primary btn-lg" %></p>
-    </div>
-  <% end %>
+
+    <p align="center">
+    <%= link_to "Clients", new_client_registration_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "Developers", new_developer_registration_path, class: "btn btn-primary btn-lg" %></p>
+    <% end %>
 </div>
 
 <div class="footer">
   <div class="container">
     <p class="text-muted">© Talent Hacked 2014</p>
   </div>
-</div>    
-<!-- End page content -->
+</div>

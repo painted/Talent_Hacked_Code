@@ -29,7 +29,7 @@ describe 'welcome page' do
  
         before do
             developer = Developer.create email: 'f@f.com', password: '12345678', password_confirmation: '12345678'
-            login_as developer
+            login_as developer, scope: :developer
             visit root_path
         end
 

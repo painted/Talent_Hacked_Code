@@ -7,12 +7,15 @@ class ApplicationController < ActionController::Base
    before_filter :configure_permitted_parameters, if: :devise_controller?
    before_filter :sign_out_all_users, if: Proc.new { current_client && current_developer }
 
+  
+
   	protected
+
 
   	def configure_permitted_parameters
     	devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
     	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation) }
-    	devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :dob, :gender, :email, :phone, :address, :bio, :interests, :skills, :qualifications, :experience, :dayRate, :exInd, :languages, :website, :github, :twitter, :facebook, :linkedinPublicUrl, :avatarUrl, :password, :password_confirmation, :current_password, :industry, :role, :mobile, :contact, :image, :dayrate, :deadline, :projectIndustry) }
+    	devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :dob, :gender, :email, :phone, :address, :bio, :companyBio, :interests, :skills, :qualifications, :experience, :dayRate, :exInd, :languages, :website, :github, :twitter, :facebook, :linkedinPublicUrl, :avatarUrl, :password, :password_confirmation, :current_password, :industry, :role, :mobile, :contact, :image, :dayrate, :deadline, :projectIndustry) }
     	devise_parameter_sanitizer.for(:password_edit) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
     	devise_parameter_sanitizer.for(:password_new) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
   	end
