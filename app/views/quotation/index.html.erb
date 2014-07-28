@@ -1,0 +1,15 @@
+<%= form_for [@developer, @project] do |form| %>
+	<%= form.label :quote %>
+	<%= form.text_field :quote %>
+
+	<%= form.label :time %>
+	<%= form.text_field :time %>
+
+	<%= form.label :explanation, 'Explanation of workflow' %>
+	<%= form.text_field :explanation %>
+
+	<%= form.label :pitch, 'Pitch (why you)' %>
+	<%= form.text_field :pitch %>
+
+	<%= form.submit %>
+<% end %>

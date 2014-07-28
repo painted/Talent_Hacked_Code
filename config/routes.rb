@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   resources :clients do 
     resources :projects
+      # resource :quotes
   end
   resource :dashboard
   root 'welcome#index' 
