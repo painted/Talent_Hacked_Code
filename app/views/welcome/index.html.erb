@@ -12,8 +12,8 @@
   <% if !(current_developer || current_client) %>
 
     <p align="center">
-    <a data-toggle="modal" data-remote="<%=new_client_registration_path%>#modal-edit-fields" data-target="#developersModal" class="btn btn-primary btn-lg">Clients</a>
-    <a data-toggle="modal" data-remote="<%=new_developer_registration_path%>#modal-edit-fields" data-target="#developersModal" class="btn btn-primary btn-lg">Developers</a>
+    <a data-toggle="modal" data-remote="<%=new_client_registration_path%>#modal-edit-fields" data-target="#developersModal" class="btn btn-primary btn-lg" href='/clients/sign_up'>Clients</a>
+    <a data-toggle="modal" data-remote="<%=new_developer_registration_path%>#modal-edit-fields" data-target="#developersModal" class="btn btn-primary btn-lg" href='/developers/sign_up'>Developers</a>
     </p>
     <% end %>
 </div>
