@@ -7,7 +7,10 @@ class ApplicationController < ActionController::Base
    before_filter :configure_permitted_parameters, if: :devise_controller?
    before_filter :sign_out_all_users, if: Proc.new { current_client && current_developer }
 
+  
+
   	protected
+
 
   	def configure_permitted_parameters
     	devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
