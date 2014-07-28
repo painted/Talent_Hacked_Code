@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
    before_filter :configure_permitted_parameters, if: :devise_controller?
    before_filter :sign_out_all_users, if: Proc.new { current_client && current_developer }
 
+   layout :layout_by_resource
+
   	protected
 
   	def configure_permitted_parameters
@@ -20,5 +22,13 @@ class ApplicationController < ActionController::Base
     def sign_out_all_users
         sign_out(current_client)
         sign_out(current_developer)
+    end
+
+    def layout_by_resource
+      if devise_controller? && (resource_name == :developer || resource_name == :client) && action_name == 'new'
+        false
+      else
+        'application'  
+      end
     end
 end
