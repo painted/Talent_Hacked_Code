@@ -42,7 +42,10 @@
             <li><a data-toggle="modal" data-remote="<%=new_developer_session_path%>#modal-edit-fields" data-target="#developersModal">Developer Sign in</a></li>
             <li><%= link_to "Developer Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin) %></li>
             <li class="divider"></li>
+
             <li><a data-toggle="modal" data-remote="<%=new_client_session_path%>#modal-edit-fields" data-target="#developersModal">Client Sign in</a></li>
+            <li class="divider"></li>
+            <li><%= link_to "Admin Sign in", admin_root_path %></li>
           </ul>
         <% end %>
       </li>
