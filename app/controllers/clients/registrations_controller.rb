@@ -16,9 +16,9 @@ class Clients::RegistrationsController < Devise::RegistrationsController
       account_update_params.delete("email")
     end
 
-   if account_update_params[:current_password].blank?      
+    if account_update_params[:current_password].blank?      
       account_update_params.delete("current_password")
-    endp
+    end
 
     @client = Client.find(current_client.id)
     if @client.update_attributes(account_update_params)
@@ -36,5 +36,4 @@ class Clients::RegistrationsController < Devise::RegistrationsController
   def after_update_path_for(resource)
     client_path(resource)
   end
-
 end
