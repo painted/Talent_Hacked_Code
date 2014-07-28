@@ -51,13 +51,14 @@
                 <li class="divider"></li>
                 <li><%= link_to 'Sign out', destroy_client_session_path, method: :delete %></li>
               </ul>
-            <% else %>
-             
+            <% else %>             
               <ul class="dropdown-menu">
                 <li><%= link_to "Developer Sign in", new_developer_session_path %></li>
                 <li><%= link_to "Developer Sign in with LinkedIn", developer_omniauth_authorize_path(:linkedin) %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Client Sign in", new_client_session_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Admin Sign in", admin_root_path %></li>
               </ul>
               <%= link_to "Have an account?", dashboard_path, class: "dropdown-toggle", :data => {:toggle => "dropdown"} %>
             <% end %>

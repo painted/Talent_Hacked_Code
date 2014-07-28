@@ -10,7 +10,7 @@ describe 'developer profile form' do
 
 		before do
 			john = Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			login_as john
+			login_as john, scope: :developer
 			visit edit_developer_registration_path
 		end
 
