@@ -18,7 +18,7 @@ class Clients::RegistrationsController < Devise::RegistrationsController
 
    if account_update_params[:current_password].blank?      
       account_update_params.delete("current_password")
-    end
+    endp
 
     @client = Client.find(current_client.id)
     if @client.update_attributes(account_update_params)
