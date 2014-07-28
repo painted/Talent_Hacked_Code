@@ -1,19 +1,30 @@
 ActiveAdmin.register AdminUser do
 
+  controller do
+    def show
+      @page_title = "Admin Details"
+    end
+
+    def edit
+      @page_title = "Edit Admin"
+    end
+  end
+
   menu priority: 4, label: "Admins"
 
-  permit_params :email, :password, :password_confirmation
+  permit_params :name, :email, :password, :password_confirmation
 
-  index do
+  config.sort_order = "id_asc"
+
+  index :title => "Admins" do
     selectable_column
     id_column
+    column :name
     column :email
-    column :current_sign_in_at
-    column :sign_in_count
-    column :created_at
     actions
   end
 
+  filter :name
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count
@@ -21,6 +32,7 @@ ActiveAdmin.register AdminUser do
 
   form do |f|
     f.inputs "Admin Details" do
+      f.input :name
       f.input :email
       f.input :password
       f.input :password_confirmation
@@ -29,3 +41,5 @@ ActiveAdmin.register AdminUser do
   end
 
 end
+
+
