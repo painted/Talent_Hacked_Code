@@ -46,6 +46,7 @@ gem 'gritter', '1.1.0'
 gem "paperclip", github: 'thoughtbot/paperclip'
 gem 'rmagick'
 gem 'aws-sdk'
+gem 'thin'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
