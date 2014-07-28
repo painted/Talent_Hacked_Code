@@ -13,7 +13,7 @@ describe 'admin can verify a developer' do
 
 		context 'logged in as developer' do
 			before do
-				john = Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
+				@john = Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
 				bob = AdminUser.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')		
 				login_as bob, scope: :admin_user
 			end
@@ -21,7 +21,7 @@ describe 'admin can verify a developer' do
 			it 'can be verified by admin' do 
 				visit admin_root_path
 				click_link "Developers"
-				click_link "1"
+				click_link @john.id
 				click_link "Edit Developer"
 				find(:css, "#developer_verified").set(true)
 				click_button "Update Developer"
@@ -34,7 +34,7 @@ describe 'admin can verify a developer' do
 			it 'can be unverified by admin' do 
 				visit admin_root_path
 				click_link "Developers"
-				click_link "1"
+				click_link @john.id
 				click_link "Edit Developer"
 				find(:css, "#developer_verified").set(true)
 				click_button "Update Developer"
