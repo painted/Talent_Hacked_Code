@@ -1,5 +1,5 @@
 <div class="home-container" alt="mindmap">
-  <img src="/assets/mind_map.jpg">
+  <%= image_tag("mind_map.jpg", alt: "Talent Hacked") %>
   <section>
   <% if developer_signed_in? %>
     <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
@@ -15,11 +15,10 @@
     <%= link_to "Clients", new_client_registration_path, class: "btn btn-primary btn-lg" %>
     <%= link_to "Developers", new_developer_registration_path, class: "btn btn-primary btn-lg" %></p>
     <% end %>
-
 </div>
 
 <div class="footer">
   <div class="container">
     <p class="text-muted">© Talent Hacked 2014</p>
   </div>
-</div>    
+</div>

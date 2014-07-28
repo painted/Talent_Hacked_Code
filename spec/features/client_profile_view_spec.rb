@@ -29,7 +29,7 @@ describe 'client profile view' do
 		end
 
 		it 'can welcome the client by name' do
-			expect(page).to have_content 'Profile for Pizza Express'
+			expect(page).to have_content 'Pizza Express'
 		end
 
 		it 'can show the client his email' do

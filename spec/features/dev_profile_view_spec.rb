@@ -26,7 +26,7 @@ describe 'developer profile view' do
 		end
 
 		it 'can welcome the developer by name' do
-			expect(page).to have_content 'Profile for John'
+			expect(page).to have_content 'John'
 		end
 
 		it 'can show the developer his email' do
