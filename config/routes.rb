@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
   devise_for :developers, :controllers => { omniauth_callbacks: 'developers/omniauth_callbacks', :registrations => "developers/registrations"}
   
   devise_for :clients, :controllers => {:registrations => "clients/registrations"}
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   resource :dashboard
   root 'welcome#index' 
   get 'developers/:id' => 'developers#show', as: :developer 
+
+      
   # get "/auth/:provider/callback" => "autentications#create"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

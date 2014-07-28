@@ -6,7 +6,7 @@ describe 'developer profile view' do
 
 		before do
 			john = Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
-			login_as john
+			login_as john, scope: :developer
 			visit edit_developer_registration_path
 			fill_in "Name", with: "John"
 			fill_in "Email", with: "a@a.com"
@@ -20,12 +20,13 @@ describe 'developer profile view' do
 			fill_in "LinkedIn Url", with: "https://www.linkedin_url"
 			fill_in "Avatar Url", with: "https://www.avatar_url"
 			fill_in "Dayrate", with: "500"
+			fill_in "Bio", with: "Lorem Ipsum"
 			attach_file 'Image', Rails.root.join('spec/images/developer.jpg')
 			click_button "Update"
 		end
 
 		it 'can welcome the developer by name' do
-			expect(page).to have_content 'Profile for John'
+			expect(page).to have_content 'John'
 		end
 
 		it 'can show the developer his email' do
@@ -74,6 +75,10 @@ describe 'developer profile view' do
 
 		it 'shows the developer his/her chosen avatar or image' do
 			expect(page).to have_css 'img.uploaded-pic'
+		end
+
+		it 'shows the developer his/her bio' do
+			expect(page).to have_content 'Lorem Ipsum'
 		end
 
 		it 'has an edit button' do
