@@ -138,6 +138,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
+    gritter (1.1.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -301,6 +302,7 @@ DEPENDENCIES
   devise
   font-awesome-rails
   formtastic!
+  gritter (= 1.1.0)
   heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails

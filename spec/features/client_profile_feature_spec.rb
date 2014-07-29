@@ -11,7 +11,7 @@ describe 'client profile form' do
 		end
 
 		it 'can visit the edit profile page' do
-			expect(page).to have_content 'Client Profile'
+			expect(page).to have_content 'Profile'
 		end
 
 		it 'can fill-in/change their name' do

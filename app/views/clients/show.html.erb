@@ -28,18 +28,7 @@
           <p><strong>Mobile:</strong> <%= @client.mobile %></p>
           <p><strong>Contact Role:</strong> <%= @client.role %></p>
           <p><strong>Contact Date of Birth:</strong> <%= @client.dob %></p>
-          <h3>Projects</h3>
-            <% if @client.projects.any? %>
-              <% @client.projects.each do |project| %>
-                <p><strong>Name:</strong> <%= project.name %></p>
-                <p><strong>Deadline:</strong> <%= project.deadline %></p>
-                <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
-                <p><strong>Industry:</strong> <%= project.projectIndustry %></p>
-                <p><strong>Description:</strong> <%= project.description %></p>
-                <% end %>
-              <% else %>
-              <%= 'No projects yet' %> <%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %>
-            <% end %>
+          <%= render 'projects/show' %>
         </div>
         <div class="col-xs-12 col-sm-4 text-center">
           <figure>

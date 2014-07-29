@@ -25,6 +25,16 @@
                   <p><strong>Date of Birth: </strong> <%= @developer.dob %></p>
                   <p><strong>Bio: </strong> <%= @developer.bio %></p>
                   <p><strong>Avatar: </strong> <%= @developer.avatarUrl %></p>
+                  <p><strong>Skills:</strong>
+                  <ul>
+                     <% if @developer.skills.any? %>
+                      <% @developer.skills.each do |skill| %>
+                        <li><%= skill.name %></li>
+                      <% end %>
+                    <% else %>
+                        No skills
+                    <% end %>
+                  </ul></p>
             </div>
             <div class="col-xs-12 col-sm-4 text-center">
               <figure>

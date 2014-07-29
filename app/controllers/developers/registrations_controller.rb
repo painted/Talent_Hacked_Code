@@ -20,7 +20,15 @@ class Developers::RegistrationsController < Devise::RegistrationsController
       account_update_params.delete("current_password")
     end
 
+    if account_update_params[:skills]
+      # current_developer.skills.clear
+      account_update_params.delete('skills').split(',').map do |skill_name| 
+        skill = Skill.find_or_create_by(name: skill_name.strip) 
+        current_developer.skills << skill
+      end
+    end
     @developer = Developer.find(current_developer.id)
+
     if @developer.update_attributes(account_update_params)
       set_flash_message :notice, :updated
       # Sign in the user bypassing validation in case their password changed
@@ -30,6 +38,12 @@ class Developers::RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
+
+    #  if @developer.skills.any?
+    #   @skill = @developer.skills
+    # else
+    #   No skills
+    #  end
 
   protected
 
