@@ -1,5 +1,10 @@
 class ProjectsController < ApplicationController
 
+	def index
+		@client = Client.find params[:client_id]
+		@project = @client.projects.all
+	end
+
 	def new
 		@client = Client.find params[:client_id]
 		@project = @client.projects.new

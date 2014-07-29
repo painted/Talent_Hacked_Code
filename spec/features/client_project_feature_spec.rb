@@ -7,7 +7,7 @@ describe 'client project profile view' do
 		before do
 			george = Client.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
 			login_as george, scope: :client
-			visit client_path(george.id)
+			visit client_projects_path(george.id)
 		end
 
 		it 'has a link to add a new project' do 
