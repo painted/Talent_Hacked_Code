@@ -1,5 +1,8 @@
 class Developer < ActiveRecord::Base
-
+  has_many :skills, through: :levels
+  has_many :levels
+  has_many :languages, through: :proficiencies
+  has_many :proficiencies
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

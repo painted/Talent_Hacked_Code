@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use postgresql as the database for Active Record
@@ -42,6 +42,7 @@ gem 'devise'
 gem 'omniauth-linkedin-oauth2'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'gritter', '1.1.0'
 gem "paperclip", github: 'thoughtbot/paperclip'
 gem 'rmagick'
 gem 'aws-sdk'

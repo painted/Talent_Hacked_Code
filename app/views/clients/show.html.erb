@@ -35,6 +35,7 @@
           <p><strong>Mobile:</strong> <%= @client.mobile %></p>
           <p><strong>Contact Role:</strong> <%= @client.role %></p>
           <p><strong>Contact Date of Birth:</strong> <%= @client.dob %></p>
+
           </div>
 
           <h3>Projects</h3>
@@ -49,6 +50,9 @@
               <% else %>
               <%= 'No projects yet' %> <%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %>
             <% end %>
+
+          
+
         </div>
         <div class="col-xs-12 col-sm-4 text-center">
           <figure>
