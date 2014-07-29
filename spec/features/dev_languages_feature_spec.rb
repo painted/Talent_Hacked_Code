@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 describe 'languages' do
+  let!(:george) {Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')}
   before do
-    george = Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
+    # george = Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
     login_as george, scope: :developer
     Language.create(name: 'English')
     visit developer_path(george.id)
@@ -18,6 +19,7 @@ describe 'languages' do
     click_link 'Edit'
     fill_in 'Languages', with: 'English'
     click_button 'Update'
+    visit developer_path(george.id)
     expect(page).to have_content 'English'
   end
 

@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 20140729194717) do
     t.string   "projectIndustry"
     t.text     "description"
     t.boolean  "verified",        default: false, null: false
+    t.string   "status"
   end
 
   add_index "projects", ["contact_id"], name: "index_projects_on_contact_id", using: :btree
