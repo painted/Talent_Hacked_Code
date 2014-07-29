@@ -28,11 +28,21 @@
                   <p><strong>Skills:</strong>
                   <ul>
                      <% if @developer.skills.any? %>
-                      <% @developer.skills.each do |skill| %>
+                      <% @developer.skills.uniq.each do |skill| %>
                         <li><%= skill.name %></li>
                       <% end %>
                     <% else %>
                         No skills
+                    <% end %>
+                  </ul></p>
+                  <p><strong>Languages:</strong>
+                  <ul>
+                     <% if @developer.languages.any? %>
+                      <% @developer.languages.uniq.each do |language| %>
+                        <li><%= language.name %></li>
+                      <% end %>
+                    <% else %>
+                        No languages
                     <% end %>
                   </ul></p>
             </div>

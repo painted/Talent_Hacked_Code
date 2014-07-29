@@ -9,8 +9,18 @@
       <p><strong>Skills:</strong>
         <ul>
            <% if project.skills.any? %>
-            <% project.skills.each do |skill| %>
+            <% project.skills.uniq.each do |skill| %>
               <li><%= skill.name %></li>
+            <% end %>
+          <% else %>
+              No skills yet
+          <% end %>
+        </ul></p>
+      <p><strong>Languages:</strong>
+        <ul>
+           <% if project.languages.any? %>
+            <% project.languages.uniq.each do |language| %>
+              <li><%= language.name %></li>
             <% end %>
           <% else %>
               No skills yet

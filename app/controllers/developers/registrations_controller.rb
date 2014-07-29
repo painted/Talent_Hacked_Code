@@ -27,6 +27,15 @@ class Developers::RegistrationsController < Devise::RegistrationsController
         current_developer.skills << skill
       end
     end
+
+    if account_update_params[:languages]
+      # current_developer.languages.clear
+      account_update_params.delete('languages').split(',').map do |language_name| 
+        language = Language.find_or_create_by(name: language_name.strip) 
+        current_developer.languages << language
+      end
+    end
+
     @developer = Developer.find(current_developer.id)
 
     if @developer.update_attributes(account_update_params)
