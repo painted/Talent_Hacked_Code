@@ -5,4 +5,5 @@ class Project < ActiveRecord::Base
   has_many :languages, through: :proficiencies
   has_many :levels
   has_many :proficiencies
+  has_many :statuses
 end
