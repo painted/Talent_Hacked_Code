@@ -12,7 +12,7 @@ ActiveAdmin.register Project do
 
   menu priority: 3
   
-  permit_params :name, :deadline, :client_id, :budget, :projectIndustry, :description, :verified
+  permit_params :name, :deadline, :client_id, :budget, :projectIndustry, :description, :verified, :status
  
   config.sort_order = "id_asc"
 
