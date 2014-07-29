@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729094100) do
+ActiveRecord::Schema.define(version: 20140729103655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,12 @@ ActiveRecord::Schema.define(version: 20140729094100) do
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
   add_index "developers", ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "languages", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "levels", force: true do |t|
     t.integer  "skill_id"
     t.integer  "developer_id"
@@ -150,6 +156,18 @@ ActiveRecord::Schema.define(version: 20140729094100) do
   add_index "levels", ["developer_id"], name: "index_levels_on_developer_id", using: :btree
   add_index "levels", ["project_id"], name: "index_levels_on_project_id", using: :btree
   add_index "levels", ["skill_id"], name: "index_levels_on_skill_id", using: :btree
+
+  create_table "proficiencies", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "developer_id"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "proficiencies", ["developer_id"], name: "index_proficiencies_on_developer_id", using: :btree
+  add_index "proficiencies", ["language_id"], name: "index_proficiencies_on_language_id", using: :btree
+  add_index "proficiencies", ["project_id"], name: "index_proficiencies_on_project_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"
