@@ -7,31 +7,21 @@ class ProjectsController < ApplicationController
 
 	def create
 		@client = Client.find params[:client_id]
-		params['project'].delete('skills')
+		skill = params['project'].delete('skills')
 		@project = @client.projects.create project_params
+
+		added_skills = skill.split(',').map do |skill_name|
+			Skill.find_or_create_by(name: skill_name.strip)
+		end
+		@project.skills << added_skills
 		redirect_to client_path(@client.id)
 	end
 
 	def show
 		@client = Client.find params[:client_id]
 		@project = @client.projects.find params[:id]
-		if params['project']['skills']
-      params['project']['skills'].split(',').map do |skill_name| 
-      skill = Skill.find_or_create_by(name: skill_name.strip) 
-        @project.skills << skill
-    	end
-    end
 	end
-# puts project_params
-  #   if project_params[:skills]
-		# @client = Client.find params[:client_id]
-		# @project = @client.projects.find params[:id]
 
-  #     project_params.delete('skills').split(',').map do |skill_name| 
-  #       skill = Skill.find_or_create_by(name: skill_name.strip) 
-  #       @project.skills << skill
-  #     end
-  #   end
 
 	private
 	def project_params

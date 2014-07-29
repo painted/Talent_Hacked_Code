@@ -16,7 +16,7 @@ describe 'Skills for projects' do
   it 'can add a skill to a project' do
     click_link 'Add Project'
     fill_in 'Skills', with: 'Ruby'
-    click_button 'Update'
+    click_button 'Create Project'
     expect(page).to have_content 'Ruby'
   end
 end

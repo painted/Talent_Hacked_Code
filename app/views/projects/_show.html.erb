@@ -8,12 +8,12 @@
       <p><strong>Description:</strong> <%= project.description %></p>
       <p><strong>Skills:</strong>
         <ul>
-           <% if @project.skills.any? %>
-            <% @project.skills.each do |skill| %>
+           <% if project.skills.any? %>
+            <% project.skills.each do |skill| %>
               <li><%= skill.name %></li>
             <% end %>
           <% else %>
-              No skills
+              No skills yet
           <% end %>
         </ul></p>
       <% end %>

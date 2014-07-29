@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe 'skills' do
+  before do
+    george = Developer.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
+    login_as george, scope: :developer
+    Skill.create(name: 'Ruby')
+    visit developer_path(george.id)
+  end
+  
   context 'there are no skills' do
     it 'no skills' do
       expect(page).to have_content 'No skills'
