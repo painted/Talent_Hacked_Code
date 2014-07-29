@@ -10,25 +10,49 @@
   <div class="row">
     <div class="col-md-offset-2 col-md-8 ">
       <div class="col-sm-12">
-        <div class="col-xs-12 col-sm-8">
+        <div class="col-xs-12 col-sm-8 test-jesus">
           <h3><%= @client.name || @client.email %></h3>
           <br>
+          <div class="company-info">
           <p><strong>Email:</strong> <%= @client.email %></p>
           <p><strong>Phone Number:</strong> <%= @client.phone %></p>
           <p><strong>Address:</strong> <%= @client.address %></p>
+          <p><strong>Industry:</strong> <%= @client.industry %></p>
+          <p><strong>Company Bio:</strong> <%= @client.companyBio %></p>
+          </div>
+
+          <div class="media">
           <p><strong>Website:</strong> <%= @client.website %></p>
           <p><strong>Github:</strong> <%= @client.github %></p>
           <p><strong>Twitter:</strong> <%= @client.twitter %></p>
           <p><strong>Facebook:</strong> <%= @client.facebook %></p>
           <p><strong>Linkedin:</strong> <%= @client.linkedinPublicUrl %></p>
-          <p><strong>Avatar:</strong> <%= @client.avatarUrl %></p>
-          <p><strong>Industry:</strong> <%= @client.industry %></p>
-          <p><strong>Company Bio:</strong> <%= @client.companyBio %></p>
+          </div>
+
+          <div class="contact-info">
           <p><strong>Contact Name:</strong> <%= @client.contact %></p>
+          <p><strong>Avatar:</strong> <%= @client.avatarUrl %></p>
           <p><strong>Mobile:</strong> <%= @client.mobile %></p>
           <p><strong>Contact Role:</strong> <%= @client.role %></p>
           <p><strong>Contact Date of Birth:</strong> <%= @client.dob %></p>
-          <%= render 'projects/show' %>
+
+          </div>
+
+          <h3>Projects</h3>
+            <% if @client.projects.any? %>
+              <% @client.projects.each do |project| %>
+                <p><strong>Name:</strong> <%= project.name %></p>
+                <p><strong>Deadline:</strong> <%= project.deadline %></p>
+                <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
+                <p><strong>Industry:</strong> <%= project.projectIndustry %></p>
+                <p><strong>Description:</strong> <%= project.description %></p>
+                <% end %>
+              <% else %>
+              <%= 'No projects yet' %> <%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %>
+            <% end %>
+
+          
+
         </div>
         <div class="col-xs-12 col-sm-4 text-center">
           <figure>
@@ -46,7 +70,7 @@
   </div>
   <div class="col-xs-12 col-sm-4 col-md-8 text-center">
     <br/>
-    <%= link_to 'Edit', edit_client_registration_path(@client.id), class: "btn btn-primary" %>
+    <%= link_to 'Edit', edit_client_registration_path(@client.id), class: "btn btn-primary edit" %>
   </div>
   <%= render 'dashboards/footer' %>
   </div>
