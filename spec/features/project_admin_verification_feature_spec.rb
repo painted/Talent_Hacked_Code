@@ -4,7 +4,6 @@ describe 'admin can verify:' do
 
 	context 'project' do
 
-		
 		it 'is not verified when created' do 
 			paul = Client.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
 			login_as paul, scope: :client
@@ -25,7 +24,6 @@ describe 'admin can verify:' do
 				click_link "Projects"
 				click_link @coolproject.id
 				click_link "Edit Project"
-				# save_and_open_page
 				find(:css, "#project_verified").set(true)
 				click_button "Update Project"
 				within '.row-verified' do
