@@ -7,31 +7,6 @@
       </div>
     </div><!-- /.row -->
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="panel panel-info">
-          <div class="panel-heading offers">
-            <div class="row">
-              <div class="col-xs-6">
-                <i class="fa fa-file-text fa-5x"></i>
-              </div>
-              <div class="col-xs-6 text-right">
-                <p class="announcement-heading">30</p>
-                <p class="announcement-text">Offers</p>
-              </div>
-            </div>
-          </div>
-          <div class="panel-footer announcement-bottom">
-            <div class="row">
-                <%= link_to 'More', dashboard_path, method: :get, class: "col-xs-6" %>
-              <div class="col-xs-6 text-right">
-                <i class="fa fa-arrow-circle-right"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="col-lg-3">
         <div class="panel panel-info">
           <div class="panel-heading pending">
@@ -40,7 +15,12 @@
                 <i class="fa fa-edit fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
-                <p class="announcement-heading">6</p>
+                <% if current_client %>
+                  <p class="announcement-heading">
+                  <%= @client.projects.select{|project| project.status == 'Pending' }.count %></p>
+                <% else %>
+                  <p class="announcement-heading">0</p>
+                <% end %>
                 <p class="announcement-text">Pending</p>
               </div>
             </div>
@@ -64,7 +44,12 @@
                 <i class="fa fa-tasks fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
-                <p class="announcement-heading">3</p>
+                <% if current_client %>
+                  <p class="announcement-heading">
+                  <%= @client.projects.select{|project| project.status == 'In Progress' }.count %></p>
+                <% else %>
+                  <p class="announcement-heading"></p>
+                <% end %>
                 <p class="announcement-text">In Progress</p>
               </div>
             </div>
@@ -88,7 +73,12 @@
                 <i class="fa fa-check-square-o fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
-                <p class="announcement-heading">27</p>
+                <% if current_client %>
+                  <p class="announcement-heading">
+                  <%= @client.projects.select{|project| project.status == 'Completed' }.count %></p>
+                <% else %>
+                  <p class="announcement-heading"></p>
+                <% end %>
                 <p class="announcement-text">Completed</p>
               </div>
             </div>
@@ -112,7 +102,12 @@
                 <i class="fa fa-exclamation-circle fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
-                <p class="announcement-heading">7</p>
+                <% if current_client %>
+                  <p class="announcement-heading">
+                  <%= @client.projects.select{|project| project.status == 'Declined' }.count %></p>
+                <% else %>
+                  <p class="announcement-heading"></p>
+                <% end %>
                 <p class="announcement-text">Declined</p>
               </div>
             </div>

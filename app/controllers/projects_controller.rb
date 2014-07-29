@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 		@client = Client.find params[:client_id]
 		skill = params['project'].delete('skills')
 		language = params['project'].delete('languages')
+		params['project']['status'] = 'Pending'
 		@project = @client.projects.create project_params
 
 		added_skills = skill.split(',').map do |skill_name|
@@ -19,7 +20,7 @@ class ProjectsController < ApplicationController
 		end
 		@project.languages << added_languages
 		@project.skills << added_skills
-		redirect_to client_path(@client.id)
+		redirect_to dashboard_path
 	end
 
 	def show
@@ -30,6 +31,6 @@ class ProjectsController < ApplicationController
 
 	private
 	def project_params
-		params[:project].permit(:name, :deadline, :client_id, :budget, :projectIndustry,:skills, :description)
+		params[:project].permit(:name, :deadline, :client_id, :budget, :projectIndustry,:skills, :description, :status)
 	end
 end

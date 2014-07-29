@@ -32,8 +32,8 @@ describe 'adding a project' do
 	let!(:fitsum) { Client.create name: 'Fitsum', email: 'f@f.com', password: '12345678', password_confirmation: '12345678'}
 	before do 
 		login_as fitsum, scope: :client
-		visit client_path(fitsum.id)
-		click_link 'Add Project'
+		visit dashboard_path(fitsum.id)
+		click_link 'New Project'
 	end
 
 

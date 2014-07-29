@@ -14,7 +14,7 @@ ActiveAdmin.register Client do
 
   menu priority: 2
 
-  permit_params :name, :dob, :gender, :email, :phone, :address, :bio, :companyBio, :interests, :skills, :qualifications, :experience, :dayRate, :exInd, :languages, :website, :github, :twitter, :facebook, :linkedinPublicUrl, :avatarUrl, :password, :password_confirmation, :current_password, :industry, :role, :mobile, :contact, :image, :dayrate, :deadline, :projectIndustry, :verified
+  permit_params :name, :dob, :gender, :email, :phone, :address, :bio, :companyBio, :interests, :skills, :qualifications, :experience, :dayRate, :exInd, :languages, :website, :github, :twitter, :facebook, :linkedinPublicUrl, :avatarUrl, :password, :password_confirmation, :current_password, :industry, :role, :mobile, :contact, :image, :dayrate, :deadline, :projectIndustry, :verified, :status
   
   index do
       selectable_column
