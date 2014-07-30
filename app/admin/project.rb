@@ -12,8 +12,8 @@ ActiveAdmin.register Project do
 
   menu priority: 3
   
-  permit_params :name, :deadline, :client_id, :budget, :projectIndustry, :description, :verified
- 
+  permit_params :name, :deadline, :client_id, :budget, :projectIndustry, :description, :verified, :status
+
   config.sort_order = "id_asc"
 
    index do
@@ -28,11 +28,22 @@ ActiveAdmin.register Project do
     column :budget
     column "Industry", sortable: :projectIndustry
     column :verified
+    column :status do |project|
+      project.statuses.where(:project_id => project.id).first[:status] unless project.statuses.where(:project_id => project.id).nil?
+    end
     actions
   end
 
-end
+    show do
+        attributes_table do
+            row :status do |project|
+                project.statuses.where(:project_id => project.id).first[:status] unless project.statuses.where(:project_id => project.id).nil?
+            end
+        end
+        default_main_content
+    end
 
+ end
 
 
 
