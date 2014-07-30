@@ -3,6 +3,12 @@ class ProjectsController < ApplicationController
 	def index
 		@client = Client.find params[:client_id]
 		@project = @client.projects.all
+		# @client.projects.each do |project|
+		# 	@project_pending if project.status == 'Pending'
+		# 	@project_in_progress if project.status == 'In Progress'
+		# 	@project_completed if project.status == 'Completed'
+		# 	@project_declined if project.status == 'Declined'
+		# end
 	end
 
 	def new
