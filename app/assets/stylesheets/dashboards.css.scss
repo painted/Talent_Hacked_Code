@@ -223,18 +223,28 @@ table.tablesorter thead tr th:hover {
 /* Dashboard hover over color
 ------------------------------------------------*/
 i.fa.fa-edit.fa-5x:hover {
-  color: yellow;
+  color: #FFECB0;
 }
 
 i.fa.fa-tasks.fa-5x:hover {
-  color: blue;
+  color: #D6F5FF;
 }
 
 i.fa.fa-check-square-o.fa-5x:hover {
-  color: green;
+  color: #B2FF9E;
 }
 
 i.fa.fa-exclamation-circle.fa-5x:hover {
-  color:red;
+  color:#FF6257;
 }
+
+a.col-xs-6:hover {
+  color: gray;
+}
+
+.panel-info > .panel-heading{
+  color: black;
+}
+
+
 

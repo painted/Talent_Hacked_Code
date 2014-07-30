@@ -1,3 +1,4 @@
+
 <p><h3>Projects</h3><%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %></p>
   <% if @client.projects.any? %>
     <% @client.projects.each do |project| %>
