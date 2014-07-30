@@ -31,7 +31,7 @@
             <div class="row">
               <div class="col-xs-6">
                 <% if current_client %> 
-                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client), method: :get, class: "col-xs-6" %>
+                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Pending'), method: :get, class: "col-xs-6" %>
                   <% else %>
                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, dashboard_path(), method: :get, class: "col-xs-6" %>  
                   <% end %>                
@@ -55,7 +55,7 @@
           <div class="panel-heading pending offers">
             <div class="row">
               <div class="col-xs-6">
-            <%= link_to "<i class='fa fa-tasks fa-5x'></i>".html_safe, dashboard_path, method: :get, class: "col-xs-6" %>
+            <%= link_to "<i class='fa fa-tasks fa-5x'></i>".html_safe, client_projects_path(@client, status: 'In Progress'), method: :get, class: "col-xs-6" %>
               </div>
               <div class="col-xs-6 text-right">
                 <% if current_client %>             

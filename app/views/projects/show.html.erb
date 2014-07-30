@@ -1,9 +1,13 @@
-<p><strong>Name:</strong><%= @project.name %></p>
-<p><strong>Deadline:</strong> <%= @project.deadline %></p>
-<p><strong>Budget:</strong> <%= number_to_currency(@project.budget, :unit => "£") %></p>
-<p><strong>Industry:</strong> <%= @project.projectIndustry %></p>
-<p><strong>Description:</strong> <%= @project.description %></p>
-<p><strong>Status:</strong> <%= @project.status %> </p>
-<p><strong>Skills:</strong>
-
- 
+<div id="wrapper">
+  <div id="page-wrapper">
+  <%= render 'dashboards/sidenav' %>
+    <p><strong>Name:</strong><%= @project.name %></p>
+    <p><strong>Deadline:</strong> <%= @project.deadline %></p>
+    <p><strong>Budget:</strong> <%= number_to_currency(@project.budget, :unit => "£") %></p>
+    <p><strong>Industry:</strong> <%= @project.projectIndustry %></p>
+    <p><strong>Description:</strong> <%= @project.description %></p>
+    <p><strong>Status:</strong> <%= @project.status %> </p>
+    <p><strong>Skills:</strong>
+  <%= render 'dashboards/footer' %>
+  </div>
+</div>
