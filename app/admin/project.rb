@@ -22,22 +22,20 @@ ActiveAdmin.register Project do
     column :name
     column "Client", sortable: :"client.name" do |project|
       client_id = project.client_id
-      client_name = Client.find(client_id).name
+      client_name = Client.find(client_id).name unless client_id == nil
     end
     column :deadline
     column :budget
     column "Industry", sortable: :projectIndustry
     column :verified
-    column :status do |project|
-      project.statuses.where(:project_id => project.id).first[:status] unless project.statuses.where(:project_id => project.id).nil?
-    end
+    column :status
     actions
   end
 
     show do
         attributes_table do
             row :status do |project|
-                project.statuses.where(:project_id => project.id).first[:status] unless project.statuses.where(:project_id => project.id).nil?
+                project.status unless project.status.nil?
             end
         end
         default_main_content
