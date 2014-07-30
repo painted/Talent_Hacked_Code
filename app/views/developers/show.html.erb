@@ -10,22 +10,28 @@
     <div class="row">
       <div class="col-md-offset-2 col-md-8 ">
         <div class="col-sm-12">
-            <div class="col-xs-12 col-sm-8">
+            <div class="col-xs-12 col-sm-8 test-jesus">
               <h3><%= @developer.name || @developer.email %></h3>
                   <br>
+                  <div class="personal-info">
                   <p><strong>Email: </strong> <%= @developer.email %></p>
                   <p><strong>Phone: </strong> <%= @developer.phone %></p>
                   <p><strong>Address: </strong> <%= @developer.address %></p>
+                   <p><strong>Date of Birth: </strong> <%= @developer.dob %></p>
+                  <p><strong>Avatar: </strong> <%= @developer.avatarUrl %></p>
+                  <p><strong>Bio: </strong> <%= @developer.bio %></p>
+                  </div>
+
+                  <div class="dev-skills">
+                  <p><strong>Skills:</strong>
                   <p><strong>Day Rate: </strong> <%= number_to_currency(@developer.dayrate, :unit => "£") %></p>
                   <p><strong>Twitter: </strong> <%= @developer.twitter %></p>
                   <p><strong>Facebook: </strong> <%= @developer.facebook %></p>
                   <p><strong>Linkedin: </strong> <%= @developer.linkedinPublicUrl %></p>
                   <p><strong>Github: </strong> <%= @developer.github %></p>
                   <p><strong>Website: </strong> <%= @developer.website %></p>
-                  <p><strong>Date of Birth: </strong> <%= @developer.dob %></p>
-                  <p><strong>Bio: </strong> <%= @developer.bio %></p>
-                  <p><strong>Avatar: </strong> <%= @developer.avatarUrl %></p>
-                  <p><strong>Skills:</strong>
+                  </div>
+
                   <ul>
                      <% if @developer.skills.any? %>
                       <% @developer.skills.uniq.each do |skill| %>
