@@ -27,7 +27,11 @@
           </div>
           <div class="panel-footer announcement-bottom">
             <div class="row">
+              <% if current_client %>
                 <%= link_to 'More', client_projects_path(@client), class: "col-xs-6" %>
+              <% else %>
+                <%= link_to 'More', dashboard_path, class: "col-xs-6" %>
+              <% end %>
               <div class="col-xs-6 text-right">
                 <i class="fa fa-arrow-circle-right"></i>
               </div>

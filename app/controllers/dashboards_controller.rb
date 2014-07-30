@@ -2,7 +2,7 @@ class DashboardsController < ApplicationController
 
   def show
     @client = current_client
-    @project = @client.projects
+    # @project = @client.projects
   end
   
 end
