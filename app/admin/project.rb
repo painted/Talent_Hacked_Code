@@ -1,7 +1,5 @@
 ActiveAdmin.register Project do
 
-
-
   controller do
     def show
       @page_title = "Project Details"
@@ -14,7 +12,7 @@ ActiveAdmin.register Project do
 
   menu priority: 3
   
-  permit_params :name, :deadline, :client_id, :budget, :projectIndustry, :description, :verified, :status, :skill_list
+  permit_params :name, :deadline, :client_id, :budget, :projectIndustry, :description, :verified, :status, :skill_list, :item_type, :item_id, :event, :whodunit, :object, :created_at
 
   config.sort_order = "id_asc"
 
