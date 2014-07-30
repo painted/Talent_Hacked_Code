@@ -1,33 +1,39 @@
-
-<p><h3>Projects</h3><%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %></p>
-  <% if @client.projects.any? %>
-    <% @client.projects.each do |project| %>
-      <p><strong>Name:</strong> <%= project.name %></p>
-      <p><strong>Deadline:</strong> <%= project.deadline %></p>
-      <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
-      <p><strong>Industry:</strong> <%= project.projectIndustry %></p>
-      <p><strong>Description:</strong> <%= project.description %></p>
-      <p><strong>Skills:</strong>
-        <ul>
-           <% if project.skills.any? %>
-            <% project.skills.uniq.each do |skill| %>
-              <li><%= skill.name %></li>
-            <% end %>
-          <% else %>
-              No skills yet
+<div id="wrapper">
+  <div id="page-wrapper">
+  <%= render 'dashboards/sidenav' %>
+    <p><h3>Projects</h3><%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %></p>
+      <% if @client.projects.any? %>
+        <% @client.projects.each do |project| %>
+          <p><strong><%= link_to 'Name:', client_project_path(@client, project) %></strong><%= project.name %></p>
+          <p><strong>Deadline:</strong> <%= project.deadline %></p>
+          <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
+          <p><strong>Industry:</strong> <%= project.projectIndustry %></p>
+          <p><strong>Description:</strong> <%= project.description %></p>
+          <p><strong>Status:</strong> <%= project.status %> </p>
+          <p><strong>Skills:</strong>
+            <ul>
+               <% if project.skills.any? %>
+                <% project.skills.uniq.each do |skill| %>
+                  <li><%= skill.name %></li>
+                <% end %>
+              <% else %>
+                  No skills yet
+              <% end %>
+            </ul></p>
+          <p><strong>Languages:</strong>
+            <ul>
+               <% if project.languages.any? %>
+                <% project.languages.uniq.each do |language| %>
+                  <li><%= language.name %></li>
+                <% end %>
+              <% else %>
+                  No skills yet
+              <% end %>
+            </ul></p>
           <% end %>
-        </ul></p>
-      <p><strong>Languages:</strong>
-        <ul>
-           <% if project.languages.any? %>
-            <% project.languages.uniq.each do |language| %>
-              <li><%= language.name %></li>
-            <% end %>
-          <% else %>
-              No skills yet
-          <% end %>
-        </ul></p>
+        <% else %>
+        <%= 'No projects yet' %> 
       <% end %>
-    <% else %>
-    <%= 'No projects yet' %> 
-  <% end %>
+  </div>
+</div>
+<%= render 'dashboards/footer' %>
