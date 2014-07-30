@@ -22,17 +22,9 @@
                   <p><strong>Bio: </strong> <%= @developer.bio %></p>
                   </div>
 
-                  <div class="dev-skills">
+                <div class="dev-skills">
                   <p><strong>Skills:</strong>
-                  <p><strong>Day Rate: </strong> <%= number_to_currency(@developer.dayrate, :unit => "£") %></p>
-                  <p><strong>Twitter: </strong> <%= @developer.twitter %></p>
-                  <p><strong>Facebook: </strong> <%= @developer.facebook %></p>
-                  <p><strong>Linkedin: </strong> <%= @developer.linkedinPublicUrl %></p>
-                  <p><strong>Github: </strong> <%= @developer.github %></p>
-                  <p><strong>Website: </strong> <%= @developer.website %></p>
-                  </div>
-
-                  <ul>
+                   <ul>
                      <% if @developer.skills.any? %>
                       <% @developer.skills.uniq.each do |skill| %>
                         <li><%= skill.name %></li>
@@ -41,6 +33,7 @@
                         No skills
                     <% end %>
                   </ul></p>
+
                   <p><strong>Languages:</strong>
                   <ul>
                      <% if @developer.languages.any? %>
@@ -51,7 +44,18 @@
                         No languages
                     <% end %>
                   </ul></p>
-            </div>
+                  
+
+                  <p><strong>Day Rate: </strong> <%= number_to_currency(@developer.dayrate, :unit => "£") %></p>
+                  <p><strong>Twitter: </strong> <%= @developer.twitter %></p>
+                  <p><strong>Facebook: </strong> <%= @developer.facebook %></p>
+                  <p><strong>Linkedin: </strong> <%= @developer.linkedinPublicUrl %></p>
+                  <p><strong>Github: </strong> <%= @developer.github %></p>
+                  <p><strong>Website: </strong> <%= @developer.website %></p>
+                </div>
+              </div>
+
+
             <div class="col-xs-12 col-sm-4 text-center">
               <figure>
                 <% if @developer.image.present? %>
