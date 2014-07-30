@@ -3,8 +3,7 @@ require 'rails_helper'
 describe 'admin can verify:' do
 
 	context 'client' do
-
-		
+	
 		it 'is not verified when created' do 
 			paul = Client.create(email: 'f@f.com', password: '12345678', password_confirmation: '12345678')
 			login_as paul, scope: :client
