@@ -30,13 +30,25 @@ class ProjectsController < ApplicationController
 		end
 		@project.languages << added_languages
 		@project.skills << added_skills
-		redirect_to dashboard_path
+		redirect_to client_project_path(@client, @project)
 	end
 
 	def show
 		@client = Client.find params[:client_id]
 		@project = @client.projects.find params[:id]
 	end
+
+		def edit
+   		@client = Client.find params[:client_id] 
+   		@project = @client.projects.find params[:id]
+  	end
+
+  	def update
+   		@client = Client.find params[:client_id] 
+   		@project = @client.projects.find params[:id]
+   		@contact.update project_params
+   		redirect_to client_project_path(@client, @project)
+  	end
 
 
 	private
