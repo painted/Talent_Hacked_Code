@@ -48,12 +48,9 @@
                 <p><strong>Description:</strong> <%= project.description %></p>
                 <% end %>
               <% else %>
-              <%= 'No projects yet' %> <%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %>
+              <%= 'No projects yet' %> 
             <% end %>
-
-          
-
->>>>>>> caa942e38c7f8b313b8995b8ad50f83b99288545
+            <%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %>
         </div>
         <div class="col-xs-12 col-sm-4 text-center">
           <figure>
