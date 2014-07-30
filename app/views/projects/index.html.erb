@@ -7,26 +7,6 @@
           <p><strong><%= link_to 'Name:', client_project_path(@client, project) %></strong><%= project.name %></p>
           <p><strong>Deadline:</strong> <%= project.deadline %></p>
           <p><strong>Status:</strong> <%= project.status %> </p>
-          <p><strong>Skills:</strong>
-            <ul>
-               <% if project.skills.any? %>
-                <% project.skills.uniq.each do |skill| %>
-                  <li><%= skill.name %></li>
-                <% end %>
-              <% else %>
-                  No skills yet
-              <% end %>
-            </ul></p>
-          <p><strong>Languages:</strong>
-            <ul>
-               <% if project.languages.any? %>
-                <% project.languages.uniq.each do |language| %>
-                  <li><%= language.name %></li>
-                <% end %>
-              <% else %>
-                  No skills yet
-              <% end %>
-            </ul></p>
           <% end %>
         <% else %>
         <%= 'No projects yet' %> 

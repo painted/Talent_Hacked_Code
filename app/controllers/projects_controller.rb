@@ -8,12 +8,6 @@ class ProjectsController < ApplicationController
 		else
 			@project = @client.projects
 		end
-		# @client.projects.each do |project|
-		# 	@project_pending if project.status == 'Pending'
-		# 	@project_in_progress if project.status == 'In Progress'
-		# 	@project_completed if project.status == 'Completed'
-		# 	@project_declined if project.status == 'Declined'
-		# end
 	end
 
 	def new
