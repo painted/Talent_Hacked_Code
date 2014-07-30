@@ -20,6 +20,17 @@ class Project < ActiveRecord::Base
 	# 	self.status = 'pending'
 	# end
 
+	def skill_list
+		skills.map(&:name).join(' ')
+	end
+
+	def skill_list=(list_of_skills)
+		skills.clear
+		added_skills = list_of_skills.split(' ').map(&:strip).uniq.each do |skill_name|
+			skills << Skill.find_or_create_by(name: skill_name)
+		end
+	end
+
 	def dev_match_project (dev_array, project_array)
 		match_count = 0
 		project_count = project_array.count
