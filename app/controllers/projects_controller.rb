@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
 		@user = current_client || current_developer
 
 		if params[:status]
-			@projects = @user.projects.where(status: params[:status])
+			if current_client
+				@projects = @user.projects.where(status: params[:status])
+			else 
+				@projects = @user.statuses.where(status: params[:status]).map(&:project)
+			end
 		else
 			@projects = @user.projects
 		end
@@ -53,27 +57,36 @@ class ProjectsController < ApplicationController
 	end
 
 	def edit
- 		@client = Client.find params[:client_id] 
- 		@project = @client.projects.find params[:id]
+		if params[:client_id]
+			@client = Client.find params[:client_id] 
+		else
+	 		@developer = Developer.find params[:developer_id]
+	 	end
+ 		@project = Project.find params[:id]
+ 		@status = @project.statuses.find_by(developer: current_developer)
 	end
 
 	def update
 		@project = Project.find(params[:id])
 		@status = @project.statuses.find_by(developer: current_developer)
 
-		@status.status = params[:answer]
+		@status.status = params[:answer] if params[:answer]
+		@status.update(params[:status].permit(:cost, :timeframe, :workflow, :pitch, :status)) if params[:status]
+
 		@status.save
 		if @status.status == 'declined'
 			redirect_to developer_projects_path(current_developer)
+		elsif params[:status]
+			redirect_to dashboard_path
 		else 
 			# redirect_to new_developer_quote_path(current_developer)
 			# redirect_to '/*'
-			redirect_to developer_projects_path(current_developer)
+			redirect_to edit_developer_project_path(current_developer, @project)
 		end
 	end
 
 	private
 	def project_params
-		params[:project].permit(:name, :deadline, :client_id, :budget, :projectIndustry, :skills, :description, :status)
+		params[:project].permit(:name, :deadline, :client_id, :developer_id, :budget, :projectIndustry, :skills, :description, :status, :timeframe, :workflow, :pitch, :cost)
 	end
 end
