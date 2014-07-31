@@ -4,9 +4,9 @@ class ProjectsController < ApplicationController
 		@user = current_client || current_developer
 
 		if params[:status]
-			@project = @user.projects.where(status: params[:status])
+			@projects = @user.projects.where(status: params[:status])
 		else
-			@project = @user.projects
+			@projects = @user.projects
 		end
 
 	
@@ -58,14 +58,22 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
- 		@client = Client.find params[:client_id] 
- 		@project = @client.projects.find params[:id]
- 		@contact.update project_params
- 		redirect_to client_project_path(@client, @project)
+		@project = Project.find(params[:id])
+		@status = @project.statuses.find_by(developer: current_developer)
+
+		@status.status = params[:answer]
+		@status.save
+		if @status.status == 'declined'
+			redirect_to developer_projects_path(current_developer)
+		else 
+			# redirect_to new_developer_quote_path(current_developer)
+			# redirect_to '/*'
+			redirect_to developer_projects_path(current_developer)
+		end
 	end
 
 	private
 	def project_params
-		params[:project].permit(:name, :deadline, :client_id, :budget, :projectIndustry,:skills, :description, :status)
+		params[:project].permit(:name, :deadline, :client_id, :budget, :projectIndustry, :skills, :description, :status)
 	end
 end

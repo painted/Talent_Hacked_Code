@@ -11,7 +11,7 @@ describe 'Skills for projects' do
   context 'when there are no skills' do
     it 'says that there are no skills yet' do
       visit client_project_path(george.id, project1.id)
-      expect(page).to have_content 'No skills yet'
+      expect(page).to have_content 'No skills'
     end
   end
 
@@ -25,10 +25,10 @@ describe 'Skills for projects' do
 
   it 'can not add the same skill to a project twice' do 
     click_link 'Add Project'
-    fill_in 'Skills', with: 'Ruby, Ruby'
+    fill_in 'Skills', with: 'Ruby,Ruby'
     click_button 'Create Project'
     # visit client_projects_path(george.id)    
     expect(page).to have_content 'Ruby'
-    expect(george.projects.last.skills.count).to eq 1
+    expect(Project.last.skills.count).to eq 1
   end
 end
