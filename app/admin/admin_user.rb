@@ -1,6 +1,7 @@
 ActiveAdmin.register AdminUser do
 
   controller do
+
     def show
       @page_title = "Admin Details"
     end
