@@ -27,8 +27,14 @@
 				<% else %>
 			    	No languages
 				<% end %>
-				<%= link_to 'Accept', project_path(@project, answer: 'pending_approval'), method: :patch %>
-	   			<%= link_to 'Decline', project_path(@project, answer: 'declined'), method: :patch %>
+
+
+				<% if current_developer %>
+					<% if @project.statuses.where(:developer_id => current_developer.id, :project_id => @project.id).first.status == 'pending' %>
+						<%= link_to 'Accept', project_path(@project, answer: 'pending_approval'), method: :patch %>
+	   					<%= link_to 'Decline', project_path(@project, answer: 'declined'), method: :patch %>
+	   				<% end %>
+	   			<% end %>
 			</ul></p>
 		</div>
 	</div>
