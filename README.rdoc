@@ -92,6 +92,7 @@ How to run tests:
 
 Authors:
 ==============
+Josh Fail-Brown			https://github.com/JoshFB/
 Kate Hamilton				https://github.com/katehamilton247
 Nadav Matalon	 			https://github.com/nadavmatalon
 Will Allen		 			https://github.com/painted
