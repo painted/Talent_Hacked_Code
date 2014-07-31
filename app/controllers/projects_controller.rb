@@ -1,24 +1,15 @@
 class ProjectsController < ApplicationController
 
 	def index
-		@client = Client.find params[:client_id]
+		@user = current_client || current_developer
 
 		if params[:status]
-			@project = @client.projects.where(status: params[:status])
+			@project = @user.projects.where(status: params[:status])
 		else
-			@project = @client.projects
+			@project = @user.projects
 		end
 
-		if current_client
-			@client = Client.find params[:client_id]
-			@project = @client.projects
-			
-		end
-		if current_developer
-			@developer = Developer.find params[:developer_id]
-			@project = @developer.projects
-		end
-
+	
 	# @client.projects.each do |project|
 		# 	@project_pending if project.status == 'Pending'
 		# 	@project_in_progress if project.status == 'In Progress'
