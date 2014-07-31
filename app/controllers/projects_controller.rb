@@ -1,9 +1,19 @@
 class ProjectsController < ApplicationController
 
 	def index
-		@client = Client.find params[:client_id]
-		@project = @client.projects.all
-		# @client.projects.each do |project|
+
+		if current_client
+			@client = Client.find params[:client_id]
+			@project = @client.projects
+			
+		end
+		if current_developer
+			@developer = Developer.find params[:developer_id]
+			@project = @developer.projects
+		end
+
+
+	# @client.projects.each do |project|
 		# 	@project_pending if project.status == 'Pending'
 		# 	@project_in_progress if project.status == 'In Progress'
 		# 	@project_completed if project.status == 'Completed'
@@ -35,8 +45,14 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@client = Client.find params[:client_id]
-		@project = @client.projects.find params[:id]
+		if current_client
+			@client = Client.find params[:client_id]
+			@project = @client.projects.find params[:id]
+		end
+		if current_developer
+			@developer = Developer.find params[:developer_id]
+			@project = @developer.projects.find params[:id]
+		end
 	end
 
 

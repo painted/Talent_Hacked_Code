@@ -7,23 +7,25 @@
       </div>
     </div><!-- /.row -->
 
+    <% if current_client %>
     <div class="row">
       <div class="col-lg-12">
         <div class="panel panel-info test-jesus">
           <div class="panel-heading offers">
             <div class="row">
-              <div class="col-xs-6">
-                <i class="fa fa-file-text fa-5x"></i>
+              <div class='col-xs-6'>
+                <%= link_to "<i class='fa fa-file-text fa-5x'></i>".html_safe, new_client_project_path(current_client), method: :get %>
               </div>
               <div class="col-xs-6 text-right">
-                <p class="announcement-heading">30</p>
-                <p class="announcement-text">Offers</p>
+                <p class="announcement-heading">New Project</p>
+                <p class="announcement-text"></p>
               </div>
             </div>
           </div>       
         </div>
       </div>
     </div> <!-- create a new project -->
+    <% end %>
 
       <div class="col-lg-12">
         <div class="panel panel-info test-jesus">
@@ -33,15 +35,15 @@
                 <% if current_client %> 
                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client), method: :get, class: "col-xs-6" %>
                   <% else %>
-                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, dashboard_path(), method: :get, class: "col-xs-6" %>  
+                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, developer_projects_path(@developer), method: :get, class: "col-xs-6" %>
                   <% end %>                
               </div>
               <div class="col-xs-6 text-right">
+                <p class="announcement-heading">
                 <% if current_client %>             
-                  <p class="announcement-heading">
                   <%= @client.projects.select{|project| project.status == 'Pending'}.count %></p>
                 <% else %>
-                  <p class="announcement-heading">0</p>
+                  <%= @developer.projects.select{|project| project.statuses.where(:project_id => project.id, :developer_id => @developer.id).first.status == 'pending'}.count %></p>
                 <% end %>
                 <p class="announcement-text">Pending</p>
               </div>
@@ -58,11 +60,11 @@
             <%= link_to "<i class='fa fa-tasks fa-5x'></i>".html_safe, dashboard_path, method: :get, class: "col-xs-6" %>
               </div>
               <div class="col-xs-6 text-right">
+                <p class="announcement-heading">
                 <% if current_client %>             
-                  <p class="announcement-heading">
                   <%= @client.projects.select{|project| project.status == 'In Progress'}.count %></p>
                 <% else %>
-                  <p class="announcement-heading">0</p>
+                  <%= @developer.projects.select{|project| project.statuses.where(:project_id => project.id, :developer_id => @developer.id).first.status == 'in progress' }.count %></p>
                 <% end %>
                 <p class="announcement-text">In Progress</p>
               </div>
@@ -79,11 +81,11 @@
             <%= link_to "<i class='fa fa-check-square-o fa-5x'></i>".html_safe, dashboard_path, method: :get, class: "col-xs-6" %>
               </div>
               <div class="col-xs-6 text-right">
+                <p class="announcement-heading">
                 <% if current_client %>             
-                  <p class="announcement-heading">
                   <%= @client.projects.select{|project| project.status == 'Completed'}.count %></p>
                 <% else %>
-                  <p class="announcement-heading">0</p>
+                  <%= @developer.projects.select{|project| project.statuses.where(:project_id => project.id, :developer_id => @developer.id).first.status == 'completed' }.count %></p>
                 <% end %>
                 <p class="announcement-text">Completed</p>
               </div>
@@ -100,11 +102,11 @@
             <%= link_to "<i class='fa fa-exclamation-circle fa-5x'></i>".html_safe, dashboard_path, method: :get, class: "col-xs-6" %>
               </div>
               <div class="col-xs-6 text-right">
-                <% if current_client %>             
                   <p class="announcement-heading">
+                <% if current_client %>             
                   <%= @client.projects.select{|project| project.status == 'Declined'}.count %></p>
                 <% else %>
-                  <p class="announcement-heading">0</p>
+                  <%= @developer.projects.select{|project| project.statuses.where(:project_id => project.id, :developer_id => @developer.id).first.status == 'declined' }.count %></p>
                 <% end %>
                 <p class="announcement-text">Declined</p>
               </div>
