@@ -3,7 +3,7 @@ Introduction:
 
 Talent Hacked is a final project undertaken during the last two weeks of Makers Academy's 12 week developer programme.
 
-More importantly it is a business venture that Josh Fail-Brown along with Kate Hamilton, two makers graduates, are pursuing after the course. Members in the final project team (specified below) have each contributed to bring this application to life.
+More importantly it is a business venture that Josh Fail-Brown, a makers graduate, is pursuing after the course. Members in the final project team (specified below) have each contributed to bring this application to life.
 
 Talent Hacked is a business venture aimed to lean into the incredible talent emerging from academies like Makers along with the growing demand for developers within the city of London.
 
