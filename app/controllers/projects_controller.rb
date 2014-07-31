@@ -34,22 +34,26 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@client = Client.find params[:client_id]
-		@project = @client.projects.find params[:id]
+		if current_client 
+			@client = Client.find params[:client_id]
+			@project = @client.projects.find params[:id]
+		elsif current_developer
+			@developer = Developer.find params[:developer_id]
+			@project = @developer.projects.find params[:id]
+		end	
 	end
 
-		def edit
-   		@client = Client.find params[:client_id] 
-   		@project = @client.projects.find params[:id]
-  	end
+	def edit
+ 		@client = Client.find params[:client_id] 
+ 		@project = @client.projects.find params[:id]
+	end
 
-  	def update
-   		@client = Client.find params[:client_id] 
-   		@project = @client.projects.find params[:id]
-   		@contact.update project_params
-   		redirect_to client_project_path(@client, @project)
-  	end
-
+	def update
+ 		@client = Client.find params[:client_id] 
+ 		@project = @client.projects.find params[:id]
+ 		@contact.update project_params
+ 		redirect_to client_project_path(@client, @project)
+	end
 
 	private
 	def project_params
