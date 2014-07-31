@@ -55,9 +55,21 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def update
+		@project = Project.find(params[:id])
+		@status = @project.statuses.find_by(developer: current_developer)
+
+		@status.status = params[:answer]
+		@status.save
+		if @status.status == 'declined'
+			redirect_to developer_projects_path(current_developer)
+		else 
+			redirect_to '/*'
+		end
+	end
 
 	private
 	def project_params
-		params[:project].permit(:name, :deadline, :client_id, :budget, :projectIndustry,:skills, :description, :status)
+		params[:project].permit(:name, :deadline, :client_id, :budget, :projectIndustry, :skills, :description, :status)
 	end
 end

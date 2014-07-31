@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -11,6 +12,9 @@ Rails.application.routes.draw do
   resources :clients do 
     resources :projects
   end
+
+  resources :projects
+
   resource :dashboard
   root 'welcome#index' 
   get 'developers/:id' => 'developers#show', as: :developer 
