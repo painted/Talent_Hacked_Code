@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: a8ae008ec9632110bf33443ce7090dfef9cca480
+  revision: 5953cffdc14b7ccb497ba179eb59d33518dcbbe7
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -93,7 +93,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
-    bootstrap-sass (3.2.0.0)
+    bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
     bourbon (3.2.3)
       sass (~> 3.2)
