@@ -51,11 +51,7 @@ describe 'welcome page' do
             expect(page).not_to have_link 'Developers'
         end
 
-        it 'they can navigate to their dashboard' do
-            click_link 'Dashboard'
-            expect(current_path).to eq '/dashboard'
-            expect(page).to have_content 'Dashboard'
-        end
+
     end
 
    context 'while a client is signed in' do

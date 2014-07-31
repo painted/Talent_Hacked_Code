@@ -47,6 +47,8 @@ table.tablesorter thead tr th:hover {
     padding: 15px 25px;
   }
 
+
+
   /* Side Nav */
 
   .side-nav {
@@ -202,7 +204,7 @@ table.tablesorter thead tr th:hover {
 -------------------------------------------------- */
 .footer-dashboard {
   background-color: none;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -217,3 +219,32 @@ table.tablesorter thead tr th:hover {
   padding-right: 15px;
   padding-left: 15px;
 }
+
+/* Dashboard hover over color
+------------------------------------------------*/
+i.fa.fa-edit.fa-5x:hover {
+  color: #FFECB0;
+}
+
+i.fa.fa-tasks.fa-5x:hover {
+  color: #D6F5FF;
+}
+
+i.fa.fa-check-square-o.fa-5x:hover {
+  color: #B2FF9E;
+}
+
+i.fa.fa-exclamation-circle.fa-5x:hover {
+  color:#FF6257;
+}
+
+a.col-xs-6:hover {
+  color: gray;
+}
+
+.panel-info > .panel-heading{
+  color: black;
+}
+
+
+

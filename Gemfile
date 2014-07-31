@@ -42,6 +42,7 @@ gem 'devise'
 gem 'omniauth-linkedin-oauth2'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'gritter', '1.1.0'
 gem "paperclip", github: 'thoughtbot/paperclip'
 gem 'rmagick'
 gem 'aws-sdk'
@@ -51,6 +52,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
+
+gem 'paper_trail'
 
 group :test, :development do 
 	gem 'rspec-rails'

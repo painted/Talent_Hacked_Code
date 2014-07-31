@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   resource :dashboard
   root 'welcome#index' 
   get 'developers/:id' => 'developers#show', as: :developer 
-
+  
+  resources :developers do 
+    resources :projects
+  end
       
   # get "/auth/:provider/callback" => "autentications#create"
   # Example of regular route:

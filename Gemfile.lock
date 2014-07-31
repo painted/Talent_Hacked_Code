@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: a8ae008ec9632110bf33443ce7090dfef9cca480
+  revision: 5953cffdc14b7ccb497ba179eb59d33518dcbbe7
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -93,7 +93,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
-    bootstrap-sass (3.2.0.0)
+    bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
     bourbon (3.2.3)
       sass (~> 3.2)
@@ -138,6 +138,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
+    gritter (1.1.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -171,7 +172,7 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    nokogiri (1.6.2.1)
+    nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -191,6 +192,9 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    paper_trail (3.0.3)
+      activerecord (>= 3.0, < 5.0)
+      activesupport (>= 3.0, < 5.0)
     pg (0.17.1)
     poltergeist (1.5.1)
       capybara (~> 2.1)
@@ -229,14 +233,14 @@ GEM
     rmagick (2.13.2)
     rspec-collection_matchers (1.0.0)
       rspec-expectations (>= 2.99.0.beta1)
-    rspec-core (3.0.2)
+    rspec-core (3.0.3)
       rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.2)
+    rspec-expectations (3.0.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.0.0)
-    rspec-mocks (3.0.2)
+    rspec-mocks (3.0.3)
       rspec-support (~> 3.0.0)
-    rspec-rails (3.0.1)
+    rspec-rails (3.0.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -244,7 +248,7 @@ GEM
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
-    rspec-support (3.0.2)
+    rspec-support (3.0.3)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -301,11 +305,13 @@ DEPENDENCIES
   devise
   font-awesome-rails
   formtastic!
+  gritter (= 1.1.0)
   heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails
   launchy
   omniauth-linkedin-oauth2
+  paper_trail
   paperclip!
   pg
   poltergeist

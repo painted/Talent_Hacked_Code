@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20140728134652_remove_verified_field_from_developers.rb

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727172508) do
+ActiveRecord::Schema.define(version: 20140730180917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140727172508) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
@@ -56,12 +57,12 @@ ActiveRecord::Schema.define(version: 20140727172508) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140727172508) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "companyBio"
+    t.boolean  "verified",               default: false, null: false
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
@@ -101,12 +103,12 @@ ActiveRecord::Schema.define(version: 20140727172508) do
   add_index "contacts", ["client_id"], name: "index_contacts_on_client_id", using: :btree
 
   create_table "developers", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -131,10 +133,41 @@ ActiveRecord::Schema.define(version: 20140727172508) do
     t.datetime "image_updated_at"
     t.integer  "dayrate"
     t.text     "bio"
+    t.boolean  "verified",               default: false, null: false
   end
 
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
   add_index "developers", ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "languages", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "levels", force: true do |t|
+    t.integer  "skill_id"
+    t.integer  "developer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+  end
+
+  add_index "levels", ["developer_id"], name: "index_levels_on_developer_id", using: :btree
+  add_index "levels", ["project_id"], name: "index_levels_on_project_id", using: :btree
+  add_index "levels", ["skill_id"], name: "index_levels_on_skill_id", using: :btree
+
+  create_table "proficiencies", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "developer_id"
+    t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "proficiencies", ["developer_id"], name: "index_proficiencies_on_developer_id", using: :btree
+  add_index "proficiencies", ["language_id"], name: "index_proficiencies_on_language_id", using: :btree
+  add_index "proficiencies", ["project_id"], name: "index_proficiencies_on_project_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -146,8 +179,35 @@ ActiveRecord::Schema.define(version: 20140727172508) do
     t.integer  "budget"
     t.string   "projectIndustry"
     t.text     "description"
+    t.boolean  "verified",        default: false,     null: false
+    t.string   "status",          default: "pending"
   end
 
   add_index "projects", ["contact_id"], name: "index_projects_on_contact_id", using: :btree
+
+  create_table "skills", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "developer_id"
+    t.integer  "project_id"
+    t.string   "status",       default: "pending"
+  end
+
+  create_table "versions", force: true do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end
