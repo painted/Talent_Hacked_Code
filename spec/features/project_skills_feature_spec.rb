@@ -20,4 +20,13 @@ describe 'Skills for projects' do
     visit client_projects_path(george.id)    
     expect(page).to have_content 'Ruby'
   end
+
+  it 'can not add the same skill to a project twice' do 
+    click_link 'Add Project'
+    fill_in 'Skills', with: 'Ruby, Ruby'
+    click_button 'Create Project'
+    visit client_projects_path(george.id)    
+    expect(page).to have_content 'Ruby'
+    expect(george.projects.last.skills.count).to eq 1
+  end
 end

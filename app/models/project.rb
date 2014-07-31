@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
 
+	include Rails.application.routes.url_helpers # neeeded for _path helpers to work in models
+
 	# before_create :save_status
+	has_paper_trail
 
 	belongs_to :client
   	has_many :developers, through: :statuses
@@ -11,6 +14,7 @@ class Project < ActiveRecord::Base
   	has_many :statuses
     accepts_nested_attributes_for :statuses
 
+
 	# def save_status
 	# 	# status = Status.create
 	# 	# status[:project_id] = self.id
@@ -19,6 +23,17 @@ class Project < ActiveRecord::Base
 	# 	 # self.statuses.first_or_create("project_id" => self.id)
 	# 	self.status = 'pending'
 	# end
+
+	def skill_list
+		skills.map(&:name).join(' ')
+	end
+
+	def skill_list=(list_of_skills)
+		skills.clear
+		added_skills = list_of_skills.split(' ').map(&:strip).uniq.each do |skill_name|
+			skills << Skill.find_or_create_by(name: skill_name)
+		end
+	end
 
 	def dev_match_project (dev_array, project_array)
 		match_count = 0

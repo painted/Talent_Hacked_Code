@@ -192,6 +192,9 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    paper_trail (3.0.3)
+      activerecord (>= 3.0, < 5.0)
+      activesupport (>= 3.0, < 5.0)
     pg (0.17.1)
     poltergeist (1.5.1)
       capybara (~> 2.1)
@@ -308,6 +311,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   omniauth-linkedin-oauth2
+  paper_trail
   paperclip!
   pg
   poltergeist
