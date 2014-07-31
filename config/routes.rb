@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :developers do 
     resources :projects
   end
+
+
       
   # get "/auth/:provider/callback" => "autentications#create"
   # Example of regular route:
