@@ -1,24 +1,22 @@
 class ProjectsController < ApplicationController
 
 	def index
+		@user = current_client || current_developer
 
-		if current_client
-			@client = Client.find params[:client_id]
-			@project = @client.projects
-			
-		end
-		if current_developer
-			@developer = Developer.find params[:developer_id]
-			@project = @developer.projects
+		if params[:status]
+			@projects = @user.projects.where(status: params[:status])
+		else
+			@projects = @user.projects
 		end
 
-
+	
 	# @client.projects.each do |project|
 		# 	@project_pending if project.status == 'Pending'
 		# 	@project_in_progress if project.status == 'In Progress'
 		# 	@project_completed if project.status == 'Completed'
 		# 	@project_declined if project.status == 'Declined'
 		# end
+
 	end
 
 	def new
@@ -41,18 +39,22 @@ class ProjectsController < ApplicationController
 		end
 		@project.languages << added_languages
 		@project.skills << added_skills
-		redirect_to dashboard_path
+		redirect_to client_project_path(@client, @project)
 	end
 
 	def show
-		if current_client
+		if current_client 
 			@client = Client.find params[:client_id]
 			@project = @client.projects.find params[:id]
-		end
-		if current_developer
+		elsif current_developer
 			@developer = Developer.find params[:developer_id]
 			@project = @developer.projects.find params[:id]
-		end
+		end	
+	end
+
+	def edit
+ 		@client = Client.find params[:client_id] 
+ 		@project = @client.projects.find params[:id]
 	end
 
 	def update
@@ -64,7 +66,9 @@ class ProjectsController < ApplicationController
 		if @status.status == 'declined'
 			redirect_to developer_projects_path(current_developer)
 		else 
-			redirect_to '/*'
+			# redirect_to new_developer_quote_path(current_developer)
+			# redirect_to '/*'
+			redirect_to developer_projects_path(current_developer)
 		end
 	end
 
