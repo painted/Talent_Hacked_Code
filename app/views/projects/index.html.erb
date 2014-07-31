@@ -1,39 +1,15 @@
 <div id="wrapper">
   <div id="page-wrapper">
   <%= render 'dashboards/sidenav' %>
-<<<<<<< HEAD
     <% if current_client %>
-      <p><h3>Projects</h3><%= link_to 'Add Project', new_client_project_path(@client.id), class: "btn btn-primary" %></p>
-        <div class='test-jesus'>
-          <% if @client.projects.any? %>
-            <% @client.projects.each do |project| %>
-            <div class="project-container col-md-4">
-              <p><strong><%= link_to 'Name:', client_project_path(@client, project) %></strong><%= project.name %></p>
-=======
-    <% if @user.is_a?(Client) %>
       <p><h3>Projects</h3><%= link_to 'Add Project', new_client_project_path(@user.id), class: "btn btn-primary" %></p>
-        <% if @projects.any? %>
-          <% @projects.each do |project| %>
-            <div class="project-container">
-              <p><strong><%= link_to 'Name:', client_project_path(@user, project) %></strong><%= project.name %></p>
-              <p><strong>Deadline:</strong> <%= project.deadline %></p>
-              <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
-              <p><strong>Status:</strong> <%= project.status %> </p>
-            <% end %>
-            </div>
-        <% else %>
-          <%= 'No projects yet' %> 
-        <% end %>
-    <% else %>
+        <div class='test-jesus'>
           <% if @projects.any? %>
             <% @projects.each do |project| %>
-            <div class="project-container">
-              <p><strong><%= link_to 'Name:', developer_project_path(@user, project) %></strong><%= project.name %></p>
->>>>>>> 357b562d9c823923ad2100788f7b42ae5ed5b47d
-              <p><strong>Deadline:</strong> <%= project.deadline %></p>
+            <div class="project-container col-md-4">
+              <p><strong><%= link_to 'Name:', client_project_path(@user, project) %></strong><%= project.name %></p><%= project.deadline %></p>
               <p>test</p>
               <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
-<<<<<<< HEAD
               <p><strong>Industry:</strong> <%= project.projectIndustry %></p>
               <p><strong>Description:</strong> <%= project.description %></p>
               <p><strong>Status:</strong> <%= project.status %> </p>
@@ -58,24 +34,20 @@
                   <% end %>
                 </ul></p>
               </div>
-
-=======
-              <p><strong>Status:</strong> <%= project.statuses.where(:project_id => project.id, :developer_id => @user.id).first.status %> </p>
->>>>>>> 357b562d9c823923ad2100788f7b42ae5ed5b47d
               <% end %>
             <% else %>
             <%= 'No projects yet' %> 
           <% end %>
         <% else %>
-            <% if @developer.projects.any? %>
-              <% @developer.projects.each do |project| %>
+            <% if @projects.any? %>
+              <% @projects.each do |project| %>
               <div class="project-container">
-                <p><strong><%= link_to 'Name:', developer_project_path(@developer, project) %></strong><%= project.name %></p>
+                <p><strong><%= link_to 'Name:', developer_project_path(@user, project) %></strong><%= project.name %></p>
                 <p><strong>Deadline:</strong> <%= project.deadline %></p>
                 <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
                 <p><strong>Industry:</strong> <%= project.projectIndustry %></p>
                 <p><strong>Description:</strong> <%= project.description %></p>
-                <p><strong>Status:</strong> <%= project.statuses.where(:project_id => project.id, :developer_id => @developer.id).first.status %> </p>
+                <p><strong>Status:</strong> <%= project.statuses.where(:project_id => project.id, :developer_id => @user.id).first.status %> </p>
                 <p><strong>Skills:</strong>
                   <ul>
                      <% if project.skills.any? %>
