@@ -48,7 +48,7 @@ describe 'developer dashboard' do
 
 		it 'has one pending approval project' do
 			@status = Status.find_by(:project_id => @project.id, :developer_id => @john.id)
-			@status.status = "pitched"
+			@status.status = "pending approval"
 			@status.save
 			visit dashboard_path
 			expect(page).to have_content '1 Pending Approval'

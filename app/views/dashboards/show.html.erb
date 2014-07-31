@@ -59,18 +59,18 @@
             <div class="row">
               <div class="col-xs-6">
                 <% if current_client %> 
-                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Pitched'), method: :get, class: "col-xs-6" %>
+                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Pending Approval'), method: :get, class: "col-xs-6" %>
                   <% else %>
-                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'pitched'), method: :get, class: "col-xs-6" %>
+                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'pending approval'), method: :get, class: "col-xs-6" %>
                   <% end %>
               </div>
               <div class="col-xs-6 text-right">
                 <p class="announcement-heading">
                 <% if current_client %>             
-                  <%= @client.projects.select{|project| project.status == 'Pitched'}.count %></p>
+                  <%= @client.projects.select{|project| project.status == 'Pending Approval'}.count %></p>
                   <p class="announcement-text">Pending Approval</p>
                 <% else %>
-                  <%= @developer.projects.select{|project| project.statuses.where(:project_id => project.id, :developer_id => @developer.id).first.status == 'pitched' }.count %></p>
+                  <%= @developer.projects.select{|project| project.statuses.where(:project_id => project.id, :developer_id => @developer.id).first.status == 'pending approval' }.count %></p>
                   <p class="announcement-text">Pending Approval</p>
                 <% end %>
                 

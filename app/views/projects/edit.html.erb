@@ -1,17 +1,17 @@
 <%= form_for @status, url: developer_project_path(current_developer, @project) do |form| %>
-	<%= form.hidden_field :status, value: 'pitched' %>
+	<%= form.hidden_field :status, value: 'pending approval' %>
 	
-	<%= form.label :cost %>
-	<%= form.text_field :cost %>
+	<p><%= form.label :cost %></p>
+	<%= form.text_field :cost %><br>
 
-	<%= form.label :timeframe %>
-	<%= form.text_field :timeframe %>
+	<p><%= form.label :timeframe %></p>
+	<%= form.text_field :timeframe %><br>
 
-	<%= form.label :workflow, 'Explanation of workflow' %>
-	<%= form.text_field :workflow %>
+	<p><%= form.label :workflow, 'Explanation of workflow' %></p>
+	<%= form.text_area :workflow %><br>
 
-	<%= form.label :pitch, 'Pitch (why you)' %>
-	<%= form.text_field :pitch %>
+	<p><%= form.label :pitch, 'Pitch (why you)' %></p>
+	<%= form.text_area :pitch %><br>
 
 	<%= form.submit %>
 <% end %>
