@@ -53,6 +53,8 @@ gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
 
+gem 'paper_trail'
+
 group :test, :development do 
 	gem 'rspec-rails'
 	gem 'capybara'

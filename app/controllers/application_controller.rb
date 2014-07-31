@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   	protected
 
+    def user_for_paper_trail
+      admin_user_signed_in? ? current_admin_user : 'User'
+    end
+
   	def configure_permitted_parameters
     	devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
     	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation) }
