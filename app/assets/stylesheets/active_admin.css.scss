@@ -64,7 +64,7 @@ a.btn.btn-primary.edit {
     color: black;
   }
 
-	.dev-skills, .personal-info, .company-info, .media, .contact-info, .panel-heading.offers, .panel-heading.in-progress, .panel-heading.completed, .panel-heading.declined {
+	.project-container.col-md-4, .dev-skills, .personal-info, .company-info, .media, .contact-info, .panel-heading.offers, .panel-heading.in-progress, .panel-heading.completed, .panel-heading.declined {
     border-color: #ccc;
     background-color: white;
     p { overflow: hidden; }
@@ -76,7 +76,7 @@ a.btn.btn-primary.edit {
        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-.dev-skills:before, .personal-info:before, .company-info:before, .media-info:before, .contact-info:before, .panel-heading.offers:before, .panel-heading.in-progress:before, .panel-heading.completed:before, .panel-heading.declined:before, .dev-skills:after, .personal-info:after, .company-info:after, .media-info:after, .contact-info:after, .panel-heading.offers:after, .panel-heading.in-progress:after, .panel-heading.completed:after, .panel-heading.declined:after  
+.project-container.col-md-4:before, .dev-skills:before, .personal-info:before, .company-info:before, .media-info:before, .contact-info:before, .panel-heading.offers:before, .panel-heading.in-progress:before, .panel-heading.completed:before, .panel-heading.declined:before, .project-container.col-md-4:after, .dev-skills:after, .personal-info:after, .company-info:after, .media-info:after, .contact-info:after, .panel-heading.offers:after, .panel-heading.in-progress:after, .panel-heading.completed:after, .panel-heading.declined:after  
 {
 	content:"";
     position:absolute; 
@@ -88,7 +88,7 @@ a.btn.btn-primary.edit {
     -moz-border-radius:100px / 10px;
     border-radius:100px / 10px;
 } 
-.dev-skills:after, .personal-info:after, .company-info:after, .media-info:after, .contact-info:after, .panel-heading.offers:after, .panel-heading.in-progress:after, .panel-heading.completed:after, .panel-heading.declined:after
+.project-container.col-md-4:after, .dev-skills:after, .personal-info:after, .company-info:after, .media-info:after, .contact-info:after, .panel-heading.offers:after, .panel-heading.in-progress:after, .panel-heading.completed:after, .panel-heading.declined:after
 {
 	right:10px; 
     left:auto;
@@ -174,6 +174,7 @@ border-radius: 50%;
 box-shadow: 10px 10px 5px #888888;
 }
 
-.project-container {
+.project-container.col-md-4 {
+  margin-top: 40px;
  
 }
