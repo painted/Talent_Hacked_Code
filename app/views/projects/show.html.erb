@@ -1,3 +1,7 @@
+<div id="wrapper">
+  <div id="page-wrapper">
+  <%= render 'dashboards/sidenav' %>
+
 <div class="project-list">
 <p><strong>Name:</strong><%= @project.name %></p>
 <p><strong>Deadline:</strong> <%= @project.deadline %></p>
@@ -26,3 +30,7 @@
     No languages
 <% end %>
 </ul></p>
+</div>
+</div>
+</div>
+<%= render 'dashboards/footer' %>
