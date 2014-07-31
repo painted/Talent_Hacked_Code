@@ -3,8 +3,8 @@
   <%= render 'dashboards/sidenav' %>
     <% if @user.is_a?(Client) %>
       <p><h3>Projects</h3><%= link_to 'Add Project', new_client_project_path(@user.id), class: "btn btn-primary" %></p>
-        <% if @project.any? %>
-          <% @project.each do |project| %>
+        <% if @projects.any? %>
+          <% @projects.each do |project| %>
             <div class="project-container">
               <p><strong><%= link_to 'Name:', client_project_path(@user, project) %></strong><%= project.name %></p>
               <p><strong>Deadline:</strong> <%= project.deadline %></p>
