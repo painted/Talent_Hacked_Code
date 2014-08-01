@@ -1,7 +1,8 @@
 <div id="wrapper">
 	<div id="page-wrapper">
   		<%= render 'dashboards/sidenav' %>
-		<div class="project-list">
+  	<div class="test-jesus">	
+		<div class="project-list col-md-4">
 			<p><strong>Name:</strong><%= @project.name %></p>
 			<p><strong>Deadline:</strong> <%= @project.deadline %></p>
 			<p><strong>Budget:</strong> <%= number_to_currency(@project.budget, :unit => "£") %></p>
@@ -37,7 +38,8 @@
 	   			<% else %>
 	   				<%= link_to 'Edit Project', edit_client_project_path(current_client, @project), class: "btn btn-primary" %>
 	   			<% end %>
-			
+		
+		</div>	
 		</div>
 	</div>
 </div>
