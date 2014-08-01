@@ -24,8 +24,11 @@ class Project < ActiveRecord::Base
 	# 	self.status = 'pending'
 	# end
 
+	def language_list
+		languages.map(&:name).join(',')
+	end
 	def skill_list
-		skills.map(&:name).join(' ')
+		skills.map(&:name).join(',')
 	end
 
 	def skill_list=(list_of_skills)
