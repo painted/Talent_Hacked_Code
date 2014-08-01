@@ -1,35 +1,35 @@
 <div id="wrapper">
 	<div id="page-wrapper">
   		<%= render 'dashboards/sidenav' %>
-  	<div class="test-jesus">	
-		<div class="project-list col-md-4">
-			<p><strong>Name:</strong><%= @project.name %></p>
-			<p><strong>Deadline:</strong> <%= @project.deadline %></p>
-			<p><strong>Budget:</strong> <%= number_to_currency(@project.budget, :unit => "£") %></p>
-			<p><strong>Industry:</strong> <%= @project.projectIndustry %></p>
-			<p><strong>Description:</strong> <%= @project.description %></p>
-			<p><strong>Status:</strong> <%= @project.status %> </p>
-			<p><strong>Skills:</strong> 
-			<ul>
-				<% if @project.skills.any? %>
-			  		<% @project.skills.uniq.each do |skill| %>
-			    		<li><%= skill.name %></li>
-			  		<% end %>
-				<% else %>
-			    	No skills
-				<% end %>
-			</ul></p>
-			<p><strong>Languages:</strong>
-			<ul>
-				<% if @project.languages.any? %>
-			  		<% @project.languages.uniq.each do |language| %>
-			    		<li><%= language.name %></li>
+	  	<div class="test-jesus">	
+			<div class="project-list col-md-4">
+				<p><strong>Name:</strong><%= @project.name %></p>
+				<p><strong>Deadline:</strong> <%= @project.deadline %></p>
+				<p><strong>Budget:</strong> <%= number_to_currency(@project.budget, :unit => "£") %></p>
+				<p><strong>Industry:</strong> <%= @project.projectIndustry %></p>
+				<p><strong>Description:</strong> <%= @project.description %></p>
+				<p><strong>Status:</strong> <%= @project.status %> </p>
+				<p><strong>Skills:</strong> 
+				<ul>
+					<% if @project.skills.any? %>
+				  		<% @project.skills.uniq.each do |skill| %>
+				    		<li><%= skill.name %></li>
+				  		<% end %>
+					<% else %>
+				    	No skills
 					<% end %>
-				<% else %>
-			    	No languages
-				<% end %>
+				</ul></p>
+				<p><strong>Languages:</strong>
+				<ul>
+					<% if @project.languages.any? %>
+				  		<% @project.languages.uniq.each do |language| %>
+				    		<li><%= language.name %></li>
+						<% end %>
+					<% else %>
+				    	No languages
+					<% end %>
 
-			</ul></p>
+				</ul></p>
 				<% if current_developer %>
 					<% if @project.statuses.where(:developer_id => current_developer.id, :project_id => @project.id).first.status == 'pending' %>
 						<%= link_to 'Accept', project_path(@project, answer: 'pending_approval'), method: :patch %>
@@ -38,9 +38,10 @@
 	   			<% else %>
 	   				<%= link_to 'Edit Project', edit_client_project_path(current_client, @project), class: "btn btn-primary" %>
 	   			<% end %>
-		
-		</div>	
+			</div>	
 		</div>
 	</div>
 </div>
+
+
 <%= render 'dashboards/footer' %>
