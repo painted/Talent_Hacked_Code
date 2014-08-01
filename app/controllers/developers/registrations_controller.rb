@@ -48,6 +48,9 @@ class Developers::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  # def skill_list
+  #   current_developer.skills.map(&:name).join(',')
+  # end
     #  if @developer.skills.any?
     #   @skill = @developer.skills
     # else
