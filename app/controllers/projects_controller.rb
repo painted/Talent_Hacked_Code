@@ -72,22 +72,24 @@ class ProjectsController < ApplicationController
 
 	def update
 		if current_developer
-		@project = Project.find(params[:id])
-		@status = @project.statuses.find_by(developer: current_developer)
+			@project = Project.find(params[:id])
+			@status = @project.statuses.find_by(developer: current_developer)
 
-		@status.status = params[:answer] if params[:answer]
-		@status.update(status_params) if params[:status]
+			@status.status = params[:answer] if params[:answer]
+			@status.update(status_params) if params[:status]
 
-		@status.save
-		if @status.status == 'declined'
-			redirect_to developer_projects_path(current_developer)
-		elsif params[:status]
-			redirect_to dashboard_path
-		else 
-			# redirect_to new_developer_quote_path(current_developer)
-			# redirect_to '/*'
-			redirect_to edit_developer_project_path(current_developer, @project)
-		end
+			@status.save
+			if @status.status == 'declined'
+				redirect_to developer_projects_path(current_developer)
+			elsif params[:status]
+				@project.status = "Pending Approval"
+				@project.save
+				redirect_to dashboard_path
+			else 
+				# redirect_to new_developer_quote_path(current_developer)
+				# redirect_to '/*'
+				redirect_to edit_developer_project_path(current_developer, @project)
+			end
 
 		elsif current_client
 			@client = Client.find params[:client_id] 
