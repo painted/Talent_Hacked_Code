@@ -67,11 +67,12 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
+		if current_developer
 		@project = Project.find(params[:id])
 		@status = @project.statuses.find_by(developer: current_developer)
 
 		@status.status = params[:answer] if params[:answer]
-		@status.update(params[:status].permit(:cost, :timeframe, :workflow, :pitch, :status)) if params[:status]
+		@status.update(status_params) if params[:status]
 
 		@status.save
 		if @status.status == 'declined'
@@ -83,10 +84,34 @@ class ProjectsController < ApplicationController
 			# redirect_to '/*'
 			redirect_to edit_developer_project_path(current_developer, @project)
 		end
+
+		elsif current_client
+			@client = Client.find params[:client_id] 
+			@project = @client.projects.find params[:id]
+
+			skill = params['project'].delete('skills')
+			language = params['project'].delete('languages')
+
+	   		@project.update project_params
+
+			added_skills = skill.split(' ').map(&:strip).uniq.map do |skill_name|
+				Skill.find_or_create_by(name: skill_name)
+			end
+			added_languages = language.split(' ').map(&:strip).uniq.map do |language_name|
+				Language.find_or_create_by(name: language_name)
+			end
+			(@project.languages << added_languages).uniq
+			(@project.skills << added_skills).uniq
+	   		redirect_to client_project_path(@client, @project)
+		end
 	end
 
 	private
 	def project_params
 		params[:project].permit(:name, :deadline, :client_id, :developer_id, :budget, :projectIndustry, :skills, :description, :status, :timeframe, :workflow, :pitch, :cost)
+	end
+
+	def status_params
+		params[:status].permit(:cost, :timeframe, :workflow, :pitch, :status)
 	end
 end
