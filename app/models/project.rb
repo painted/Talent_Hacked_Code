@@ -50,19 +50,19 @@ class Project < ActiveRecord::Base
 
 		array_of_devs = []
 
-		project_array = []
+		project_skill_array = []
 
 		self.skills.each do |skill|
-			project_array << skill.name	
+			project_skill_array << skill.name	
 		end
 		Developer.where(verified: true).each do |developer|
-			dev_array = []
+			developer_skill_array = []
 			developer.skills.each do |skill|
-				dev_array << skill.name
+				developer_skill_array << skill.name
 			end
 
 
-			if dev_match_project(dev_array, project_array)
+			if dev_match_project(developer_skill_array, project_skill_array)
 				array_of_devs << developer
 			end			
 		end

@@ -35,14 +35,18 @@ class ProjectsController < ApplicationController
 		params['project']['status'] = 'Pending'
 		@project = @client.projects.create project_params
 
-		added_skills = skill.split(',').map(&:strip).uniq.map do |skill_name|
+		added_skills = skill.split(' ').map(&:strip).uniq.map do |skill_name|
 			Skill.find_or_create_by(name: skill_name)
 		end
-		added_languages = language.split(',').map(&:strip).uniq.map do |language_name|
+		added_languages = language.split(' ').map(&:strip).uniq.map do |language_name|
 			Language.find_or_create_by(name: language_name)
 		end
 		@project.languages << added_languages
 		@project.skills << added_skills
+		dev_array = @project.viable_developers
+		dev_array.each do |developer|
+			@project.developers << developer
+		end
 		redirect_to client_project_path(@client, @project)
 	end
 
