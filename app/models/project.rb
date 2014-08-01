@@ -33,7 +33,7 @@ class Project < ActiveRecord::Base
 
 	def skill_list=(list_of_skills)
 		skills.clear
-		added_skills = list_of_skills.split(' ').map(&:strip).uniq.each do |skill_name|
+		added_skills = list_of_skills.split(',').map(&:strip).uniq.each do |skill_name|
 			skills << Skill.find_or_create_by(name: skill_name)
 		end
 	end
