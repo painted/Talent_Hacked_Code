@@ -39,39 +39,41 @@
             <%= 'No projects yet' %> 
           <% end %>
         <% else %>
+          <div class="test-jesus">
             <% if @projects.any? %>
               <% @projects.each do |project| %>
-              <div class="test-jesus">
-              <div class="project-container col-md-4">
-                <p><strong><%= link_to 'Name:', developer_project_path(@user, project) %></strong><%= project.name %></p>
-                <p><strong>Deadline:</strong> <%= project.deadline %></p>
-                <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
-                <p><strong>Industry:</strong> <%= project.projectIndustry %></p>
-                <p><strong>Description:</strong> <%= project.description %></p>
-                <p><strong>Status:</strong> <%= project.statuses.where(:project_id => project.id, :developer_id => @user.id).first.status %> </p>
-                <p><strong>Skills:</strong>
-                  <ul>
-                     <% if project.skills.any? %>
-                      <% project.skills.uniq.each do |skill| %>
-                        <li><%= skill.name %></li>
+                <div class="project-container col-md-4">
+                  <p><strong><%= link_to 'Name:', developer_project_path(@user, project) %></strong><%= project.name %></p>
+                  <p><strong>Deadline:</strong> <%= project.deadline %></p>
+                  <p><strong>Budget:</strong> <%= number_to_currency(project.budget, :unit => "£") %></p>
+                  <p><strong>Industry:</strong> <%= project.projectIndustry %></p>
+                  <p><strong>Description:</strong> <%= project.description %></p>
+                  <p><strong>Status:</strong> <%= project.statuses.where(:project_id => project.id, :developer_id => @user.id).first.status %> </p>
+                  <p><strong>Skills:</strong>
+                    <ul>
+                      <% if project.skills.any? %>
+                        <% project.skills.uniq.each do |skill| %>
+                          <li><%= skill.name %></li>
+                        <% end %>
+                      <% else %>
+                          No skills yet
                       <% end %>
-                    <% else %>
+                    </ul>
+                  </p>
+                  <p><strong>Languages:</strong>
+                    <ul>
+                      <% if project.languages.any? %>
+                        <% project.languages.uniq.each do |language| %>
+                          <li><%= language.name %></li>
+                        <% end %>
+                      <% else %>
                         No skills yet
-                    <% end %>
-                  </ul></p>
-                <p><strong>Languages:</strong>
-                  <ul>
-                     <% if project.languages.any? %>
-                      <% project.languages.uniq.each do |language| %>
-                        <li><%= language.name %></li>
                       <% end %>
-                    <% else %>
-                        No skills yet
-                    <% end %>
-                  </ul></p>
-                <% end %>
-               </div> 
-              </div>
+                    </ul>
+                  </p>
+                </div> 
+              <% end %>
+                </div>
               <% else %>
               <%= 'No projects yet' %> 
             <% end %>
