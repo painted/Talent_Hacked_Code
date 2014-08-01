@@ -33,9 +33,9 @@
             <div class="row">
               <div class="col-xs-6">
                 <% if current_client %> 
-                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Pending'), method: :get, class: "col-xs-6" %>
+                  <%= link_to "<i class='fa fa-desktop fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Pending'), method: :get, class: "col-xs-6" %>
                 <% else %>
-                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'pending'), method: :get, class: "col-xs-6" %>
+                   <%= link_to "<i class='fa fa-desktop fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'pending'), method: :get, class: "col-xs-6" %>
                 <% end %>
               </div>
               <div class="col-xs-6 text-right">
@@ -59,9 +59,9 @@
             <div class="row">
               <div class="col-xs-6">
                 <% if current_client %> 
-                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Pending Approval'), method: :get, class: "col-xs-6" %>
+                  <%= link_to "<i class='fa fa-reply-all fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Pending Approval'), method: :get, class: "col-xs-6" %>
                   <% else %>
-                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'pending approval'), method: :get, class: "col-xs-6" %>
+                   <%= link_to "<i class='fa fa-reply-all fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'pending approval'), method: :get, class: "col-xs-6" %>
                   <% end %>
               </div>
               <div class="col-xs-6 text-right">
@@ -86,9 +86,9 @@
             <div class="row">
               <div class="col-xs-6">
                 <% if current_client %> 
-                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Confirmed'), method: :get, class: "col-xs-6" %>
+                  <%= link_to "<i class='fa fa-tasks fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Confirmed'), method: :get, class: "col-xs-6" %>
                   <% else %>
-                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'confirmed'), method: :get, class: "col-xs-6" %>
+                   <%= link_to "<i class='fa fa-tasks fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'confirmed'), method: :get, class: "col-xs-6" %>
                   <% end %>
               </div>
               <div class="col-xs-6 text-right">
@@ -111,9 +111,9 @@
             <div class="row">
               <div class="col-xs-6">
                 <% if current_client %> 
-                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Completed'), method: :get, class: "col-xs-6" %>
+                  <%= link_to "<i class='fa fa-check-square-o fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Completed'), method: :get, class: "col-xs-6" %>
                   <% else %>
-                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'completed'), method: :get, class: "col-xs-6" %>
+                   <%= link_to "<i class='fa fa-check-square-o fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'completed'), method: :get, class: "col-xs-6" %>
                   <% end %>
               </div>
               <div class="col-xs-6 text-right">
@@ -136,9 +136,9 @@
             <div class="row">
               <div class="col-xs-6">
                 <% if current_client %> 
-                  <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Declined'), method: :get, class: "col-xs-6" %>
+                  <%= link_to "<i class='fa fa-exclamation-circle fa-5x'></i>".html_safe, client_projects_path(@client, status: 'Declined'), method: :get, class: "col-xs-6" %>
                   <% else %>
-                   <%= link_to "<i class='fa fa-edit fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'declined'), method: :get, class: "col-xs-6" %>
+                   <%= link_to "<i class='fa fa-exclamation-circle fa-5x'></i>".html_safe, developer_projects_path(@developer, status: 'declined'), method: :get, class: "col-xs-6" %>
                   <% end %>
               </div>
               <div class="col-xs-6 text-right">
