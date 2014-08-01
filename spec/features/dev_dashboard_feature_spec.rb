@@ -11,12 +11,16 @@ describe 'developer dashboard' do
 		end
 
 		
-		it 'has zero pending projects' do
-			expect(page).to have_content '0 Pending'
+		it 'has zero pending quotation projects' do
+			expect(page).to have_content '0 Pending Quotation'
 		end
 
-		it 'has zero In progress projects' do
-			expect(page).to have_content '0 In Progress'
+		it 'has zero pending Approval projects' do
+			expect(page).to have_content '0 Pending Approval'
+		end
+
+		it 'has zero confirmed projects' do
+			expect(page).to have_content '0 Confirmed'
 		end
 
 		it 'has zero completed projects' do
@@ -37,20 +41,20 @@ describe 'developer dashboard' do
 			login_as @john, scope: :developer
 		 end
 
-		it 'has one pending project' do
+		it 'has one pending quotation project' do
 			visit dashboard_path
-			expect(page).to have_content '1 Pending'
+			expect(page).to have_content '1 Pending Quotation'
 		end
 
-		it 'has one in progress project' do
+		it 'has one pending approval project' do
 			@status = Status.find_by(:project_id => @project.id, :developer_id => @john.id)
-			@status.status = "in progress"
+			@status.status = "pending approval"
 			@status.save
 			visit dashboard_path
-			expect(page).to have_content '1 In Progress'
+			expect(page).to have_content '1 Pending Approval'
 		end
 
-		it 'has one complete project' do
+		it 'has one completed project' do
 			@status = Status.find_by(:project_id => @project.id, :developer_id => @john.id)
 			@status.status = "completed"
 			@status.save

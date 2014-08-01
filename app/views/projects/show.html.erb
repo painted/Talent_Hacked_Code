@@ -27,11 +27,18 @@
 				<% else %>
 			    	No languages
 				<% end %>
-				<%= link_to 'Accept', project_path(@project, answer: 'pending_approval'), method: :patch %>
-	   			<%= link_to 'Decline', project_path(@project, answer: 'declined'), method: :patch %>
+
 			</ul></p>
+				<% if current_developer %>
+					<% if @project.statuses.where(:developer_id => current_developer.id, :project_id => @project.id).first.status == 'pending' %>
+						<%= link_to 'Accept', project_path(@project, answer: 'pending_approval'), method: :patch %>
+	   					<%= link_to 'Decline', project_path(@project, answer: 'declined'), method: :patch %>
+	   				<% end %>
+	   			<% else %>
+	   				<%= link_to 'Edit Project', edit_client_project_path(current_client, @project), class: "btn btn-primary" %>
+	   			<% end %>
+			
 		</div>
 	</div>
 </div>
 <%= render 'dashboards/footer' %>
-

@@ -27,7 +27,7 @@ describe 'Skills for projects' do
     click_link 'Add Project'
     fill_in 'Skills', with: 'Ruby,Ruby'
     click_button 'Create Project'
-    # visit client_projects_path(george.id)    
+    # visit client_project_path(george.id, project1.id)    
     expect(page).to have_content 'Ruby'
     expect(Project.last.skills.count).to eq 1
   end

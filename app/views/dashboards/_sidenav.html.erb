@@ -2,17 +2,25 @@
 <nav class="navbar navbar-inverse">
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav side-nav">
-      <li><%= link_to "<i class='fa fa-dashboard'></i> Dashboard".html_safe, dashboard_path, method: :get %></li>
-      <% if current_client %>
-        <li><%= link_to "<i class='fa fa-file-text'></i> New Project".html_safe, new_client_project_path(current_client), method: :get %></li>
-      <% else %>
-        <li><%= link_to "<i class='fa fa-file-text'></i> Offers".html_safe, dashboard_path, method: :get %></li>
-      <% end %>
-      <li><%= link_to "<i class='fa fa-edit'></i> Pending".html_safe, dashboard_path, method: :get %></li>
-      <li><%= link_to "<i class='fa fa-tasks'></i> In Progress".html_safe, dashboard_path, method: :get %></li>
-      <li><%= link_to "<i class='fa fa-check-square-o'></i> Completed".html_safe, dashboard_path, method: :get %></li>
-      <li><%= link_to "<i class='fa fa-exclamation-circle'></i> Declined".html_safe, dashboard_path, method: :get %></li>
-    </ul>
+    <% if current_client %>
+      <ul class="nav navbar-nav side-nav">
+        <li><%= link_to "<i class='fa fa-dashboard'></i> Dashboard".html_safe, dashboard_path %></li>
+        <li><%= link_to "<i class='fa fa-file-text'></i> New Project".html_safe, new_client_project_path(current_client) %></li>
+        <li><%= link_to "<i class='fa fa-desktop'></i> Pending Quotation".html_safe, client_projects_path(current_client, status: 'Pending') %></li>
+        <li><%= link_to "<i class='fa fa-reply-all'></i> Pending Approval".html_safe, client_projects_path(current_client, status: 'Pending Approval') %></li>
+        <li><%= link_to "<i class='fa fa-tasks'></i> Confirmed".html_safe, client_projects_path(current_client, status: 'Confirmed') %></li>
+        <li><%= link_to "<i class='fa fa-check-square-o'></i> Completed".html_safe, client_projects_path(current_client, status: 'Completed') %></li>
+        <li><%= link_to "<i class='fa fa-exclamation-circle'></i> Declined".html_safe, client_projects_path(current_client, status: 'Declined') %></li>
+      </ul>
+    <% elsif current_developer %>
+      <ul class="nav navbar-nav side-nav">
+        <li><%= link_to "<i class='fa fa-dashboard'></i> Dashboard".html_safe, dashboard_path %></li>
+        <li><%= link_to "<i class='fa fa-desktop'></i> Pending Quotation".html_safe, developer_projects_path(current_developer, status: 'pending') %></li>
+        <li><%= link_to "<i class='fa fa-reply-all'></i> Pending Approval".html_safe, developer_projects_path(current_developer, status: 'pending approval') %></li>
+        <li><%= link_to "<i class='fa fa-tasks'></i> Confirmed".html_safe, developer_projects_path(current_developer, status: 'confirmed') %></li>
+        <li><%= link_to "<i class='fa fa-check-square-o'></i> Completed".html_safe, developer_projects_path(current_developer, status: 'completed') %></li>
+        <li><%= link_to "<i class='fa fa-exclamation-circle'></i> Declined".html_safe, developer_projects_path(current_developer, status: 'declined') %></li>
+      </ul>
+    <% end %>
   </div><!-- /.navbar-collapse -->
 </nav>
