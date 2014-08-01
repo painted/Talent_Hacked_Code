@@ -22,7 +22,7 @@ class Developers::RegistrationsController < Devise::RegistrationsController
 
     if account_update_params[:skills]
       # current_developer.skills.clear
-      account_update_params.delete('skills').split(' ').map do |skill_name| 
+      account_update_params.delete('skills').split(',').map do |skill_name| 
         skill = Skill.find_or_create_by(name: skill_name.strip) 
         current_developer.skills << skill
       end
@@ -30,7 +30,7 @@ class Developers::RegistrationsController < Devise::RegistrationsController
 
     if account_update_params[:languages]
       # current_developer.languages.clear
-      account_update_params.delete('languages').split(' ').map do |language_name| 
+      account_update_params.delete('languages').split(',').map do |language_name| 
         language = Language.find_or_create_by(name: language_name.strip) 
         current_developer.languages << language
       end

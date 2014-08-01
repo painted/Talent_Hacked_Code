@@ -44,10 +44,10 @@
 						<%= form.text_field :projectIndustry %></div>
 
 		                <div><%= form.label :skills %><br>
-		                <%= form.text_field :skills, value: "", data: {role: 'tagsinput'} %></div>
-
+		                <%= form.text_field :skills, value: @project.skill_list, data: {role: 'tagsinput'} %></div>
+                    
 		                <div><%= form.label :languages %><br>
-		                <%= form.text_field :languages, value: "", data: {role: 'tagsinput'} %></div>
+		                <%= form.text_field :languages, value: @project.language_list, data: {role: 'tagsinput'} %></div>
 
 						<div><%= form.label :description, 'Description' %><br>
 						<%= form.text_area :description %></div>
