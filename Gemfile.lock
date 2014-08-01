@@ -95,8 +95,6 @@ GEM
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
-    bootstrap-tagsinput-rails (0.3.2.0)
-      railties (>= 3.1)
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
@@ -300,7 +298,6 @@ DEPENDENCIES
   activeadmin!
   aws-sdk
   bootstrap-sass
-  bootstrap-tagsinput-rails
   byebug
   capybara
   coffee-rails (~> 4.0.0)
