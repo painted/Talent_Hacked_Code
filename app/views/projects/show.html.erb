@@ -1,36 +1,44 @@
 <div id="wrapper">
-  <div id="page-wrapper">
-      <%= render 'dashboards/sidenav' %>
-    <div class="project-list">
-      <p><strong>Name:</strong><%= @project.name %></p>
-      <p><strong>Deadline:</strong> <%= @project.deadline %></p>
-      <p><strong>Budget:</strong> <%= number_to_currency(@project.budget, :unit => "£") %></p>
-      <p><strong>Industry:</strong> <%= @project.projectIndustry %></p>
-      <p><strong>Description:</strong> <%= @project.description %></p>
-      <p><strong>Status:</strong> <%= @project.status %> </p>
-      <p><strong>Skills:</strong> 
-      <ul>
-        <% if @project.skills.any? %>
-            <% @project.skills.uniq.each do |skill| %>
-              <li><%= skill.name %></li>
-            <% end %>
-        <% else %>
-            No skills
-        <% end %>
-      </ul></p>
-      <p><strong>Languages:</strong>
-      <ul>
-        <% if @project.languages.any? %>
-            <% @project.languages.uniq.each do |language| %>
-              <li><%= language.name %></li>
-          <% end %>
-        <% else %>
-            No languages
-        <% end %>
-        <%= link_to 'Accept', project_path(@project, answer: 'pending_approval'), method: :patch %>
-          <%= link_to 'Decline', project_path(@project, answer: 'declined'), method: :patch %>
-      </ul></p>
-    </div>
-  </div>
+	<div id="page-wrapper">
+  		<%= render 'dashboards/sidenav' %>
+		<div class="project-list">
+			<p><strong>Name:</strong><%= @project.name %></p>
+			<p><strong>Deadline:</strong> <%= @project.deadline %></p>
+			<p><strong>Budget:</strong> <%= number_to_currency(@project.budget, :unit => "£") %></p>
+			<p><strong>Industry:</strong> <%= @project.projectIndustry %></p>
+			<p><strong>Description:</strong> <%= @project.description %></p>
+			<p><strong>Status:</strong> <%= @project.status %> </p>
+			<p><strong>Skills:</strong> 
+			<ul>
+				<% if @project.skills.any? %>
+			  		<% @project.skills.uniq.each do |skill| %>
+			    		<li><%= skill.name %></li>
+			  		<% end %>
+				<% else %>
+			    	No skills
+				<% end %>
+			</ul></p>
+			<p><strong>Languages:</strong>
+			<ul>
+				<% if @project.languages.any? %>
+			  		<% @project.languages.uniq.each do |language| %>
+			    		<li><%= language.name %></li>
+					<% end %>
+				<% else %>
+			    	No languages
+				<% end %>
+
+			</ul></p>
+				<% if current_developer %>
+					<% if @project.statuses.where(:developer_id => current_developer.id, :project_id => @project.id).first.status == 'pending' %>
+						<%= link_to 'Accept', project_path(@project, answer: 'pending_approval'), method: :patch %>
+	   					<%= link_to 'Decline', project_path(@project, answer: 'declined'), method: :patch %>
+	   				<% end %>
+	   			<% else %>
+	   				<%= link_to 'Edit Project', edit_client_project_path(current_client, @project), class: "btn btn-primary" %>
+	   			<% end %>
+			
+		</div>
+	</div>
 </div>
 <%= render 'dashboards/footer' %>
