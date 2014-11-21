@@ -3,12 +3,18 @@ Introduction:
 
 Talent Hacked is a final project undertaken during the last two weeks of Makers Academy's 12 week developer programme.
 
-More importantly it is a business venture that Josh Fail-Brown, a makers graduate, is pursuing after the course. Members in the final project team (specified below) have each contributed to bring this application to life.
+Members in the final project team (specified below) have each contributed to bring this application to life.
 
 Talent Hacked is a business venture aimed to lean into the incredible talent emerging from academies like Makers along with the growing demand for developers within the city of London.
 
 The aim of the Talent-Hacked, and therefore this application, is to act as a project management business, connecting developers that have the right skills to clients with project demands.
 
+Screenshots:
+============
+
+![Talent3](http://www.paintedchef.com/images/Talent1.png)
+![Talent2](http://www.paintedchef.com/images/Talent2.png)
+![Talent1](http://www.paintedchef.com/images/Talent3.png)
 
 Application:
 ============
