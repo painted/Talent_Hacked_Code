@@ -98,10 +98,18 @@ How to run tests:
 
 Authors:
 ==============
-Josh Fail-Brown			https://github.com/JoshFB/
-Kate Hamilton				https://github.com/katehamilton247
-Nadav Matalon	 			https://github.com/nadavmatalon
-Will Allen		 			https://github.com/painted
-Fitsum Teklehaimanot		https://github.com/fitstek
-Faezrah Rizalman 			https://github.com/frism
-Johann Bornman				https://github.com/jchb9
+* [Josh Fail-Brown]
+* [Kate Hamilton]
+* [Nadav Matalon]
+* [Will Allen]
+* [Fitsum Teklehaimanot]
+* [Faezrah Rizalman]
+* [Johann Bornman]
+
+[Josh Fail-Brown]:https://github.com/JoshFB/
+[Kate Hamilton]:https://github.com/katehamilton247
+[Nadav Matalon]:https://github.com/nadavmatalon
+[Will Allen]:https://github.com/painted
+[Fitsum Teklehaimanot]:https://github.com/fitstek
+[Faezrah Rizalman]:https://github.com/frism
+[Johann Bornman]:https://github.com/jchb9
